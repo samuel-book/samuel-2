@@ -232,8 +232,7 @@ Our qualitative research will add another layer to exploring decision-making, ex
 
 ### Clustering of patients and identification of hospitals with similar patient populations
 
-Clustering of patients, using similarity metrics between patients, allows us to identify ‘typical’ patients that exemplify key differences in decision-making between hospitals. By generating similarity metrics between patients, we may also identify hospitals with similar patient populations. These may be used as comparator hospitals such as the ‘similar ten’ comparator groups used to compare Clinical Commissioning Group performance1, avoiding the problem of comparing hospitals with dissimilar populations. 
-
+Clustering of patients, using similarity metrics between patients, allows us to identify ‘typical’ patients that exemplify key differences in decision-making between hospitals. By generating similarity metrics between patients, we may also identify hospitals with similar patient populations. These may be used as comparator hospitals such as the ‘similar ten’ comparator groups used to compare Clinical Commissioning Group performance (https://www.england.nhs.uk/publication/similar-10-ccg-explorer-tool/), avoiding the problem of comparing hospitals with dissimilar populations. 
 
 In SAMueL-1 we began this work, using both random forests (looking at distances between patient ‘leaves’ induced by the sequence of decisions used to classify them) and neural networks. An example of a novel approach to patient clustering, using neural networks, is shown below in {numref}`Figure {number} <cluster>`.
 
@@ -245,7 +244,51 @@ Patient characteristic embedding, marking of those patients with a haemorrhagic 
 
 We use *embedding layers* in a similar way to natural language models which encode words so that similar words (e.g. ‘big’ and ‘large’) end up close to each other in the encoded embedding space. The figure shows an example where the neural network encodes patients by similarity in decision-making, so that patients that appear similar when making decisions are located closely together. Using this approach, we find haemorrhagic patients closely clustered together (red cluster of patients in lower right of plot). Though not shown in this figure, we find other groups also closely located together elsewhere in the embedding space (e.g. patients who received thrombolysis, or patients who were not given thrombolysis but had very severe stroke). Expanding the number of embedding dimensions (here we use just 2 for simplicity) and using clustering techniques, such as k-means, should allow us to find types of patients that are typical of differences in decision-making between hospitals.
 
+### Synthetic patient-level data and vignettes
 
+#### Synthetic data
+
+In SAMueL-1 we piloted generation of synthetic patient-level data that could be used to train machine learning models [21]. Techniques included SMOTE, generative adversarial networks, variational auto-encoders, and sampling from principal component analysis distributions. We found that synthetic data could be used to train and exemplify machine learning models with minimal loss in accuracy. We will extend and use these methods (e.g. with additional random-forest based methods and with an additional differential privacy layer) to generate large data sets of synthetic patient level data that can be used by people examining the model, or used to discuss examples of differences in decision-making between hospitals without risk of breaching patient confidentiality. We will assess the quality of the generated data by implementing methods to measure both utility (how well do the statistical properties of the synthetic data match those of the real data) and disclosure (how much information does the synthetic data reveal about the real data). Specifically, we will use:
+
+* *Cross-classification* to measure the utility of the synthetic data. Cross-classification involves training a model on synthetic data and assessing its performance on real data. It is a method we have tested in SAMueL-1.
+
+* *Random forest similarity* to measure the disclosure of the synthetic data. Disclosure can be minimised by ensuring that no point in the synthetic data is too close to any point in the real data. Using the similarity metric developed in our previous work, for each point in the real data we will find the closest point in the synthetic data. If the distance between these points is less than a threshold value, the synthetic data point will be perturbed to increase their distance.
+
+* *A differential privacy* layer to add an extra layer of privacy2.
+
+#### Vignettes
+
+Below is an example artificial patient vignette from SAMueL-1.  This is based on key SSNAP data, with an imagined narrative that fits that data. Doctors have engaged well with these, which bring an additional human dimension to the raw data. In SAMueL-2 we plan to automate vignette generation by building up from a selection of appropriate blocks that match the SSNAP data.
+
+*Sally is a 76 year old woman with hypertension who had a TIA three years ago, who was taking clopidogrel, bendroflumethiazide and a statin. She found her knee arthritis a bit of a nuisance when shopping. She started to feel a slight weakness in her left arm and leg as she was making dinner for herself and her husband, Roy, one Thursday evening. She thought her knee was playing up and put the 6 O’Clock news on the radio to take her mind off it. However, when Sally and Roy sat down to eat at 7pm he noticed that she was clumsy with her fork and he thought her face looked twisted on the right. As she had previously had a TIA, Roy was alarmed and quickly dialled 999. An ambulance arrived within 10 minutes, and by 7:28 pm she was being assessed in the emergency department of her local hospital.*
+
+*The first doctor to see Sally quickly sent her for a CT brain scan, which happened at 7:59pm. Once back in the emergency department, the doctor assessing Sally noted her history of hypertension and TIA but that she was otherwise generally well. The doctor noted a minor drooping of her face, and a drift of her left arm and leg which were also slightly numb, and it seemed to make her left arm rather clumsy. Her NIHSS was 5. The scan showed no signs of haemorrhage, but there was an old lacunar infarct in the left hemisphere. The doctor decided that the risks of thrombolysis outweighed her potential to benefit as she thought the natural prognosis from her mild stroke was good even without thrombolysis. She subsequently admitted her to the stroke unit for observation.*
+
+### Implementation
+
+The code we generate will use all open Python libraries and, as with SAMueL-1, we will create a single Python file or Jupyter Notebook that will run all the standard analyses, off the back of a SQL query by SSNAP. We have worked with the SSNAP analytics team during SAMueL-1 on integration, and we will continue to work with them to ensure that our methodology and code is ready to implement following their upgrade to Microsoft Azure Database servers.
+
+In order to enhance user-friendliness, SSNAP are currently reconfiguring their dashboards away from downloaded Excel sheets to interactive web pages using streamlit.io. We will similarly develop pilot output using streamlit.io that may be adopted or refined by SSNAP (streamlit.io is designed to be easily compatible with Jupyter Notebooks,  which is the environment our project already uses for clinical pathway simulation and machine learning).
+
+### Health economic modelling
+
+#### Overview
+
+The health economic theme of SAMueL-2 is concerned with the short-term and long-term resource and health-related quality of life outcomes that are a consequence of differing levels and speeds of thrombolysis treatment. The analyses undertaken in SAMueL-2 will aim specifically at informing policy makers and commissioners of acute services about the health and resource consequences of differing levels of treatment.
+
+#### Methodologies
+
+The health economics methods will comply with appropriate guidelines, notably the Professional Society for Health Economics and Outcomes Research (ISPOR) Task Force on Good Research Practices-Modelling [22]. Models developed will take an NHS perspective within an extra-welfareist framework [23]. Specifically, the resources included within the analyses will be those consumed by the NHS in prehospital, hospital and community care settings. Health quality of life will be quantified using an instrument to which national tariffs apply and, when appropriate, ‘willingness-to-pay’ for gains in health-related quality of life will be applied. Health economic outcomes will be expressed in terms of the marginal difference between the service levels being modelled and the most appropriate alternative. The three types of economic analyses that will be used (Budget Impact Analysis, Cost-Effective Analysis and Cost-Utility Analysis) are listed in {numref}`Figure {number} <health_economics>`, together with their key summary inputs.
+
+:::{figure-md} cluster
+<img src="./health_economics.png" width="600px">
+
+Types of economic evaluation and their constituents.
+:::
+
+The economic analyses each report on a different facet of the consequences of different levels of service provision: 1) A Budget Impact Analysis is focused on the financial consequences (and is often reported in time-frames consistent with NHS budgetary cycles); 2) the cost-effectiveness analysis on efficiency of provision and, 3) the cost-utility analysis on the gains in health-related quality of life. Each analysis addresses different issues for policy makers. The estimation method used will be based on a Kaplan-Meier sample average type estimator. This method weights expected health-related quality of life and costs by the probability of survival.
+
+The health economic analysis will use appropriate techniques to address the issue of uncertainty in estimates. Uncertainty is particularly relevant to economic models where data is drawn from different sources [24]. Appropriate sensitivity analyses will be carried out alongside estimation of overall uncertainty around the results of each analysis. Such sensitivity analysis may be informed, for an example, by comparison of the Northumbrian patient cohort with the national SSNAP data set obtained by the project for the machine learning and clinical pathway simulation modelling.
 
 
 
