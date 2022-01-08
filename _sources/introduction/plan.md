@@ -595,7 +595,7 @@ More practical success criteria would be:
 47. Stones R. Structuration Theory. Red Globe Press; 2005. 
 48. Grimshaw JM, Ivers N, Linklater S, Foy R, Francis JJ, Gude WT, et al. Reinvigorating stagnant science: Implementation laboratories and a meta-laboratory to efficiently advance the science of audit and feedback. BMJ Quality and Safety. 2019 May 1;28(5):416–23. 
 49. Brehaut JC, Colquhoun HL, Eva KW, Carroll K, Sales A, Michie S, et al. Practice feedback interventions: 15 suggestions for optimizing effectiveness. Annals of Internal Medicine. 2016 Mar 15;164(6):435–41. 
-50. N I, G J, S F, JM Y, J O-J, SD F, et al. Audit and feedback: effects on professional practice and healthcare outcomes. The Cochrane database of systematic reviews. 2012;2012(6). 
+50. Ivers N. et al.. Audit and feedback: effects on professional practice and healthcare outcomes. The Cochrane database of systematic reviews. 2012;2012(6). 
 51. Boud D, Molloy E. Rethinking models of feedback for learning: The challenge of design. Assessment and Evaluation in Higher Education. 2013 Sep;38(6):698–712. 
 52. Ivanovic J, Anstee C, Ramsay T, Gilbert S, Maziak DE, Shamji FM, et al. Using surgeon-specific outcome reports and positive deviance for continuous quality improvement. In: Annals of Thoracic Surgery. Ann Thorac Surg; 2015. p. 1188–95. 
 53. Sargeant J, Lockyer J, Mann K, Holmboe E, Silver I, Armson H, et al. Facilitated Reflective Performance Feedback: Developing an Evidence-and Theory-Based Model That Builds Relationship, Explores Reactions and Content, and Coaches for Performance Change (R2C2). Academic Medicine. 2015 Dec 1;90(12):1698–706. 
