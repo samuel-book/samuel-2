@@ -1,0 +1,17 @@
+name: samuel2
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - jupyterlab
+  - matplotlib
+  - numpy
+  - pip
+  - pandas
+  - python=3.8
+  - scikit-learn
+  - tensorflow-gpu=2.4
+  - pip:
+    - graphviz
+    - pydot
+    - shap==0.40.0
