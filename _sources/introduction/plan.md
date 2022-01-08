@@ -382,7 +382,7 @@ A PPI group will meet nine times throughout the course of the project. Key roles
 
 * Assist the project team in producing plain English project outputs.
 
-##     7. Dissemination, outputs, and anticipated Impact
+## Dissemination, outputs, and anticipated Impact
 
 ### What do you intend to produce from your research?
 
