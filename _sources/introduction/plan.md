@@ -216,7 +216,7 @@ Accountable Algorithms (https://www.fatml.org/resources/principles-for-accountab
 
 ### Conceptual model for decision-making
 
-We will explore clinical decision-making in two ways: 1) A machine learning model, and 2) Qualitative research. An overall conceptual model is shown in Figure {numref}`Figure {number} <conceptual>`.
+We will explore clinical decision-making in two ways: 1) A machine learning model, and 2) Qualitative research. An overall conceptual model is shown in {numref}`Figure {number} <conceptual>`.
 
 :::{figure-md} conceptual
 <img src="./conceptual_model.png" width="800px">
