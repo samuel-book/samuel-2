@@ -1,4 +1,4 @@
-# Project plan - plain English summary
+# Research plan (plain English summary)
 
 ## AIM
 
