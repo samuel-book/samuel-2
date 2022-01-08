@@ -224,6 +224,27 @@ We will explore clinical decision-making in two ways: 1) A machine learning mode
 Conceptual model of decision-making
 :::
 
+Machine learning models are necessary simplifications of real-world decision-making. This is especially true when applying these models to audit data as, though extensive data is available, we are limited to the data that has been collected and stored nationally. We do not expect the machine learning model to incorporate all aspects of clinical-decision making, but results from our previous project show that we can achieve an ROC-AUC of 92% and an overall accuracy of 86% for those patients arriving at hospital with time left to give thrombolysis. The model therefore encapsulates a lot of the information that drives decision-making (and the planned project will add some further information to the model inputs, so we may improve accuracy). These models reveal differences in decision-making such as attitudes to giving thrombolysis to milder strokes, to patients with pre-existing disability, or to patients with imprecise stroke onset times.
+
+Including in our modelling are explanatory models showing what factors are most influential in the model, both overall and for individual patients. We know our models are ‘well calibrated’ – that is when the model has high certainty on whether a patient will receive thrombolysis or not, then it is almost always right. But when the model has low certainty then the accuracy of the model is worse. We will explore what the characteristics of the input that enable the model to be certain, and what are the input characteristics of the model when it is uncertain (we will also perform a similar analysis on looking at the characteristics of patients with predicted high variation in expected treatment between stroke teams).
+
+Our qualitative research will add another layer to exploring decision-making, exploring the context of the decision-making – who is making the decision, and what the aspects of the decision-making that are not included in our machine learning model. This adds a ‘real world’ rich view on top of the machine-learning model, and through this work we will also explore how we might best influence decision-making.
+
+### Clustering of patients and identification of hospitals with similar patient populations
+
+Clustering of patients, using similarity metrics between patients, allows us to identify ‘typical’ patients that exemplify key differences in decision-making between hospitals. By generating similarity metrics between patients, we may also identify hospitals with similar patient populations. These may be used as comparator hospitals such as the ‘similar ten’ comparator groups used to compare Clinical Commissioning Group performance1, avoiding the problem of comparing hospitals with dissimilar populations. 
+
+
+In SAMueL-1 we began this work, using both random forests (looking at distances between patient ‘leaves’ induced by the sequence of decisions used to classify them) and neural networks. An example of a novel approach to patient clustering, using neural networks, is shown below in {numref}`Figure {number} <cluster>`.
+
+:::{figure-md} cluster
+<img src="./cluster.png" width="400px">
+
+Patient characteristic embedding, marking of those patients with a haemorrhagic stroke (red) as opposed to a non-haemorrhagic stroke (blue).
+:::
+
+We use *embedding layers* in a similar way to natural language models which encode words so that similar words (e.g. ‘big’ and ‘large’) end up close to each other in the encoded embedding space. The figure shows an example where the neural network encodes patients by similarity in decision-making, so that patients that appear similar when making decisions are located closely together. Using this approach, we find haemorrhagic patients closely clustered together (red cluster of patients in lower right of plot). Though not shown in this figure, we find other groups also closely located together elsewhere in the embedding space (e.g. patients who received thrombolysis, or patients who were not given thrombolysis but had very severe stroke). Expanding the number of embedding dimensions (here we use just 2 for simplicity) and using clustering techniques, such as k-means, should allow us to find types of patients that are typical of differences in decision-making between hospitals.
+
 
 
 
