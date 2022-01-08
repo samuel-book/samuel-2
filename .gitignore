@@ -1,0 +1,15 @@
+# Folders to ignore
+_build/
+data/
+temp/
+
+# Ignore file types that may contain data
+*.pkl
+*.csv
+*.xlsx
+*.txt
+
+# Ignore all checkpoints folders
+**/.ipynb_checkpoints/
+
+
