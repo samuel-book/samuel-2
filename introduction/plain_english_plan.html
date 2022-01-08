@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to SAMueL-2 (Stroke Audit Machine Learning) &#8212; SAMueL Stroke Audit Machine Learning 2</title>
+    <title>Project plan - plain English summary &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,7 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Project plan - plain English summary" href="plain_english_plan.html" />
+    <link rel="next" title="Research plan (detailed)" href="plan.html" />
+    <link rel="prev" title="Introduction to SAMueL-2 (Stroke Audit Machine Learning)" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,8 +83,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
   </a>
  </li>
@@ -93,9 +94,9 @@
   Bid documents
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="plain_english_plan.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Project plan - plain English summary
   </a>
  </li>
@@ -145,7 +146,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/introduction/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/introduction/plain_english_plan.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -176,8 +177,28 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-research">
-   Summary of research
+  <a class="reference internal nav-link" href="#aim">
+   AIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   BACKGROUND
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   METHODS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#patient-and-public-involvement">
+   PATIENT AND PUBLIC INVOLVEMENT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dissemination">
+   DISSEMINATION
   </a>
  </li>
 </ul>
@@ -191,31 +212,32 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-samuel-2-stroke-audit-machine-learning">
-<h1>Introduction to SAMueL-2 (Stroke Audit Machine Learning)<a class="headerlink" href="#introduction-to-samuel-2-stroke-audit-machine-learning" title="Permalink to this headline">¶</a></h1>
-<p><strong>Use of simulation and machine learning to identify key levers for maximising the disability benefit of intravenous thrombolysis in acute stroke pathways</strong></p>
-<blockquote class="epigraph">
-<div><p>“Your decision to treat or not treat … That’s the difficult part. That’s the grey area where everyone does a different thing.”</p>
-<p class="attribution">—Stroke Consultant during interviews for SAMueL-1</p>
-</div></blockquote>
-<section id="summary-of-research">
-<h2>Summary of research<a class="headerlink" href="#summary-of-research" title="Permalink to this headline">¶</a></h2>
-<p>BACKGROUND AND OVERALL AIM</p>
-<p>In England and Wales, 11%-12% of emergency stroke patients receive thrombolysis, significantly below the NHS Long Term Plan target of 20% by 2025.</p>
-<p>The overall aim of SAMUeL-2 is to work with the Sentinel Stroke National Audit Programme (SSNAP) to increase the impact of national audit by providing advanced tools for in-depth comparisons between hospitals, helping to address the gap between actual and achievable thrombolysis use.</p>
-<p>In previous work (SAMueL-1) we have used clinical pathway simulation and machine learning to model stroke pathways to thrombolysis at all (anonymised) hospitals, and to compare decision-making between hospitals. We found that about half of the current inter-hospital variation in thrombolysis use comes from differences in local patient populations and the other half from differences in hospital processes and decision-making. We found that stroke thrombolysis use could be reasonably expected to reach 18%-19% of hospitalised stroke patients. The largest single improvement would come from clinical decision-making at all hospitals being similar to 30 top- ‘benchmark’ hospitals with higher thrombolysis use. The next largest improvement would come from increasing the proportion of stroke patients whose stroke onset time is determined, to a level currently achieved by hospitals achieving upper quartile performance. Finally, speeding the stroke pathway at all hospitals would increase thrombolysis use, but by the smallest margin - although speeding the stroke pathway increases the clinical benefit of thrombolysis for all treated patients.</p>
-<p>SPECIFIC OBJECTIVES</p>
-<p>Specific objectives are based on feedback received during SAMueL-1, and feedback on the SAMueL-2 bid proposal.</p>
-<ol class="simple">
-<li><p>Expansion of SAMueL-1 modelling to include: 1) outcome and adverse event prediction at patient-level, 2) inclusion of pre-hospital times in pathway model, 3) use of organisational factors (such as staffing) in predicting use of thrombolysis, and 4) piloting of a model that incorporates use of thrombectomy alongside thrombolysis.</p></li>
-<li><p>Incorporation of health economic outcomes (Quality Adjusted Life Years): These will be adapted from other NIHR projects involving this team that have already developed health economic models for thrombolysis in acute ischaemic stroke.</p></li>
-<li><p>Promote acceptance of the modelling by increased transparency and explainability: 1) make use of Shapley values to show the contribution of individual features to the prediction that the model is making, 2) improved methods for clustering of patients to clarify patterns of differences in clinical decision-making between hospitals and to allow identification of ‘similar hospitals’ (by patient population) for comparison, 3) investigation of bias in model (e.g. accuracy analysis by patient subgroups), 4) generation of dashboards and other interrogative methods.</p></li>
-<li><p>Generation of synthetic data and artificial patient vignettes: 1) build on pilot work already performed for generating synthetic patient-level stroke data that may be shared freely and used for discussion of ’virtual’ patients, 2) automatic generation of artificial clinical vignettes from real or synthetic SSNAP data.</p></li>
-<li><p>Co-production of project outputs with clinicians to promote acceptance and use for local quality improvement: By using both information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the content and style of our intervention (SAMueL tool). Working with our Public and Patient Involvement (PPI) group we will also produce key public-facing output.</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="project-plan-plain-english-summary">
+<h1>Project plan - plain English summary<a class="headerlink" href="#project-plan-plain-english-summary" title="Permalink to this headline">¶</a></h1>
+<section id="aim">
+<h2>AIM<a class="headerlink" href="#aim" title="Permalink to this headline">¶</a></h2>
+<p>We will develop a computer-based tool for doctors to help them improve the speed and use of life-changing treatment for stroke. It compares their stroke pathway with other hospitals, and helps to answer the question “What treatment would this patient receive in other hospitals?”</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section id="background">
+<h2>BACKGROUND<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Stroke is a common cause of adult disability. Expert opinion is that about one in five patients should receive clot-busting drugs to break up the blood clot that is causing their stroke, but on average only about one in nine patients actually receive this treatment in the UK. There is a lot of variation between hospitals, which means that the same patient might receive different treatment in different hospitals.</p>
+<p>Clot-busting drugs are not suitable for everyone. There is a small risk of a bleed in the brain. Doctors must feel confident in their use, and lack of confidence may explain some of the variation in use. In previous work we developed the basic methods for understanding what are the main causes of variation between hospitals: How much difference is due to processes (like how quickly a patient is scanned, an essential step), how much is due to differences in patient populations, and how much difference is due to different decision-making by doctors. This has enabled us to model the ideal number of patients who should be treated in each hospital in the UK.</p>
+</section>
+<section id="methods">
+<h2>METHODS<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>We predict clinical decisions using a computer technique called machine learning. This learns to predict decisions by asking “what happened with similar patients before?” In addition to predicting clinical decisions, which allow us to compare decision making between hospitals, we plan to see how good machine learning is at predicitng how well clot-removing treatments reduce how badly people are disabled after a stroke.</p>
+<p>We model hospital processes by replicating the stroke pathway in a computer model, so that we can, for example, see the effect of changing time from arrival at hospital to receiving a brain scan. We will extend our previous computer model by including new information from ambulances. We will also use staffing data to examine how staffing levels affect performance.</p>
+<p>We will explore outcomes for patients measured in “Quality Adjusted Life Years”, which will allow comparison with other treatments for other conditions. This allows us to explore the cost-effectiveness of making changes to the care pathway. This is the system used by NICE to weigh up whether treatments should be provided by the NHS or not.</p>
+<p>We will do research to better understand how doctors would use this tool to improve the care that they give, and how we can make it more engaging for doctors and other staff. We plan to pick a set of doctors we can talk with through the lifetime of the project, sharing knowledge between us throughout the project. They will act as our expert resource.</p>
+</section>
+<section id="patient-and-public-involvement">
+<h2>PATIENT AND PUBLIC INVOLVEMENT<a class="headerlink" href="#patient-and-public-involvement" title="Permalink to this headline">¶</a></h2>
+<p>A stroke survivor has been involved in our previous work and is a co-applicant here. We will hold four ‘patient voice’ workshops throughout the project, so that we can be guided by the views of people with stroke in how best to present our findings to the NHS and the public.</p>
+</section>
+<section id="dissemination">
+<h2>DISSEMINATION<a class="headerlink" href="#dissemination" title="Permalink to this headline">¶</a></h2>
+<p>The outputs of this work will be built into the quarterly national stroke audit that feeds back results to all stroke teams across the UK. Additionally, we will work with the NHS ‘Stroke Delivery Networks’, present our work at stroke conferences, and publish our results through scientific journals.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -247,11 +269,20 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Introduction to SAMueL-2 (Stroke Audit Machine Learning)</p>
+            </div>
+        </a>
+    </div>
      <div id="next">
-        <a class="right-next" href="plain_english_plan.html" title="next page">
+        <a class="right-next" href="plan.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Project plan - plain English summary</p>
+                <p class="prevnext-title">Research plan (detailed)</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

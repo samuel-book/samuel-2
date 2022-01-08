@@ -1,4 +1,4 @@
-# SAMueL-2 Research plan
+# Research plan (detailed)
 
 NIHR134326: Stroke Audit Machine Learning (SAMueL-2)
 
