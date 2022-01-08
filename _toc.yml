@@ -1,0 +1,9 @@
+format: jb-book
+root: introduction/intro
+parts:
+- caption: Bid documents
+  chapters:
+  - file: introduction/plain_english_plan
+  - file: introduction/plan
+
+
