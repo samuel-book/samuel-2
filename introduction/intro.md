@@ -31,3 +31,14 @@ Specific objectives are based on feedback received during SAMueL-1, and feedback
 4. Generation of synthetic data and artificial patient vignettes: 1) build on pilot work already performed for generating synthetic patient-level stroke data that may be shared freely and used for discussion of ’virtual’ patients, 2) automatic generation of artificial clinical vignettes from real or synthetic SSNAP data.
 
 5. Co-production of project outputs with clinicians to promote acceptance and use for local quality improvement: By using both information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the content and style of our intervention (SAMueL tool). Working with our Public and Patient Involvement (PPI) group we will also produce key public-facing output.
+
+## Previous work (SAMueL-1)
+
+An online Jupyter book for our previous work, SAMueL-1, may be found at:
+
+Summary videos for SAMueL-1
+
+Short (10 min): https://youtu.be/d7Z0dpU3iiM
+
+Long (45 min): https://youtu.be/6UXdEF9Hrbw
+
