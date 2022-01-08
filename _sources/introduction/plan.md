@@ -221,6 +221,9 @@ We will explore clinical decision-making in two ways: 1) A machine learning mode
 :::{figure-md} conceptual
 <img src="./conceptual.png" width="800px">
 
+Conceptual model of decision-making
+:::
+
 
 
 
