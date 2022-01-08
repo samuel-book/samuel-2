@@ -280,7 +280,7 @@ The health economic theme of SAMueL-2 is concerned with the short-term and long-
 
 The health economics methods will comply with appropriate guidelines, notably the Professional Society for Health Economics and Outcomes Research (ISPOR) Task Force on Good Research Practices-Modelling [22]. Models developed will take an NHS perspective within an extra-welfareist framework [23]. Specifically, the resources included within the analyses will be those consumed by the NHS in prehospital, hospital and community care settings. Health quality of life will be quantified using an instrument to which national tariffs apply and, when appropriate, ‘willingness-to-pay’ for gains in health-related quality of life will be applied. Health economic outcomes will be expressed in terms of the marginal difference between the service levels being modelled and the most appropriate alternative. The three types of economic analyses that will be used (Budget Impact Analysis, Cost-Effective Analysis and Cost-Utility Analysis) are listed in {numref}`Figure {number} <health_economics>`, together with their key summary inputs.
 
-:::{figure-md} cluster
+:::{figure-md} health_economics
 <img src="./health_economics.png" width="600px">
 
 Types of economic evaluation and their constituents.
