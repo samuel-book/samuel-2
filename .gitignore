@@ -3,11 +3,12 @@ _build/
 data/
 temp/
 
-# Ignore file types that may contain data
+# Ignore file types that may contain data or models
 *.pkl
 *.csv
 *.xlsx
 *.txt
+*.h5
 
 # Ignore all checkpoints folders
 **/.ipynb_checkpoints/
