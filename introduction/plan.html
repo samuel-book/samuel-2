@@ -52,7 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Project plan - plain English summary" href="plain_english_plan.html" />
+    <link rel="prev" title="Research plan (plain English summary)" href="plain_english_plan.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -96,7 +96,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="plain_english_plan.html">
-   Project plan - plain English summary
+   Research plan (plain English summary)
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -215,8 +215,8 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-findings-from-samuel-1">
-   Summary of findings from SAMueL-1
+  <a class="reference internal nav-link" href="#summary-of-samuel-1">
+   Summary of SAMueL-1
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -546,8 +546,8 @@
 </section>
 </section>
 </section>
-<section id="summary-of-findings-from-samuel-1">
-<h2>Summary of findings from SAMueL-1<a class="headerlink" href="#summary-of-findings-from-samuel-1" title="Permalink to this headline">¶</a></h2>
+<section id="summary-of-samuel-1">
+<h2>Summary of SAMueL-1<a class="headerlink" href="#summary-of-samuel-1" title="Permalink to this headline">¶</a></h2>
 <p>We built clinical pathway simulation models, and clinical decision-making models, based on patient-level data from SSNAP. We built machine learning models that would closely replicate the clinical decisions made at each hospital, predicting if a patient who arrived within the treatment window would receive thrombolysis. The decision models are based on clinical pathway timings and patient clinical features recorded in SSNAP, such as age, components of the stroke severity scale (National Institutes of Health Stroke Scale; NIHSS), co-morbidities such as atrial fibrillation etc. The clinical decision-making models allow us to ask the counter-factual question, “What treatment would my patient be likely to receive at other hospitals?”. The clinical pathway simulation models predicted each hospital’s thrombolysis rate with an average absolute error of less than 0.5 percentage points. The clinical decision-making models predicted clinical decisions with 85% accuracy (achieving 84% sensitivity and specificity simultaneously) for those patients arriving within 4 hours of known stroke onset, with neural networks or random forest models having the highest accuracy.</p>
 <p>Using our models, we found that about half of the current inter-hospital variation in thrombolysis is accounted for by differences in local patient populations. Most of the remaining inter-hospital differences were attributable to differences in clinical decision-making and, to a lesser extent, difference in hospital processes such as door-to-needle time.</p>
 <p>We then tested three alternative scenarios at each hospital: 1) What if door-to-needle time was 30 minutes?, 2) What if all hospitals determined stroke onset time at least as frequently as the current upper quartile of hospitals?, 3) What if clinical decisions were made according to the majority vote of 30 top ‘benchmark’ hospitals? These benchmark hospitals are the 30 acutely-admitting stroke units with highest predicted users of thrombolysis using a standard set of 10,000 patients passed through all hospital decision models. The infographic below summarises our modelling findings. We found that making these changes at all hospitals would increase the national average thrombolysis rate to 18-19% (range 6-27%). The change that would have most impact would be alignment of clinical decision-making with hospitals more enthusiastic in their use of thrombolysis, then through better ascertainment of stroke onset times, and finally through speeding internal processes - although reducing door-to-needle time has a larger effect on overall clinical benefit, as they will benefit all patients who receive thrombolysis. For every additional 10 patients treated under these scenarios the primary reason was: clinical decision making in 5, determining stroke onset time in 4, and door-to-needle time in 1. The modelling produces a bespoke breakdown for each hospital, giving the realistic and achievable thrombolysis rate, and the impact of each component - helping to identify at each hospital which change would make the greatest difference to outcomes for their own local population. This is an important finding as prior to this, most improvement effort in thrombolysis has been based on the generalised assumption that the largest improvements in thrombolysis rate come from reductions in door-to-needle time [13].</p>
@@ -1036,7 +1036,7 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Project plan - plain English summary</p>
+                <p class="prevnext-title">Research plan (plain English summary)</p>
             </div>
         </a>
     </div>
