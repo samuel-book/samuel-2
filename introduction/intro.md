@@ -34,7 +34,7 @@ Specific objectives are based on feedback received during SAMueL-1, and feedback
 
 ## Previous work (SAMueL-1)
 
-An online Jupyter book for our previous work, SAMueL-1, may be found at:
+An online Jupyter book for our previous work, SAMueL-1, may be found at: https://samuel-book.github.io/samuel-1/
 
 Summary videos for SAMueL-1
 
