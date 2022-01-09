@@ -12,6 +12,8 @@ parts:
   - file: samuel_1/neural_net/001b_1d_modular_analyse
   - file: samuel_1/neural_net/002a_2d_modular_fit
   - file: samuel_1/neural_net/002b_2d_modular_analyse
+  - file: samuel_1/neural_net/003a_generate_1d_nets_for_10k
+  - file: samuel_1/neural_net/003b_analyse_10k_1d_modular
   
 
 
