@@ -1,4 +1,4 @@
-# Neural Networks
+# Outline - what is in this section?
 
 This section describes experiments using neural network classifiers to predict whether a patient would, or would not, receive thrombolysis. Data is restricted to admissions within 4 hours of stroke onset (to units that have at least 300 patients, and 10 thrombolysis uses, over three years)
 
