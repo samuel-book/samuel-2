@@ -5,5 +5,13 @@ parts:
   chapters:
   - file: introduction/plain_english_plan
   - file: introduction/plan
+- caption: SAMueL-1 extension - embedding neural nets
+  chapters:
+  - file: samuel_1/neural_net/outline
+  - file: samuel_1/neural_net/001a_1d_modular_fit
+  - file: samuel_1/neural_net/001b_1d_modular_analyse
+  - file: samuel_1/neural_net/002a_2d_modular_fit
+  - file: samuel_1/neural_net/002b_2d_modular_analyse
+  
 
 
