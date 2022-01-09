@@ -137,6 +137,16 @@
    Modular TensorFlow model with 2D embedding - analyse
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003a_generate_1d_nets_for_10k.html">
+   Modular TensorFlow model with 1D embedding - Train and save model for 10k patient subset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="003b_analyse_10k_1d_modular.html">
+   Investigating the output of neural net embedding subnets
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -238,6 +248,8 @@
 <li><p><em>Modular TensorFlow model with 1D embedding - analyse</em>: Analyses the saved models for: 1) Various accuracy scores, 2) Receiver-Operator Characteristic Curve, 3) Sensitivity-Specificity Curve, and 4) model calibration.</p></li>
 <li><p><em>Modular TensorFlow model with 2D embedding - Train and save models</em>: Trains 5 models (on 5-fold cross validation train/test data sets) and saves for later use. Each subnet outputs a pair of values.</p></li>
 <li><p><em>Modular TensorFlow model with 2D embedding - analyse</em>: Analyses the saved models for: 1) Various accuracy scores, 2) Receiver-Operator Characteristic Curve, 3) Sensitivity-Specificity Curve, and 4) model calibration.</p></li>
+<li><p><em>Modular TensorFlow model with 2D embedding - Train and save model for 10k patient subset</em>: Train a model on all data exluding a 10k test set (the train and test set are balanced for thrombolysis use across each hospital).</p></li>
+<li><p><em>Investigating the output of neural net embedding subnets</em>:  Investigate the output of the hospital and clinical subnets of the embedding neural network. 1) Examine the link between hospital subnet output and use of thrombolysis in hospitals - both the actual thrombolysis use, and the predicted thrombolysis use of a 10k set of patients passed through all hopsital moodels. 2) Examine the link between the patient clinical feature subnet output and the use of thrombolysis, and the link between patient features and the clinical feature subnet output.</p></li>
 </ul>
 </section>
 </section>
