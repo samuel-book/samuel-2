@@ -303,8 +303,8 @@
 <h1>Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse<a class="headerlink" href="#train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we use a pre-trained model (embedding neural network with 1D embedding, use to test a 10k cohort of patients) to predict thrombolysis use of all patients at all hospitals. Patients are then split into three groups:</p>
 <ul class="simple">
-<li><p><em>Agree not to thrombolyse</em>: Few than 25% of hospitals would give thrombolysis</p></li>
-<li><p><em>Contentious</em>: 25% to 75% would give thrombolysis</p></li>
+<li><p><em>Agree not to thrombolyse</em>: Fewer than 25% of hospitals would give thrombolysis</p></li>
+<li><p><em>Contentious</em>: 25% to 75% of hospitals would give thrombolysis</p></li>
 <li><p><em>Agree to thrombolyse</em>: More than 75% of hospitals would give thrombolysis</p></li>
 </ul>
 <p>We then train an embedding neural network model (using patient and pwathway data subsets) to distinguisg between <em>Contentious</em> and <em>Agree to thrombolyse</em>. This is saved for more detailed analysis in a subsequent notebook.</p>
