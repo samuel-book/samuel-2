@@ -228,64 +228,59 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-libraries">
    Load libraries
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#define-function-to-scale-data">
    Define function to scale data
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#predict-thrombolysis-decision-for-10k-cohort">
    Predict thrombolysis decision for 10K cohort
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital">
    Get predictions for thrombolysis use of all patients at each hospital
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#show-split-bettwern-different-groups">
      Show split bettwern different groups
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data">
      Remove patients where there high agreement not to thrombolyse and save data
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse">
    Fit model to predict contentious patients (vs. agree to thrombolyse)
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#split-data">
      Split data
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#define-neural-net">
      Define neural net
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#fit-model">
      Fit model
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#test-performance-with-receiver-operator-characteristic-curve">
      Test performance with Receiver Operator Characteristic Curve
     </a>
@@ -303,7 +298,7 @@
         
               <div>
                 
-  <div class="section" id="train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse">
+  <div class="tex2jax_ignore mathjax_ignore section" id="train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse">
 <h1>Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse<a class="headerlink" href="#train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we use a pre-trained model (embedding neural network with 1D embedding, use to test a 10k cohort of patients) to predict thrombolysis use of all patients at all hospitals. Patients are then split into three groups:</p>
 <ul class="simple">
@@ -312,9 +307,8 @@
 <li><p><em>Agree to thrombolyse</em>: More than 75% of hospitals would give thrombolysis</p></li>
 </ul>
 <p>We then train an embedding neural network model (using patient and pwathway data subsets) to distinguisg between <em>Contentious</em> and <em>Agree to thrombolyse</em>. This is saved for more detailed analysis in a subsequent notebook.</p>
-</div>
 <div class="section" id="load-libraries">
-<h1>Load libraries<a class="headerlink" href="#load-libraries" title="Permalink to this headline">¶</a></h1>
+<h2>Load libraries<a class="headerlink" href="#load-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn warnings off to keep notebook tidy</span>
@@ -347,7 +341,7 @@
 </div>
 </div>
 <div class="section" id="define-function-to-scale-data">
-<h1>Define function to scale data<a class="headerlink" href="#define-function-to-scale-data" title="Permalink to this headline">¶</a></h1>
+<h2>Define function to scale data<a class="headerlink" href="#define-function-to-scale-data" title="Permalink to this headline">¶</a></h2>
 <p>Scale input data 0-1 (MinMax scaling).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -371,7 +365,7 @@
 </div>
 </div>
 <div class="section" id="predict-thrombolysis-decision-for-10k-cohort">
-<h1>Predict thrombolysis decision for 10K cohort<a class="headerlink" href="#predict-thrombolysis-decision-for-10k-cohort" title="Permalink to this headline">¶</a></h1>
+<h2>Predict thrombolysis decision for 10K cohort<a class="headerlink" href="#predict-thrombolysis-decision-for-10k-cohort" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load model</span>
@@ -463,7 +457,7 @@
 </div>
 </div>
 <div class="section" id="get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital">
-<h1>Get predictions for thrombolysis use of all patients at each hospital<a class="headerlink" href="#get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital" title="Permalink to this headline">¶</a></h1>
+<h2>Get predictions for thrombolysis use of all patients at each hospital<a class="headerlink" href="#get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital" title="Permalink to this headline">¶</a></h2>
 <p>Here we ask the counter-factual question - “what treatment would a patient be expected to receive at each of the 132 hospitals?”.</p>
 <p>Hospital is one-hot encoded as input to the hospital subnet. To make a prediction of treatment at different hospitals we change the one-hot encoding of the hospital when making prediction.</p>
 <p>For each hospital we pass all patients, and record the proportion of the patients receiving thrombolysis at that hospital.</p>
@@ -524,7 +518,7 @@
 </div>
 </div>
 <div class="section" id="show-split-bettwern-different-groups">
-<h2>Show split bettwern different groups<a class="headerlink" href="#show-split-bettwern-different-groups" title="Permalink to this headline">¶</a></h2>
+<h3>Show split bettwern different groups<a class="headerlink" href="#show-split-bettwern-different-groups" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summarise results</span>
@@ -574,7 +568,7 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data">
-<h2>Remove patients where there high agreement not to thrombolyse and save data<a class="headerlink" href="#remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data" title="Permalink to this headline">¶</a></h2>
+<h3>Remove patients where there high agreement not to thrombolyse and save data<a class="headerlink" href="#remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data" title="Permalink to this headline">¶</a></h3>
 <p>We will then compare contentious vs. agree to thrombolyse</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -614,9 +608,9 @@ dtype: float64
 </div>
 </div>
 <div class="section" id="fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse">
-<h1>Fit model to predict contentious patients (vs. agree to thrombolyse)<a class="headerlink" href="#fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse" title="Permalink to this headline">¶</a></h1>
+<h2>Fit model to predict contentious patients (vs. agree to thrombolyse)<a class="headerlink" href="#fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="split-data">
-<h2>Split data<a class="headerlink" href="#split-data" title="Permalink to this headline">¶</a></h2>
+<h3>Split data<a class="headerlink" href="#split-data" title="Permalink to this headline">¶</a></h3>
 <p>Use NumPy binomial to be able to use a mask for different X components.
 Stata has already been scaled.</p>
 <div class="cell docutils container">
@@ -646,7 +640,7 @@ Stata has already been scaled.</p>
 </div>
 </div>
 <div class="section" id="define-neural-net">
-<h2>Define neural net<a class="headerlink" href="#define-neural-net" title="Permalink to this headline">¶</a></h2>
+<h3>Define neural net<a class="headerlink" href="#define-neural-net" title="Permalink to this headline">¶</a></h3>
 <p>Uses patient and pathway data, not hospital ID</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,7 +706,7 @@ Stata has already been scaled.</p>
 </div>
 </div>
 <div class="section" id="fit-model">
-<h2>Fit model<a class="headerlink" href="#fit-model" title="Permalink to this headline">¶</a></h2>
+<h3>Fit model<a class="headerlink" href="#fit-model" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define network</span>
@@ -791,7 +785,7 @@ Stata has already been scaled.</p>
 </div>
 </div>
 <div class="section" id="test-performance-with-receiver-operator-characteristic-curve">
-<h2>Test performance with Receiver Operator Characteristic Curve<a class="headerlink" href="#test-performance-with-receiver-operator-characteristic-curve" title="Permalink to this headline">¶</a></h2>
+<h3>Test performance with Receiver Operator Characteristic Curve<a class="headerlink" href="#test-performance-with-receiver-operator-characteristic-curve" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get fpr, tpr and thresholds foir each k-fold from scikit-learn&#39;s ROC method</span>
@@ -830,6 +824,7 @@ Stata has already been scaled.</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/04a_predict_contentious_patients_25_0.png" src="../../_images/04a_predict_contentious_patients_25_0.png" />
+</div>
 </div>
 </div>
 </div>
