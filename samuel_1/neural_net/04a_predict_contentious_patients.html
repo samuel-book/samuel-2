@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -298,7 +299,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse">
+  <section class="tex2jax_ignore mathjax_ignore" id="train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse">
 <h1>Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse<a class="headerlink" href="#train-an-embedding-neural-network-to-discern-contentious-patients-from-those-with-high-agreement-to-thrombolyse" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we use a pre-trained model (embedding neural network with 1D embedding, use to test a 10k cohort of patients) to predict thrombolysis use of all patients at all hospitals. Patients are then split into three groups:</p>
 <ul class="simple">
@@ -307,7 +308,7 @@
 <li><p><em>Agree to thrombolyse</em>: More than 75% of hospitals would give thrombolysis</p></li>
 </ul>
 <p>We then train an embedding neural network model (using patient and pwathway data subsets) to distinguisg between <em>Contentious</em> and <em>Agree to thrombolyse</em>. This is saved for more detailed analysis in a subsequent notebook.</p>
-<div class="section" id="load-libraries">
+<section id="load-libraries">
 <h2>Load libraries<a class="headerlink" href="#load-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -339,8 +340,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="define-function-to-scale-data">
+</section>
+<section id="define-function-to-scale-data">
 <h2>Define function to scale data<a class="headerlink" href="#define-function-to-scale-data" title="Permalink to this headline">¶</a></h2>
 <p>Scale input data 0-1 (MinMax scaling).</p>
 <div class="cell docutils container">
@@ -363,8 +364,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="predict-thrombolysis-decision-for-10k-cohort">
+</section>
+<section id="predict-thrombolysis-decision-for-10k-cohort">
 <h2>Predict thrombolysis decision for 10K cohort<a class="headerlink" href="#predict-thrombolysis-decision-for-10k-cohort" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -455,8 +456,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital">
+</section>
+<section id="get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital">
 <h2>Get predictions for thrombolysis use of all patients at each hospital<a class="headerlink" href="#get-predictions-for-thrombolysis-use-of-all-patients-at-each-hospital" title="Permalink to this headline">¶</a></h2>
 <p>Here we ask the counter-factual question - “what treatment would a patient be expected to receive at each of the 132 hospitals?”.</p>
 <p>Hospital is one-hot encoded as input to the hospital subnet. To make a prediction of treatment at different hospitals we change the one-hot encoding of the hospital when making prediction.</p>
@@ -517,7 +518,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="show-split-bettwern-different-groups">
+<section id="show-split-bettwern-different-groups">
 <h3>Show split bettwern different groups<a class="headerlink" href="#show-split-bettwern-different-groups" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -566,8 +567,8 @@ dtype: float64
 <img alt="../../_images/04a_predict_contentious_patients_13_0.png" src="../../_images/04a_predict_contentious_patients_13_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data">
+</section>
+<section id="remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data">
 <h3>Remove patients where there high agreement not to thrombolyse and save data<a class="headerlink" href="#remove-patients-where-there-high-agreement-not-to-thrombolyse-and-save-data" title="Permalink to this headline">¶</a></h3>
 <p>We will then compare contentious vs. agree to thrombolyse</p>
 <div class="cell docutils container">
@@ -605,11 +606,11 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse">
+</section>
+</section>
+<section id="fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse">
 <h2>Fit model to predict contentious patients (vs. agree to thrombolyse)<a class="headerlink" href="#fit-model-to-predict-contentious-patients-vs-agree-to-thrombolyse" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="split-data">
+<section id="split-data">
 <h3>Split data<a class="headerlink" href="#split-data" title="Permalink to this headline">¶</a></h3>
 <p>Use NumPy binomial to be able to use a mask for different X components.
 Stata has already been scaled.</p>
@@ -638,8 +639,8 @@ Stata has already been scaled.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="define-neural-net">
+</section>
+<section id="define-neural-net">
 <h3>Define neural net<a class="headerlink" href="#define-neural-net" title="Permalink to this headline">¶</a></h3>
 <p>Uses patient and pathway data, not hospital ID</p>
 <div class="cell docutils container">
@@ -704,8 +705,8 @@ Stata has already been scaled.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="fit-model">
+</section>
+<section id="fit-model">
 <h3>Fit model<a class="headerlink" href="#fit-model" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -777,14 +778,14 @@ Stata has already been scaled.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy train 0.956 Accuracy test 0.947
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy train 0.960 Accuracy test 0.948
 </pre></div>
 </div>
 <img alt="../../_images/04a_predict_contentious_patients_22_1.png" src="../../_images/04a_predict_contentious_patients_22_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="test-performance-with-receiver-operator-characteristic-curve">
+</section>
+<section id="test-performance-with-receiver-operator-characteristic-curve">
 <h3>Test performance with Receiver Operator Characteristic Curve<a class="headerlink" href="#test-performance-with-receiver-operator-characteristic-curve" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -798,7 +799,7 @@ Stata has already been scaled.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUC 0.9886
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AUC 0.9885
 </pre></div>
 </div>
 </div>
@@ -815,9 +816,10 @@ Stata has already been scaled.</p>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Receiver Operator Characteristic Curve&#39;</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;AUC: </span><span class="si">{</span><span class="n">roc_auc</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.64</span><span class="p">,</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.78</span><span class="p">,</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> 
          <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;output/contraversial_roc.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -826,9 +828,9 @@ Stata has already been scaled.</p>
 <img alt="../../_images/04a_predict_contentious_patients_25_0.png" src="../../_images/04a_predict_contentious_patients_25_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
