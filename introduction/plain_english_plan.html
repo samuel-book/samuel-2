@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Research plan (plain English summary) &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -152,6 +151,11 @@
      Investigating the output of neural net embedding subnets
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../samuel_1/neural_net/04a_predict_contentious_patients.html">
+     Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -261,33 +265,33 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="research-plan-plain-english-summary">
+  <div class="tex2jax_ignore mathjax_ignore section" id="research-plan-plain-english-summary">
 <h1>Research plan (plain English summary)<a class="headerlink" href="#research-plan-plain-english-summary" title="Permalink to this headline">¶</a></h1>
-<section id="aim">
+<div class="section" id="aim">
 <h2>AIM<a class="headerlink" href="#aim" title="Permalink to this headline">¶</a></h2>
 <p>We will develop a computer-based tool for doctors to help them improve the speed and use of life-changing treatment for stroke. It compares their stroke pathway with other hospitals, and helps to answer the question “What treatment would this patient receive in other hospitals?”</p>
-</section>
-<section id="background">
+</div>
+<div class="section" id="background">
 <h2>BACKGROUND<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Stroke is a common cause of adult disability. Expert opinion is that about one in five patients should receive clot-busting drugs to break up the blood clot that is causing their stroke, but on average only about one in nine patients actually receive this treatment in the UK. There is a lot of variation between hospitals, which means that the same patient might receive different treatment in different hospitals.</p>
 <p>Clot-busting drugs are not suitable for everyone. There is a small risk of a bleed in the brain. Doctors must feel confident in their use, and lack of confidence may explain some of the variation in use. In previous work we developed the basic methods for understanding what are the main causes of variation between hospitals: How much difference is due to processes (like how quickly a patient is scanned, an essential step), how much is due to differences in patient populations, and how much difference is due to different decision-making by doctors. This has enabled us to model the ideal number of patients who should be treated in each hospital in the UK.</p>
-</section>
-<section id="methods">
+</div>
+<div class="section" id="methods">
 <h2>METHODS<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
 <p>We predict clinical decisions using a computer technique called machine learning. This learns to predict decisions by asking “what happened with similar patients before?” In addition to predicting clinical decisions, which allow us to compare decision making between hospitals, we plan to see how good machine learning is at predicitng how well clot-removing treatments reduce how badly people are disabled after a stroke.</p>
 <p>We model hospital processes by replicating the stroke pathway in a computer model, so that we can, for example, see the effect of changing time from arrival at hospital to receiving a brain scan. We will extend our previous computer model by including new information from ambulances. We will also use staffing data to examine how staffing levels affect performance.</p>
 <p>We will explore outcomes for patients measured in “Quality Adjusted Life Years”, which will allow comparison with other treatments for other conditions. This allows us to explore the cost-effectiveness of making changes to the care pathway. This is the system used by NICE to weigh up whether treatments should be provided by the NHS or not.</p>
 <p>We will do research to better understand how doctors would use this tool to improve the care that they give, and how we can make it more engaging for doctors and other staff. We plan to pick a set of doctors we can talk with through the lifetime of the project, sharing knowledge between us throughout the project. They will act as our expert resource.</p>
-</section>
-<section id="patient-and-public-involvement">
+</div>
+<div class="section" id="patient-and-public-involvement">
 <h2>PATIENT AND PUBLIC INVOLVEMENT<a class="headerlink" href="#patient-and-public-involvement" title="Permalink to this headline">¶</a></h2>
 <p>A stroke survivor has been involved in our previous work and is a co-applicant here. We will hold four ‘patient voice’ workshops throughout the project, so that we can be guided by the views of people with stroke in how best to present our findings to the NHS and the public.</p>
-</section>
-<section id="dissemination">
+</div>
+<div class="section" id="dissemination">
 <h2>DISSEMINATION<a class="headerlink" href="#dissemination" title="Permalink to this headline">¶</a></h2>
 <p>The outputs of this work will be built into the quarterly national stroke audit that feeds back results to all stroke teams across the UK. Additionally, we will work with the NHS ‘Stroke Delivery Networks’, present our work at stroke conferences, and publish our results through scientific journals.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

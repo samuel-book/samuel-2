@@ -24,6 +24,8 @@ The notebooks are:
 
 * *Investigating the output of neural net embedding subnets*:  Investigate the output of the hospital and clinical subnets of the embedding neural network. 1) Examine the link between hospital subnet output and use of thrombolysis in hospitals - both the actual thrombolysis use, and the predicted thrombolysis use of a 10k set of patients passed through all hopsital moodels. 2) Examine the link between the patient clinical feature subnet output and the use of thrombolysis, and the link between patient features and the clinical feature subnet output.
 
+* *Train an embedding neural network to discern 'contentious patients' from those with high agreement to thrombolyse*: In this notebook we use a pre-trained model (embedding neural network with 1D embedding, use to test a 10k cohort of patients) to predict thrombolysis use of all patients at all hospitals. Patients are then split into three groups: 1) *Agree not to thrombolyse*: Few than 25% of hospitals would give thrombolysis, 2) *Contentious*: 25% to 75% would give thrombolysis, 3) *Agree to thrombolyse*: More than 75% of hospitals would give thrombolysis. We then train an embedding neural network model (using patient and pwathway data subsets) to distinguisg between *Contentious* and *Agree to thrombolyse*. This is saved for more detailed analysis in a subsequent notebook.
+
 
 
 
