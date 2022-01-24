@@ -16,6 +16,11 @@ parts:
     - file: samuel_1/neural_net/003a_generate_1d_nets_for_10k
     - file: samuel_1/neural_net/003b_analyse_10k_1d_modular
     - file: samuel_1/neural_net/04a_predict_contentious_patients
+- caption: Demo of synthetic data method
+  chapters:
+  - file: synthetic_data_demo/outline
+    sections:
+    - file: synthetic_data_demo/01_synthetic_titanic_data _SMOTE
   
 
 
