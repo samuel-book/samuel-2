@@ -463,52 +463,52 @@
 <section id="overview-of-code-sections">
 <h2>Overview of code sections<a class="headerlink" href="#overview-of-code-sections" title="Permalink to this headline">¶</a></h2>
 <p>Below is an outline of this notebook.</p>
-<ol class="simple">
+<ul class="simple">
 <li><p>Load packages</p></li>
 <li><p>Load and process data</p>
-<ol class="simple">
+<ul>
 <li><p>Load data</p></li>
 <li><p>Divide into X (features) and y (labels)</p></li>
 <li><p>Divide into training and test sets</p></li>
 <li><p>Standardise data</p></li>
-</ol>
+</ul>
 </li>
 <li><p>Fit and test logistic regression model on real data</p>
-<ol class="simple">
+<ul>
 <li><p>Fit model</p></li>
 <li><p>Predict values</p></li>
 <li><p>Calculate accuracy</p></li>
-</ol>
+</ul>
 </li>
 <li><p>Make Synthetic data</p>
-<ol class="simple">
-<li><p>Function to create synethetic data</p></li>
+<ul>
+<li><p>Function to create synthetic data</p></li>
 <li><p>Generate raw synthetic data</p></li>
 <li><p>Processing of raw synthetic data</p>
-<ol class="simple">
+<ul>
 <li><p>Prepare lists of categorical, integer, and binary features</p></li>
 <li><p>Function to process raw synthetic categorical data to one-hot encoded</p></li>
 <li><p>Process raw synthetic data</p></li>
-</ol>
+</ul>
 </li>
 <li><p>Remove synthetic data that is a duplication of original data or close to original data</p>
-<ol class="simple">
+<ul>
 <li><p>Remove identical points</p></li>
 <li><p>Remove closest points to original data</p></li>
-</ol>
+</ul>
 </li>
 <li><p>Show five examples with their closest data points in the original data</p></li>
 <li><p>Sample from synthetic data to get same size/balance as the original data</p></li>
-</ol>
+</ul>
 </li>
 <li><p>Comparison of real and synthetic data</p></li>
 <li><p>Test synthetic data for training a logistic regression model</p>
-<ol class="simple">
+<ul>
 <li><p>Fit model using synthetic data and check accuracy</p></li>
 <li><p>Receiver Operator Characteristic curves</p></li>
-</ol>
+</ul>
 </li>
-</ol>
+</ul>
 </section>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
