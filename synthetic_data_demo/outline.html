@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to SAMueL-2 (Stroke Audit Machine Learning) &#8212; SAMueL Stroke Audit Machine Learning 2</title>
+    <title>Outline - what is in this section? &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,7 +52,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Research plan (plain English summary)" href="plain_english_plan.html" />
+    <link rel="next" title="Creating synthetic Titanic passenger data with SMOTE" href="01_synthetic_titanic_data%20_SMOTE.html" />
+    <link rel="prev" title="Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse" href="../samuel_1/neural_net/04a_predict_contentious_patients.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,8 +83,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/intro.html">
    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
   </a>
  </li>
@@ -95,12 +96,12 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="plain_english_plan.html">
+  <a class="reference internal" href="../introduction/plain_english_plan.html">
    Research plan (plain English summary)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plan.html">
+  <a class="reference internal" href="../introduction/plan.html">
    Research plan (detailed)
   </a>
  </li>
@@ -164,19 +165,19 @@
   Demo of synethetic data method
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../synthetic_data_demo/outline.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Outline - what is in this section?
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../synthetic_data_demo/01_synthetic_titanic_data%20_SMOTE.html">
+    <a class="reference internal" href="01_synthetic_titanic_data%20_SMOTE.html">
      Creating synthetic Titanic passenger data with SMOTE
     </a>
    </li>
@@ -223,7 +224,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/introduction/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/synthetic_data_demo/outline.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -248,36 +249,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-research">
-   Summary of research
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#background-and-overall-aim">
-     BACKGROUND AND OVERALL AIM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specific-objectives">
-     SPECIFIC OBJECTIVES
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#previous-work-samuel-1">
-   Previous work (SAMueL-1)
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -286,44 +257,12 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-samuel-2-stroke-audit-machine-learning">
-<h1>Introduction to SAMueL-2 (Stroke Audit Machine Learning)<a class="headerlink" href="#introduction-to-samuel-2-stroke-audit-machine-learning" title="Permalink to this headline">¶</a></h1>
-<p><strong>Use of simulation and machine learning to identify key levers for maximising the disability benefit of intravenous thrombolysis in acute stroke pathways</strong></p>
-<blockquote class="epigraph">
-<div><p>“Your decision to treat or not treat … That’s the difficult part. That’s the grey area where everyone does a different thing.”</p>
-<p class="attribution">—Stroke Consultant during interviews for SAMueL-1</p>
-</div></blockquote>
-<section id="summary-of-research">
-<h2>Summary of research<a class="headerlink" href="#summary-of-research" title="Permalink to this headline">¶</a></h2>
-<section id="background-and-overall-aim">
-<h3>BACKGROUND AND OVERALL AIM<a class="headerlink" href="#background-and-overall-aim" title="Permalink to this headline">¶</a></h3>
-<p>In England and Wales, 11%-12% of emergency stroke patients receive thrombolysis, significantly below the NHS Long Term Plan target of 20% by 2025.</p>
-<p>The overall aim of SAMUeL-2 is to work with the Sentinel Stroke National Audit Programme (SSNAP) to increase the impact of national audit by providing advanced tools for in-depth comparisons between hospitals, helping to address the gap between actual and achievable thrombolysis use.</p>
-<p>In previous work (SAMueL-1) we have used clinical pathway simulation and machine learning to model stroke pathways to thrombolysis at all (anonymised) hospitals, and to compare decision-making between hospitals. We found that about half of the current inter-hospital variation in thrombolysis use comes from differences in local patient populations and the other half from differences in hospital processes and decision-making. We found that stroke thrombolysis use could be reasonably expected to reach 18%-19% of hospitalised stroke patients. The largest single improvement would come from clinical decision-making at all hospitals being similar to 30 top- ‘benchmark’ hospitals with higher thrombolysis use. The next largest improvement would come from increasing the proportion of stroke patients whose stroke onset time is determined, to a level currently achieved by hospitals achieving upper quartile performance. Finally, speeding the stroke pathway at all hospitals would increase thrombolysis use, but by the smallest margin - although speeding the stroke pathway increases the clinical benefit of thrombolysis for all treated patients.</p>
-</section>
-<section id="specific-objectives">
-<h3>SPECIFIC OBJECTIVES<a class="headerlink" href="#specific-objectives" title="Permalink to this headline">¶</a></h3>
-<p>Specific objectives are based on feedback received during SAMueL-1, and feedback on the SAMueL-2 bid proposal.</p>
-<ol class="simple">
-<li><p>Expansion of SAMueL-1 modelling to include: 1) outcome and adverse event prediction at patient-level, 2) inclusion of pre-hospital times in pathway model, 3) use of organisational factors (such as staffing) in predicting use of thrombolysis, and 4) piloting of a model that incorporates use of thrombectomy alongside thrombolysis.</p></li>
-<li><p>Incorporation of health economic outcomes (Quality Adjusted Life Years): These will be adapted from other NIHR projects involving this team that have already developed health economic models for thrombolysis in acute ischaemic stroke.</p></li>
-<li><p>Promote acceptance of the modelling by increased transparency and explainability: 1) make use of Shapley values to show the contribution of individual features to the prediction that the model is making, 2) improved methods for clustering of patients to clarify patterns of differences in clinical decision-making between hospitals and to allow identification of ‘similar hospitals’ (by patient population) for comparison, 3) investigation of bias in model (e.g. accuracy analysis by patient subgroups), 4) generation of dashboards and other interrogative methods.</p></li>
-<li><p>Generation of synthetic data and artificial patient vignettes: 1) build on pilot work already performed for generating synthetic patient-level stroke data that may be shared freely and used for discussion of ’virtual’ patients, 2) automatic generation of artificial clinical vignettes from real or synthetic SSNAP data.</p></li>
-<li><p>Co-production of project outputs with clinicians to promote acceptance and use for local quality improvement: By using both information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the content and style of our intervention (SAMueL tool). Working with our Public and Patient Involvement (PPI) group we will also produce key public-facing output.</p></li>
-</ol>
-</section>
-</section>
-<section id="previous-work-samuel-1">
-<h2>Previous work (SAMueL-1)<a class="headerlink" href="#previous-work-samuel-1" title="Permalink to this headline">¶</a></h2>
-<p>An online Jupyter book for our previous work, SAMueL-1, may be found at: <a class="reference external" href="https://samuel-book.github.io/samuel-1/">https://samuel-book.github.io/samuel-1/</a></p>
-<p>Summary videos for SAMueL-1</p>
-<p>Short (10 min): <a class="reference external" href="https://youtu.be/d7Z0dpU3iiM">https://youtu.be/d7Z0dpU3iiM</a></p>
-<p>Long (45 min): <a class="reference external" href="https://youtu.be/6UXdEF9Hrbw">https://youtu.be/6UXdEF9Hrbw</a></p>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="outline-what-is-in-this-section">
+<h1>Outline - what is in this section?<a class="headerlink" href="#outline-what-is-in-this-section" title="Permalink to this headline">¶</a></h1>
+<p>This section demonstrates generation of synthetic data. Synthetic data may be useful to share when it is not possible to share original data. As we cannot demonstrate methods with original SAMueL data, here we use original Titanic passenger data to create new synthetic passenger data. We then train a logistic model on that synthetic data and test on real data that was not used to create the synthetic data.</p>
+<ul class="simple">
+<li><p><em>Creating synthetic Titanic passenger data with SMOTE</em> Use of SMOTE (Synthetic Minority Oversamplying Technique) to generate synthetic data.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -341,7 +280,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./introduction"
+            path: "./synthetic_data_demo"
         },
         predefinedOutput: true
     }
@@ -357,11 +296,20 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../samuel_1/neural_net/04a_predict_contentious_patients.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Train an embedding neural network to discern ‘contentious patients’ from those with high agreement to thrombolyse</p>
+            </div>
+        </a>
+    </div>
      <div id="next">
-        <a class="right-next" href="plain_english_plan.html" title="next page">
+        <a class="right-next" href="01_synthetic_titanic_data%20_SMOTE.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Research plan (plain English summary)</p>
+                <p class="prevnext-title">Creating synthetic Titanic passenger data with SMOTE</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
