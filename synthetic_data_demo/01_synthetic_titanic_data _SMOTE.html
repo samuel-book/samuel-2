@@ -52,6 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating synthetic SAMUeL data data with SMOTE" href="02a_synthetic_samuel1_data%20_SMOTE.html" />
     <link rel="prev" title="Outline - what is in this section?" href="outline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -178,6 +179,31 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Creating synthetic Titanic passenger data with SMOTE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02a_synthetic_samuel1_data%20_SMOTE.html">
+     Creating synthetic SAMUeL data  data with SMOTE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02b_test_synthetic_descriptive.html">
+     Testing of SAMueL-1 synthetic data: descriptive statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02c_compare_real_synthetic_distances.html">
+     Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02d_test_synthetic_random_forest.html">
+     Testing of SAMueL-1 synthetic data: random forest model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02e_test_synthetic_logistic_regression.html">
+     Testing of SAMueL-1 synthetic data: logistic regression model
     </a>
    </li>
   </ul>
@@ -436,7 +462,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="creating-synthetic-titanic-passenger-data-with-smote">
 <h1>Creating synthetic Titanic passenger data with SMOTE<a class="headerlink" href="#creating-synthetic-titanic-passenger-data-with-smote" title="Permalink to this headline">¶</a></h1>
 <p>Synthetic data may be useful to share when it is not possible to share original data.</p>
-<p>As we cannot demonstrate methods with original SAMueL data, here we use original Titanic passenger data to create new synthetic passenger data. We then train a logistic model on that synthetic data and test on real data that was not used to create the synthetic data.</p>
+<p>As we cannot prvode access to the original SAMueL data, here we use original Titanic passenger data to create new synthetic passenger data (the notebook will download the appropriate data, so may be replacted). We then train a logistic model on that synthetic data and test on real data that was not used to create the synthetic data.</p>
 <section id="description-of-smote">
 <h2>Description of SMOTE<a class="headerlink" href="#description-of-smote" title="Permalink to this headline">¶</a></h2>
 <p>SMOTE stands for Synthetic Minority Oversampling Technique [1]. SMOTE is more commonly used to create additional data to enhance modelling fitting, especially when one or more classes have low prevalence in the data set. Hence the description of <em>oversampling</em>.</p>
@@ -1987,7 +2013,7 @@ Accuracy of predicting test data = 0.771
 
 <span class="c1"># Reconstruct into synth_df and shuffle</span>
 <span class="n">synth_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">synth_died</span><span class="p">,</span> <span class="n">synth_survived</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">synth_df</span> <span class="o">=</span> <span class="n">synth_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">synth_df</span> <span class="o">=</span> <span class="n">synth_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2237,6 +2263,15 @@ ROC AUC synthetic training data: 0.82
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="02a_synthetic_samuel1_data%20_SMOTE.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Creating synthetic SAMUeL data  data with SMOTE</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
