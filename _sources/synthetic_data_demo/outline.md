@@ -3,7 +3,7 @@
 This section demonstrates generation of synthetic data based on SAMueL-1 data. 
 
 
-* *Creating synthetic Titanic passenger data with SMOTE*: Use of SMOTE (Synthetic Minority Oversamplying Technique) to generate synthetic data. This demonstration of the method uses Titanic passenger survival data to demonstrate the SMOTE method of creating synthetic data (this may be reproduced).
+* [*Creating synthetic Titanic passenger data with SMOTE*](https://samuel-book.github.io/samuel-2/synthetic_data_demo/01_synthetic_titanic_data%20_SMOTE.html): Use of SMOTE (Synthetic Minority Oversamplying Technique) to generate synthetic data. This demonstration of the method uses Titanic passenger survival data to demonstrate the SMOTE method of creating synthetic data (this may be reproduced).
 
 * *Creating synthetic SAMUeL data  data with SMOTE*: Generation of synthetic SAMueL data using SMOTE.
 
