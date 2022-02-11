@@ -520,10 +520,11 @@
 <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train_std_df</span><span class="p">)</span>
 
 <span class="c1"># To get Shapley values for test set alone:</span>
-<span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_test_std_df</span><span class="p">)</span>
+<span class="c1">#shap_values = explainer.shap_values(X_test_std_df)</span>
 
 <span class="c1"># Get Shapley values along with base and features</span>
 <span class="n">shap_values_extended</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X_test_std_df</span><span class="p">)</span>
+<span class="n">shap_values</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># Get mean Shap values for each feature</span>
 <span class="n">shap_values_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
