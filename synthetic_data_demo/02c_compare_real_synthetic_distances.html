@@ -498,10 +498,12 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample 4 synthetic data points</span>
 <span class="n">synth_examples</span> <span class="o">=</span> <span class="n">synthetic_data_with_distance</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">synth_examples</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;StrokeTeam&#39;</span><span class="p">,</span> <span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">synth_examples</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./synth_examples/synth_examples.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># Get IDs for nearest neighboour (in orignal data)</span>
 <span class="n">ids</span> <span class="o">=</span> <span class="n">synth_examples</span><span class="p">[</span><span class="s1">&#39;nn_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">real_examples</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">ids</span><span class="p">]</span>
+<span class="n">real_examples</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./synth_examples/closest_real.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># Standardise</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;StrokeTeam&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -562,7 +564,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c_compare_real_synthetic_distances_14_0.png" src="../_images/02c_compare_real_synthetic_distances_14_0.png" />
+<img alt="../_images/02c_compare_real_synthetic_distances_13_0.png" src="../_images/02c_compare_real_synthetic_distances_13_0.png" />
 </div>
 </div>
 </section>
@@ -623,7 +625,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c_compare_real_synthetic_distances_22_0.png" src="../_images/02c_compare_real_synthetic_distances_22_0.png" />
+<img alt="../_images/02c_compare_real_synthetic_distances_21_0.png" src="../_images/02c_compare_real_synthetic_distances_21_0.png" />
 </div>
 </div>
 <p>Show summary statistics</p>
