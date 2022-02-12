@@ -711,6 +711,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/02c_compare_real_synthetic_distances_25_0.png" src="../_images/02c_compare_real_synthetic_distances_25_0.png" />
+</div>
 </div>
 <p>Show summary statistics</p>
 <div class="cell docutils container">
@@ -727,6 +730,48 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean</th>
+      <th>stdev</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Real-Real</th>
+      <td>5.34</td>
+      <td>1.68</td>
+    </tr>
+    <tr>
+      <th>Synthetic-Real</th>
+      <td>1.8</td>
+      <td>0.88</td>
+    </tr>
+    <tr>
+      <th>Synthetic-Synthetic</th>
+      <td>2.96</td>
+      <td>2.16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Proportion of points with effectively zero distance (identical points).</p>
 <div class="cell docutils container">
@@ -737,6 +782,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Proportion identical between real and synthetic data: &#39;</span><span class="p">,</span> <span class="n">identical</span><span class="p">)</span>
 <span class="n">identical</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dist_synthetic_synthetic</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Proportion identical within synthetic data: &#39;</span><span class="p">,</span> <span class="n">identical</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion identical points within real data:  0.0
+Proportion identical between real and synthetic data:  0.0
+Proportion identical within synthetic data:  0.002
 </pre></div>
 </div>
 </div>
