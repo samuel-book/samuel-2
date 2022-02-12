@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Explaining logistic regression model predictions with Shapley values &#8212; SAMueL Stroke Audit Machine Learning 2</title>
+    <title>Explaining random forest model predictions with Shapley values &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,8 +52,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Explaining random forest model predictions with Shapley values" href="02_rf_shap.html" />
-    <link rel="prev" title="What is in this section?" href="outline.html" />
+    <link rel="next" title="Outline - what is in this section?" href="../../synthetic_data_demo/outline.html" />
+    <link rel="prev" title="Explaining logistic regression model predictions with Shapley values" href="01_log_reg_shap.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -176,13 +176,13 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_log_reg_shap.html">
      Explaining logistic regression model predictions with Shapley values
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_rf_shap.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Explaining random forest model predictions with Shapley values
     </a>
    </li>
@@ -278,7 +278,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/samuel_1/shap/01_log_reg_shap.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/samuel_1/shap/02_rf_shap.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -319,13 +319,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#function-to-standardise-data">
-   Function to standardise data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fit-logistic-regression-model">
-   Fit logistic regression model
+  <a class="reference internal nav-link" href="#fit-random-forest-model">
+   Fit random forest model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -351,11 +346,6 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-most-influential-features">
      Plot most influential features
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bar-chart-for-individual-case">
-     Bar chart for individual case
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -386,14 +376,14 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="explaining-logistic-regression-model-predictions-with-shapley-values">
-<h1>Explaining logistic regression model predictions with Shapley values<a class="headerlink" href="#explaining-logistic-regression-model-predictions-with-shapley-values" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="explaining-random-forest-model-predictions-with-shapley-values">
+<h1>Explaining random forest model predictions with Shapley values<a class="headerlink" href="#explaining-random-forest-model-predictions-with-shapley-values" title="Permalink to this headline">¶</a></h1>
 <p>Shapley values provide an estimate of how much any particular feature influences the model decision. When Shapley values are averaged they provide a measure of the overall influence of a feature.</p>
 <p>Shapley values may be used across model types, and so provide a model-agnostic measure of a feature’s influence. This means that the influence of features may be compared across model types, and it allows black box models like neural networks to be explained, at least in part.</p>
 <p>For more on Shapley values in general see Chris Molner’s excellent book chapter:</p>
 <p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/shapley.html">https://christophm.github.io/interpretable-ml-book/shapley.html</a></p>
 <p>More information on the shap library, inclusiong lots of useful examples may be found at: <a class="reference external" href="https://shap.readthedocs.io/en/latest/index.html">https://shap.readthedocs.io/en/latest/index.html</a></p>
-<p>Here we provide an example of using shap with logistic regression.</p>
+<p>Here we provide an example of using shap with random forests.</p>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -405,10 +395,10 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">shap</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 </pre></div>
 </div>
 </div>
@@ -423,44 +413,15 @@
 
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;train_0.csv&#39;</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;test_0.csv&#39;</span><span class="p">)</span>
+<span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2500</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="function-to-standardise-data">
-<h2>Function to standardise data<a class="headerlink" href="#function-to-standardise-data" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardise_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts all data to a similar scale.</span>
-<span class="sd">    Standardisation subtracts mean and divides by standard deviation</span>
-<span class="sd">    for each feature.</span>
-<span class="sd">    Standardised data will have a mena of 0 and standard deviation of 1.</span>
-<span class="sd">    The training data mean and standard deviation is used to standardise both</span>
-<span class="sd">    training and test set data.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    
-    <span class="c1"># Initialise a new scaling object for normalising input data</span>
-    <span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span> 
-
-    <span class="c1"># Set up the scaler just on the training set</span>
-    <span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-
-    <span class="c1"># Apply the scaler to the training and test sets</span>
-    <span class="n">train_std</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-    <span class="n">test_std</span><span class="o">=</span><span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">train_std</span><span class="p">,</span> <span class="n">test_std</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="fit-logistic-regression-model">
-<h2>Fit logistic regression model<a class="headerlink" href="#fit-logistic-regression-model" title="Permalink to this headline">¶</a></h2>
-<p>Fit model and get feature weights (coefficients).</p>
+<section id="fit-random-forest-model">
+<h2>Fit random forest model<a class="headerlink" href="#fit-random-forest-model" title="Permalink to this headline">¶</a></h2>
+<p>Fit model and get feature importances.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get X and y</span>
@@ -477,24 +438,21 @@
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">X_test</span><span class="p">,</span> <span class="n">X_test_hosp</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;StrokeTeam&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># Standardise X data</span>
-<span class="n">X_train_std</span><span class="p">,</span> <span class="n">X_test_std</span> <span class="o">=</span> <span class="n">standardise_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)</span>
-
 <span class="c1"># Define and Fit model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Get feature weights</span>
 <span class="n">features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">feature_weights</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
-<span class="n">weights</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature_weights</span>
-<span class="n">weights</span><span class="p">[</span><span class="s1">&#39;abs_weights&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">feature_weights</span><span class="p">)</span>
-<span class="n">weights</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="p">[</span><span class="s1">&#39;abs_weights&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">feature_importances</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
+<span class="n">importances</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature_importances</span>
+<span class="n">importances</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">importances</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># Get predicted class and ptrobability</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_std</span><span class="p">)</span>
-<span class="n">y_prob</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_std</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_prob</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># Measure accuracy</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">)</span>
@@ -503,7 +461,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.831
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.836
 </pre></div>
 </div>
 </div>
@@ -513,25 +471,40 @@
 <h2>Shap values<a class="headerlink" href="#shap-values" title="Permalink to this headline">¶</a></h2>
 <section id="get-shap-values">
 <h3>Get Shap values<a class="headerlink" href="#get-shap-values" title="Permalink to this headline">¶</a></h3>
-<p>We will get the Shap values for the test set.</p>
+<p>We will get the Shap values for the test set. Can chose to calculate shap and save, or load shap explainer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We pass data to Shap as a DataFrame with feature names</span>
-<span class="n">X_train_std_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_train_std</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
-<span class="n">X_test_std_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_test_std</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_shap_values</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="c1"># Set up explainer using typical feature values from training set</span>
-<span class="c1"># Note: Use a sample of 100-1000 for this if explainer too slow</span>
-<span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train_std_df</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">calculate_shap_values</span><span class="p">:</span>
 
-<span class="c1"># To get Shapley values for test set alone:</span>
-<span class="c1">#shap_values = explainer.shap_values(X_test_std_df)</span>
+    <span class="c1"># Set up explainer using typical feature values from training set</span>
+    <span class="c1"># Note: Use a sample of 100-1000 for this if explainer too slow</span>
+    <span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">Explainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-<span class="c1"># Get Shapley values along with base and features</span>
-<span class="n">shap_values_extended</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X_test_std_df</span><span class="p">)</span>
-<span class="n">shap_values</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">values</span>
-
-<span class="c1"># Get mean Shap values for each feature</span>
+    <span class="c1"># Get Shapley values along with base and features</span>
+    <span class="n">shap_values_extended</span> <span class="o">=</span> <span class="n">explainer</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="c1"># Shap values exist for each classification in a Tree; 1=give thrombolysis</span>
+    <span class="n">shap_values</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">values</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Save using pickle</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;./output/shap_values_extended_rf1.p&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filehandler</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">,</span> <span class="n">filehandler</span><span class="p">)</span>
+        
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Load preloaded explainer</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;./output/shap_values_extended_rf1.p&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filehandler</span><span class="p">:</span> 
+        <span class="n">shap_values_extended</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filehandler</span><span class="p">)</span>
+        <span class="n">shap_values</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">values</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get mean Shap values for each feature</span>
 <span class="n">shap_values_mean</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
 <span class="n">shap_values_mean</span><span class="p">[</span><span class="s1">&#39;mean_shap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">shap_values_mean</span><span class="p">[</span><span class="s1">&#39;abs_mean_shap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">shap_values_mean</span><span class="p">)</span>
@@ -547,8 +520,8 @@
 <h3>Compare top 10 weights and Shap values<a class="headerlink" href="#compare-top-10-weights-and-shap-values" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_10_weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;abs_weights&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">top_10_weights</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">top_10_importances</span> <span class="o">=</span> <span class="n">importances</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">top_10_importances</span>
 </pre></div>
 </div>
 </div>
@@ -571,70 +544,59 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>weights</th>
-      <th>abs_weights</th>
+      <th>importance</th>
       <th>rank</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-18.407621</td>
-      <td>18.407621</td>
+      <td>0.102362</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Infarction</th>
-      <td>2.649371</td>
-      <td>2.649371</td>
+      <th>S2NihssArrival</th>
+      <td>0.086858</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>-2.644069</td>
-      <td>2.644069</td>
+      <th>S2StrokeType_Infarction</th>
+      <td>0.059603</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>S2RankinBeforeStroke</th>
-      <td>-0.503195</td>
-      <td>0.503195</td>
+      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
+      <td>0.059196</td>
       <td>4.0</td>
     </tr>
     <tr>
-      <th>AFAnticoagulent_Yes</th>
-      <td>-0.394638</td>
-      <td>0.394638</td>
+      <th>S1OnsetToArrival_min</th>
+      <td>0.040954</td>
       <td>5.0</td>
     </tr>
     <tr>
-      <th>Loc</th>
-      <td>-0.374935</td>
-      <td>0.374935</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>0.033480</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>BestLanguage</th>
-      <td>0.306445</td>
-      <td>0.306445</td>
+      <th>S2RankinBeforeStroke</th>
+      <td>0.025741</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.292375</td>
-      <td>0.292375</td>
+      <th>FacialPalsy</th>
+      <td>0.023850</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>-0.292375</td>
-      <td>0.292375</td>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.022783</td>
       <td>9.0</td>
     </tr>
     <tr>
-      <th>S1OnsetDateType_Stroke during sleep</th>
-      <td>-0.290345</td>
-      <td>0.290345</td>
+      <th>S1AgeOnArrival</th>
+      <td>0.022526</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -678,72 +640,72 @@
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-1.096812</td>
-      <td>1.096812</td>
-      <td>2.307967</td>
+      <td>-0.009243</td>
+      <td>0.009243</td>
+      <td>0.075903</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Infarction</th>
-      <td>0.380828</td>
-      <td>0.380828</td>
-      <td>2.139826</td>
+      <th>S2NihssArrival</th>
+      <td>-0.006513</td>
+      <td>0.006513</td>
+      <td>0.075801</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>0.392925</td>
-      <td>0.392925</td>
-      <td>2.137777</td>
+      <th>S2RankinBeforeStroke</th>
+      <td>0.005287</td>
+      <td>0.005287</td>
+      <td>0.035045</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>S2RankinBeforeStroke</th>
-      <td>-0.037584</td>
-      <td>0.037584</td>
-      <td>0.405996</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>-0.025048</td>
+      <td>0.025048</td>
+      <td>0.031703</td>
       <td>4.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.013593</td>
-      <td>0.013593</td>
-      <td>0.286391</td>
+      <th>S2StrokeType_Infarction</th>
+      <td>-0.027444</td>
+      <td>0.027444</td>
+      <td>0.027444</td>
       <td>5.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>0.013593</td>
-      <td>0.013593</td>
-      <td>0.286391</td>
+      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
+      <td>-0.026983</td>
+      <td>0.026983</td>
+      <td>0.026983</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>AFAnticoagulent_Yes</th>
-      <td>0.009187</td>
-      <td>0.009187</td>
-      <td>0.266622</td>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>-0.018714</td>
+      <td>0.018714</td>
+      <td>0.023534</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>BestLanguage</th>
-      <td>0.050849</td>
-      <td>0.050849</td>
-      <td>0.258668</td>
+      <th>S1OnsetToArrival_min</th>
+      <td>0.006352</td>
+      <td>0.006352</td>
+      <td>0.021027</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>Loc</th>
-      <td>-0.028140</td>
-      <td>0.028140</td>
-      <td>0.230644</td>
+      <th>AFAnticoagulent_Yes</th>
+      <td>-0.002829</td>
+      <td>0.002829</td>
+      <td>0.019984</td>
       <td>9.0</td>
     </tr>
     <tr>
-      <th>S1OnsetToArrival_min</th>
-      <td>-0.024913</td>
-      <td>0.024913</td>
-      <td>0.220878</td>
+      <th>BestLanguage</th>
+      <td>0.008029</td>
+      <td>0.008029</td>
+      <td>0.019793</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -753,7 +715,7 @@
 <p>Get intersection between top 10 weights and top 10 Shap values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intersection</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">top_10_weights</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">top_10_shap</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intersection</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">top_10_importances</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">top_10_shap</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of intersection values = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">intersection</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Intersecting values:&#39;</span><span class="p">)</span>
 <span class="n">intersection</span>
@@ -761,20 +723,19 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of intersection values = 9
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of intersection values = 8
 
 Intersecting values:
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;S2BrainImagingTime_min&#39;,
+ &#39;S2NihssArrival&#39;,
  &#39;S2StrokeType_Infarction&#39;,
  &#39;S2StrokeType_Primary Intracerebral Haemorrhage&#39;,
+ &#39;S1OnsetToArrival_min&#39;,
+ &#39;S1OnsetTimeType_Best estimate&#39;,
  &#39;S2RankinBeforeStroke&#39;,
- &#39;AFAnticoagulent_Yes&#39;,
- &#39;Loc&#39;,
- &#39;BestLanguage&#39;,
- &#39;S1OnsetTimeType_Precise&#39;,
- &#39;S1OnsetTimeType_Best estimate&#39;]
+ &#39;S1OnsetTimeType_Precise&#39;]
 </pre></div>
 </div>
 </div>
@@ -786,43 +747,30 @@ Intersecting values:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">],</span> <span class="n">shap_values_mean</span><span class="p">[</span><span class="s1">&#39;mean_shap&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">importances</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">],</span> <span class="n">shap_values_mean</span><span class="p">[</span><span class="s1">&#39;mean_abs_shap&#39;</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature weight&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature importance&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Feature shap&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_18_0.png" src="../../_images/01_log_reg_shap_18_0.png" />
+<img alt="../../_images/02_rf_shap_17_0.png" src="../../_images/02_rf_shap_17_0.png" />
 </div>
 </div>
 </section>
 <section id="plot-most-influential-features">
 <h3>Plot most influential features<a class="headerlink" href="#plot-most-influential-features" title="Permalink to this headline">¶</a></h3>
-<p>This is a plot of the mean ansolute Shap values.</p>
+<p>This is a plot of the mean absolute Shap values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># default is max_display=12</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_20_0.png" src="../../_images/01_log_reg_shap_20_0.png" />
-</div>
-</div>
-</section>
-<section id="bar-chart-for-individual-case">
-<h3>Bar chart for individual case<a class="headerlink" href="#bar-chart-for-individual-case" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># For the first observation</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_22_0.png" src="../../_images/01_log_reg_shap_22_0.png" />
+<img alt="../../_images/02_rf_shap_19_0.png" src="../../_images/02_rf_shap_19_0.png" />
 </div>
 </div>
 </section>
@@ -834,17 +782,16 @@ Intersecting values:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="o">=</span><span class="n">shap_values</span><span class="p">,</span> 
-                  <span class="n">features</span><span class="o">=</span><span class="n">X_test_std</span><span class="p">,</span>
+                  <span class="n">features</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
                   <span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> 
                   <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">),</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="c1"># Truncate x axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_24_0.png" src="../../_images/01_log_reg_shap_24_0.png" />
+<img alt="../../_images/02_rf_shap_21_0.png" src="../../_images/02_rf_shap_21_0.png" />
 </div>
 </div>
 </section>
@@ -857,30 +804,30 @@ Intersecting values:
 <span class="c1"># is &lt;0.01 or &gt;0.99</span>
 
 <span class="n">location_low_probability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_prob</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">location_high_probability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_prob</span> <span class="o">&gt;</span> <span class="mf">0.99</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">location_high_probability</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_prob</span> <span class="o">&gt;</span> <span class="mf">0.95</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Example of a person with low probability of receiving thrombolysis.</p>
+<p>An example with low probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> 
                      <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_28_0.png" src="../../_images/01_log_reg_shap_28_0.png" />
+<img alt="../../_images/02_rf_shap_25_0.png" src="../../_images/02_rf_shap_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">location_low_probability</span>
 
-<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test_std_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
+<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
 <span class="n">shap_values_instance</span> <span class="o">=</span> <span class="n">shap_values</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
-<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
+<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The base value is </span><span class="si">{</span><span class="n">expected_value</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)&quot;</span><span class="p">)</span>
 
@@ -889,32 +836,32 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.41
 Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_29_1.png" src="../../_images/01_log_reg_shap_29_1.png" />
+<img alt="../../_images/02_rf_shap_26_1.png" src="../../_images/02_rf_shap_26_1.png" />
 </div>
 </div>
-<p>Example of a person high low probability of receiving thrombolysis.</p>
+<p>An example with high probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> 
                      <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_31_0.png" src="../../_images/01_log_reg_shap_31_0.png" />
+<img alt="../../_images/02_rf_shap_28_0.png" src="../../_images/02_rf_shap_28_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">location_high_probability</span>
 
-<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test_std_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
+<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
 <span class="n">shap_values_instance</span> <span class="o">=</span> <span class="n">shap_values</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
-<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
+<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The base value is </span><span class="si">{</span><span class="n">expected_value</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)&quot;</span><span class="p">)</span>
 
@@ -923,11 +870,11 @@ Chart is dislaying in brackets the standardised feature values (model was traine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.41
 Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_32_1.png" src="../../_images/01_log_reg_shap_32_1.png" />
+<img alt="../../_images/02_rf_shap_29_1.png" src="../../_images/02_rf_shap_29_1.png" />
 </div>
 </div>
 </section>
@@ -938,15 +885,62 @@ Chart is dislaying in brackets the standardised feature values (model was traine
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feat_to_show</span> <span class="o">=</span> <span class="n">top_10_shap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feat_to_show</span><span class="p">:</span>
-    <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[:,</span> <span class="n">feat</span><span class="p">],</span> <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[:,</span> <span class="n">feat</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_34_0.png" src="../../_images/01_log_reg_shap_34_0.png" />
-<img alt="../../_images/01_log_reg_shap_34_1.png" src="../../_images/01_log_reg_shap_34_1.png" />
-<img alt="../../_images/01_log_reg_shap_34_2.png" src="../../_images/01_log_reg_shap_34_2.png" />
-<img alt="../../_images/01_log_reg_shap_34_3.png" src="../../_images/01_log_reg_shap_34_3.png" />
+<img alt="../../_images/02_rf_shap_31_0.png" src="../../_images/02_rf_shap_31_0.png" />
+<img alt="../../_images/02_rf_shap_31_1.png" src="../../_images/02_rf_shap_31_1.png" />
+<img alt="../../_images/02_rf_shap_31_2.png" src="../../_images/02_rf_shap_31_2.png" />
+<img alt="../../_images/02_rf_shap_31_3.png" src="../../_images/02_rf_shap_31_3.png" />
+</div>
+</div>
+<p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[:,</span> <span class="s1">&#39;S2BrainImagingTime_min&#39;</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> 
+                   <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 400.0)
+</pre></div>
+</div>
+<img alt="../../_images/02_rf_shap_33_1.png" src="../../_images/02_rf_shap_33_1.png" />
+</div>
+</div>
+<p>Show mean shap by NIHSS on arrival.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feat</span> <span class="o">=</span> <span class="s1">&#39;S2NihssArrival&#39;</span>
+<span class="n">instance_data</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="p">[:,</span> <span class="n">feat</span><span class="p">][:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">data_extract</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">data_extract</span><span class="p">[</span><span class="s1">&#39;feat_value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance_data</span><span class="o">.</span><span class="n">data</span>
+<span class="n">data_extract</span><span class="p">[</span><span class="s1">&#39;shap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance_data</span><span class="o">.</span><span class="n">values</span>
+<span class="n">mean_result</span> <span class="o">=</span> <span class="n">data_extract</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;feat_value&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mean_result</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">mean_result</span><span class="p">[</span><span class="s1">&#39;shap&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;S2NihssArrival&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Shap value&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_rf_shap_36_0.png" src="../../_images/02_rf_shap_36_0.png" />
 </div>
 </div>
 </section>
@@ -983,19 +977,19 @@ Chart is dislaying in brackets the standardised feature values (model was traine
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="outline.html" title="previous page">
+        <a class="left-prev" href="01_log_reg_shap.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">What is in this section?</p>
+                <p class="prevnext-title">Explaining logistic regression model predictions with Shapley values</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="02_rf_shap.html" title="next page">
+        <a class="right-next" href="../../synthetic_data_demo/outline.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Explaining random forest model predictions with Shapley values</p>
+                <p class="prevnext-title">Outline - what is in this section?</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
