@@ -631,24 +631,15 @@
 <h2>Summary statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span>
-    <span class="s1">&#39;Real-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;stdev&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statistics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist_real_real</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist_synthetic_real</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist_synthetic_double_real</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dist_synthetic_triple_real</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_real_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_real_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_synthetic_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_synthetic_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="n">dist_synthetic_double_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="n">dist_synthetic_double_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="n">dist_synthetic_triple_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> \
-    <span class="n">dist_synthetic_triple_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">summary</span><span class="o">.</span><span class="n">T</span>
+<span class="n">statistics</span>
 </pre></div>
 </div>
 </div>
@@ -671,30 +662,68 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>mean</th>
-      <th>stdev</th>
+      <th>Real-Real</th>
+      <th>Synthetic-Real</th>
+      <th>Double synthetic-Real</th>
+      <th>Triple synthetic-Real</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Real-Real</th>
-      <td>5.34</td>
-      <td>1.68</td>
+      <th>count</th>
+      <td>71142.000000</td>
+      <td>71142.000000</td>
+      <td>71142.000000</td>
+      <td>71142.000000</td>
     </tr>
     <tr>
-      <th>Synthetic-Real</th>
-      <td>1.8</td>
-      <td>0.88</td>
+      <th>mean</th>
+      <td>5.337489</td>
+      <td>1.800324</td>
+      <td>2.439078</td>
+      <td>2.795586</td>
     </tr>
     <tr>
-      <th>Double synthetic-Real</th>
-      <td>2.44</td>
-      <td>0.93</td>
+      <th>std</th>
+      <td>1.680298</td>
+      <td>0.883151</td>
+      <td>0.931313</td>
+      <td>0.955745</td>
     </tr>
     <tr>
-      <th>Triple synthetic-Real</th>
-      <td>2.8</td>
-      <td>0.96</td>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.112121</td>
+      <td>0.021724</td>
+      <td>0.455704</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>4.186705</td>
+      <td>1.078850</td>
+      <td>1.740018</td>
+      <td>2.090752</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.274546</td>
+      <td>1.677866</td>
+      <td>2.356923</td>
+      <td>2.707960</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.417106</td>
+      <td>2.398763</td>
+      <td>3.038597</td>
+      <td>3.399680</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>44.942009</td>
+      <td>15.336283</td>
+      <td>22.257794</td>
+      <td>16.605757</td>
     </tr>
   </tbody>
 </table>
