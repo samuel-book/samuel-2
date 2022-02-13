@@ -52,7 +52,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours" href="02c_compare_real_synthetic_distances.html" />
+    <link rel="next" title="Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours" href="02c_compare_distances_to_real_data.html" />
     <link rel="prev" title="Creating synthetic SAMUeL data data with SMOTE" href="02a_synthetic_samuel1_data%20_SMOTE.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -221,7 +221,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02c_compare_real_synthetic_distances.html">
+    <a class="reference internal" href="02c_compare_distances_to_real_data.html">
      Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours
     </a>
    </li>
@@ -332,6 +332,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="testing-of-samuel-1-synthetic-data-descriptive-statistics">
 <h1>Testing of SAMueL-1 synthetic data: descriptive statistics<a class="headerlink" href="#testing-of-samuel-1-synthetic-data-descriptive-statistics" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we comapre the descriptive statistics for synthetic and real data. Synthetic data is generated from each five k-fold training sets, and here we compare the synthetic to the original data.</p>
+<p>We usew thhe ‘double’ smytnhetic data - two rounds of SMOTE.</p>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -362,7 +363,7 @@
     <span class="n">train_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">train_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
     <span class="n">test_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">test_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
     <span class="c1">#synthetic_data.append(pd.read_csv(f&#39;{data_loc}synth_train_{i}.csv&#39;))</span>
-    <span class="n">synthetic_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">synthetic_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
+    <span class="n">synthetic_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">synthetic_double_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -497,6 +498,7 @@
 <img alt="../_images/02b_test_synthetic_descriptive_6_0.png" src="../_images/02b_test_synthetic_descriptive_6_0.png" />
 </div>
 </div>
+<p>Feature means and standard deviations are well presevered in the synthetic (double SMOTE) data.</p>
 </section>
 </section>
 
@@ -539,7 +541,7 @@
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="02c_compare_real_synthetic_distances.html" title="next page">
+        <a class="right-next" href="02c_compare_distances_to_real_data.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
                 <p class="prevnext-title">Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours</p>

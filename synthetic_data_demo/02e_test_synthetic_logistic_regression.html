@@ -220,7 +220,7 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02c_compare_real_synthetic_distances.html">
+    <a class="reference internal" href="02c_compare_distances_to_real_data.html">
      Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours
     </a>
    </li>
@@ -356,6 +356,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="testing-of-samuel-1-synthetic-data-logistic-regression-model">
 <h1>Testing of SAMueL-1 synthetic data: logistic regression model<a class="headerlink" href="#testing-of-samuel-1-synthetic-data-logistic-regression-model" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we test sthe ability of synthetic data to train a logistic regression model that is tested on real data. Data comes from 5 stratified k-vold traing/test sets. Synthetic data is generated from each k-fold training set. It is tested using the matching test set (which is not used in production of the synthetic data).</p>
+<p>We use the double-SMOTE synthetic data (two rounds of SMOTE).</p>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -391,7 +392,7 @@
     <span class="n">train_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">train_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
     <span class="n">test_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">test_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
     <span class="c1">#synthetic_data.append(pd.read_csv(f&#39;{data_loc}synth_train_{i}.csv&#39;))</span>
-    <span class="n">synthetic_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">synthetic_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
+    <span class="n">synthetic_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">data_loc</span><span class="si">}</span><span class="s1">synthetic_double_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -546,17 +547,17 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Individual kfold results:
     real  synthetic
-0  0.831      0.829
-1  0.835      0.833
-2  0.830      0.828
-3  0.833      0.831
-4  0.834      0.835
+0  0.831      0.821
+1  0.835      0.827
+2  0.830      0.824
+3  0.833      0.826
+4  0.834      0.829
 
 Accuracy when model trained using real data:
 Mean = 0.833, SEM = 0.001
 
 Accuracy when model trained using synthetic data
-Mean = 0.831, SEM = 0.001
+Mean = 0.825, SEM = 0.001
 </pre></div>
 </div>
 </div>
@@ -636,7 +637,7 @@ Mean = 0.831, SEM = 0.001
 Mean = 0.904, SEM = 0.001
 
 ROC AUC when model trained using synthetic data
-Mean = 0.900, SEM = 0.001
+Mean = 0.895, SEM = 0.001
 </pre></div>
 </div>
 </div>
