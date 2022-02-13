@@ -361,6 +361,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nearest-neighbours-between-triple-synthetic-data-and-real-data">
+     Get nearest neighbours between triple synthetic data and real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-histogram-of-distances-to-nearest-real-data-point">
      Plot histogram of distances to nearest real data point
     </a>
@@ -406,7 +411,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="testing-of-samuel-1-synthetic-data-compare-differences-between-synthetic-data-and-real-data-nearest-neighbours">
 <h1>Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours<a class="headerlink" href="#testing-of-samuel-1-synthetic-data-compare-differences-between-synthetic-data-and-real-data-nearest-neighbours" title="Permalink to this headline">¶</a></h1>
 <p>This notebook shows some examples of synthetic data alongside the nearest-neighbour real data used to create the synthetic data, and show the distribution of distances between real data point nearest neighbours and nearest neighbour distances between synthetic and real data points. Distance between real and synthetic data is measured as Cartesian distance between standardised data for admissions to the same stroke unit.</p>
-<p>We look at synthetic data produced directly from real data, and ‘double synthetic’ data - which is data produced from the first round of synthetic data.</p>
+<p>We look at synthetic data produced directly from real data, ‘double synthetic’ data - which is data produced from the first round of synthetic data, and ‘triple synthetic’ data - which is data produced from the double synthetic data.</p>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -436,11 +441,13 @@
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;test_0.csv&#39;</span><span class="p">)</span>
 <span class="n">synthetic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;synthetic_0.csv&#39;</span><span class="p">)</span>
 <span class="n">synthetic_double</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;synthetic_double_0.csv&#39;</span><span class="p">)</span>
+<span class="n">synthetic_triple</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;synthetic_triple_0.csv&#39;</span><span class="p">)</span>
 
 <span class="n">X_train</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X_test</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X_synthetic</span> <span class="o">=</span> <span class="n">synthetic</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X_synthetic_double</span> <span class="o">=</span> <span class="n">synthetic_double</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_synthetic_triple</span> <span class="o">=</span> <span class="n">synthetic_triple</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -572,6 +579,24 @@
 </div>
 </div>
 </section>
+<section id="get-nearest-neighbours-between-triple-synthetic-data-and-real-data">
+<h3>Get nearest neighbours between triple synthetic data and real data<a class="headerlink" href="#get-nearest-neighbours-between-triple-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h3>
+<p>(Using synthetic data produced from double synthetic data).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get closest neighbours between triple synthetic and real data</span>
+<span class="n">X_actual_std</span><span class="p">,</span> <span class="n">X_synthetic_triple_std</span> <span class="o">=</span> <span class="n">standardise_data</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;StrokeTeam&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">X_synthetic_triple</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;StrokeTeam&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">dists</span><span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X_synthetic_triple_std</span><span class="p">)</span>
+<span class="n">dist_synthetic_triple_real</span> <span class="o">=</span> <span class="n">dists</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">indx_synthetic_triple_real</span> <span class="o">=</span> <span class="n">idxs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="plot-histogram-of-distances-to-nearest-real-data-point">
 <h3>Plot histogram of distances to nearest real data point<a class="headerlink" href="#plot-histogram-of-distances-to-nearest-real-data-point" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -583,8 +608,10 @@
         <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;real-real&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_synthetic_real</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> 
         <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;synthetic-real&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_synthetic_double_real</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_synthetic_double_real</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> 
         <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;double_synthetic-real&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">dist_synthetic_triple_real</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> 
+        <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;triple_synthetic-real&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance to nearest neighbour&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency density&#39;</span><span class="p">)</span>
@@ -595,7 +622,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c_compare_distances_to_real_data_20_0.png" src="../_images/02c_compare_distances_to_real_data_20_0.png" />
+<img alt="../_images/02c_compare_distances_to_real_data_22_0.png" src="../_images/02c_compare_distances_to_real_data_22_0.png" />
 </div>
 </div>
 </section>
@@ -604,9 +631,9 @@
 <h2>Summary statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">],</span> 
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;stdev&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;Real-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Synthetic-Real&#39;</span><span class="p">,</span> <span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;stdev&#39;</span><span class="p">])</span>
 
 <span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_real_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Real-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist_real_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -616,6 +643,11 @@
     <span class="n">dist_synthetic_double_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Double synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> \
     <span class="n">dist_synthetic_double_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">dist_synthetic_triple_real</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">[</span><span class="s1">&#39;Triple synthetic-Real&#39;</span><span class="p">][</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">dist_synthetic_triple_real</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
 <span class="n">summary</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
@@ -658,6 +690,11 @@
       <th>Double synthetic-Real</th>
       <td>2.44</td>
       <td>0.93</td>
+    </tr>
+    <tr>
+      <th>Triple synthetic-Real</th>
+      <td>2.8</td>
+      <td>0.96</td>
     </tr>
   </tbody>
 </table>
@@ -765,12 +802,13 @@ Proportion identical between real and double synthetic data: 0.000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c_compare_distances_to_real_data_28_0.png" src="../_images/02c_compare_distances_to_real_data_28_0.png" />
+<img alt="../_images/02c_compare_distances_to_real_data_30_0.png" src="../_images/02c_compare_distances_to_real_data_30_0.png" />
 </div>
 </div>
 </section>
 <section id="show-near-neighbour-examples-between-double-synthetic-data-and-real-data">
 <h2>Show near neighbour examples between (double) synthetic data and real data<a class="headerlink" href="#show-near-neighbour-examples-between-double-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h2>
+<p>Double synthetic data removes the peak of instances that are in close proximity to real data, so we will proceed woth double-synthetic data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample 4 double synthetic data points</span>
@@ -846,7 +884,7 @@ Proportion identical between real and double synthetic data: 0.000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/02c_compare_distances_to_real_data_32_0.png" src="../_images/02c_compare_distances_to_real_data_32_0.png" />
+<img alt="../_images/02c_compare_distances_to_real_data_34_0.png" src="../_images/02c_compare_distances_to_real_data_34_0.png" />
 </div>
 </div>
 </section>
