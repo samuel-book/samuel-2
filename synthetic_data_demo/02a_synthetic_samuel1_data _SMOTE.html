@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creating synthetic SAMUeL data data with SMOTE &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Testing of SAMueL-1 synthetic data: descriptive statistics" href="02b_test_synthetic_descriptive.html" />
     <link rel="prev" title="Creating synthetic Titanic passenger data with SMOTE" href="01_synthetic_titanic_data%20_SMOTE.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -89,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -106,7 +110,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SAMueL-1 extension - embedding neural nets
  </span>
@@ -160,7 +164,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SAMueL-1 extension - Explaining models with Shapley values
  </span>
@@ -189,7 +193,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Demo of synthetic data method
  </span>
@@ -283,7 +287,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -301,7 +305,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -412,19 +416,133 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Creating synthetic SAMUeL data  data with SMOTE</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#description-of-smote">
+   Description of SMOTE
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-integer-binary-and-categorical-data">
+     Handling integer, binary, and categorical data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-with-imblearn">
+     Implementation with IMBLEARN
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-minimum-allowable-distance-from-synthetic-to-closest-real-data">
+   Set minimum allowable distance from synthetic to closest real data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-standardise-data">
+     Function to standardise data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-calculate-accuracy-measures">
+     Function to calculate accuracy measures
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-create-raw-synthetic-data">
+     Function to create raw synthetic data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-process-one-hot-categorical-data">
+     Function to process one-hot categorical data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-add-nearest-real-data-neighbour-to-synthetic-data">
+     Function to add nearest real data neighbour to synthetic data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-lists-of-categorical-one-hot-coded-and-integer-fields">
+   Set lists of categorical (one-hot coded) and integer fields
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-synthetic-data">
+   Create synthetic data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-synthetic-data-and-process-categorical-one-hot-and-integer-data">
+     Create synthetic data and process categorical (one-hot) and integer data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-distance-measure-to-original-data">
+     Add distance measure to original data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remove-points-with-identical-points-or-near-neighbours-in-real-data">
+     Remove points with identical points or near neighbours in real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#save-synthetic-data">
+     Save synthetic data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="creating-synthetic-samuel-data-data-with-smote">
+  <div class="tex2jax_ignore mathjax_ignore section" id="creating-synthetic-samuel-data-data-with-smote">
 <h1>Creating synthetic SAMUeL data  data with SMOTE<a class="headerlink" href="#creating-synthetic-samuel-data-data-with-smote" title="Permalink to this headline">¶</a></h1>
-<section id="description-of-smote">
+<div class="section" id="description-of-smote">
 <h2>Description of SMOTE<a class="headerlink" href="#description-of-smote" title="Permalink to this headline">¶</a></h2>
 <p>SMOTE stands for Synthetic Minority Oversampling Technique [1]. SMOTE is more commonly used to create additional data to enhance modelling fitting, especially when one or more classes have low prevalence in the data set. Hence the description of <em>oversampling</em>.</p>
 <p>SMOTE works by finding near-neighbor points in the original data, and creating new data points from interpolating between two near-neighbor points.</p>
 <p>Here we remove the real data used to create the synthetic data, leaving only the synthetic data. After generating synthetic data we remove any data points that, by chance, are identical to original real data points, and also remove 10% of points that are closest to the original data points. We measure ‘closeness’ by the Cartesian distance between standardised data values.</p>
 <p><img alt="" src="../_images/smote.png" /></p>
 <p><em>Demonstration of SMOTE method. (a) Data points with two features (shown on x and y axes) are represented. Points are colour-coded by class label. (b) A data point from a class is picked at random, shown by the black point, and then the closest neighbours of the same class are identified, as shown by yellow points. Here we show 3 closest neighbours, but the default in the SMOTE <code class="docutils literal notranslate"><span class="pre">Imbalanced-Learn</span></code> library is 6. One of those near-neighbour points is selected at random (shown by the second black point). A new data point, shown in red, is created at a random distance between the two selected data points.</em></p>
-<section id="handling-integer-binary-and-categorical-data">
+<div class="section" id="handling-integer-binary-and-categorical-data">
 <h3>Handling integer, binary, and categorical data<a class="headerlink" href="#handling-integer-binary-and-categorical-data" title="Permalink to this headline">¶</a></h3>
 <p>The standard SMOTE method generates floating point non-integer) values between data points. There are alternative ways of handing integer, binary, and categorical data using the SMOTE method. Here the methods we use are:</p>
 <ul class="simple">
@@ -432,15 +550,15 @@
 <li><p><em>Binary</em>: Code the value as 0 or 1, and round the resulting synthetic data point value to the closest integer (0 or 1).</p></li>
 <li><p><em>Categorical</em>: One-hot encode the categorical feature. Generate the synthetic data for each category value. Identify the category with the highest value and set to 1 while setting all others to 0.</p></li>
 </ul>
-</section>
-<section id="implementation-with-imblearn">
+</div>
+<div class="section" id="implementation-with-imblearn">
 <h3>Implementation with IMBLEARN<a class="headerlink" href="#implementation-with-imblearn" title="Permalink to this headline">¶</a></h3>
 <p>Here use the implementation in the IMBLEARN IMBALANCED-LEARN [2]</p>
 <p>[1] Chawla, N.V., Bowyer, K.W., Hall, L.O., Kegelmeyer, W.P. “SMOTE: Synthetic minority over-sampling technique,” Journal of Artificial Intelligence Research, vol. 16, pp. 321-357, 2002.</p>
 <p>[2] Lemaitre, G., Nogueira, F. and Aridas, C. (2016), Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning. arXiv:1609.06570 (<a class="reference external" href="https://pypi.org/project/imbalanced-learn/">https://pypi.org/project/imbalanced-learn/</a>, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">imbalanced-learn</span></code>).</p>
-</section>
-</section>
-<section id="load-packages">
+</div>
+</div>
+<div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,8 +580,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="set-minimum-allowable-distance-from-synthetic-to-closest-real-data">
+</div>
+<div class="section" id="set-minimum-allowable-distance-from-synthetic-to-closest-real-data">
 <h2>Set minimum allowable distance from synthetic to closest real data<a class="headerlink" href="#set-minimum-allowable-distance-from-synthetic-to-closest-real-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -472,8 +590,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="load-data">
+</div>
+<div class="section" id="load-data">
 <h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <p>Synthetic data is based on the training data of a train/test split so performance can then be tested against a test set not used to make synthetic data.</p>
 <div class="cell docutils container">
@@ -484,10 +602,10 @@
 </div>
 </div>
 </div>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<section id="function-to-standardise-data">
+<div class="section" id="function-to-standardise-data">
 <h3>Function to standardise data<a class="headerlink" href="#function-to-standardise-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -516,11 +634,11 @@
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-calculate-accuracy-measures">
+</div>
+<div class="section" id="function-to-calculate-accuracy-measures">
 <h3>Function to calculate accuracy measures<a class="headerlink" href="#function-to-calculate-accuracy-measures" title="Permalink to this headline">¶</a></h3>
-</section>
-<section id="function-to-create-raw-synthetic-data">
+</div>
+<div class="section" id="function-to-create-raw-synthetic-data">
 <h3>Function to create raw synthetic data<a class="headerlink" href="#function-to-create-raw-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>Data generated are floats; this will need processing for integer, binary, and categorical data.</p>
 <div class="cell docutils container">
@@ -562,8 +680,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-process-one-hot-categorical-data">
+</div>
+<div class="section" id="function-to-process-one-hot-categorical-data">
 <h3>Function to process one-hot categorical data<a class="headerlink" href="#function-to-process-one-hot-categorical-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -585,8 +703,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-add-nearest-real-data-neighbour-to-synthetic-data">
+</div>
+<div class="section" id="function-to-add-nearest-real-data-neighbour-to-synthetic-data">
 <h3>Function to add nearest real data neighbour to synthetic data<a class="headerlink" href="#function-to-add-nearest-real-data-neighbour-to-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>Find nearest neighbour in the real data set (based on Cartesian distance of standardised data).Find nearest neighbour in the real data set (based on Cartesian distance of standardised data).</p>
 <div class="cell docutils container">
@@ -643,9 +761,9 @@
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="set-lists-of-categorical-one-hot-coded-and-integer-fields">
+</div>
+</div>
+<div class="section" id="set-lists-of-categorical-one-hot-coded-and-integer-fields">
 <h2>Set lists of categorical (one-hot coded) and integer fields<a class="headerlink" href="#set-lists-of-categorical-one-hot-coded-and-integer-fields" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,6 +787,7 @@
     <span class="s1">&#39;Diabetes&#39;</span><span class="p">,</span>
     <span class="s1">&#39;StrokeTIA&#39;</span><span class="p">,</span>
     <span class="s1">&#39;AFAntiplatelet&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;AFAnticoagulent_&#39;</span><span class="p">,</span>
     <span class="s1">&#39;AFAnticoagulentVitK&#39;</span><span class="p">,</span>
     <span class="s1">&#39;AFAnticoagulentDOAC&#39;</span><span class="p">,</span>
     <span class="s1">&#39;AFAnticoagulentHeparin&#39;</span><span class="p">,</span>
@@ -715,10 +834,10 @@
 </div>
 </div>
 </div>
-</section>
-<section id="create-synthetic-data">
+</div>
+<div class="section" id="create-synthetic-data">
 <h2>Create synthetic data<a class="headerlink" href="#create-synthetic-data" title="Permalink to this headline">¶</a></h2>
-<section id="create-synthetic-data-and-process-categorical-one-hot-and-integer-data">
+<div class="section" id="create-synthetic-data-and-process-categorical-one-hot-and-integer-data">
 <h3>Create synthetic data and process categorical (one-hot) and integer data<a class="headerlink" href="#create-synthetic-data-and-process-categorical-one-hot-and-integer-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,8 +911,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="add-distance-measure-to-original-data">
+</div>
+<div class="section" id="add-distance-measure-to-original-data">
 <h3>Add distance measure to original data<a class="headerlink" href="#add-distance-measure-to-original-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,8 +952,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="remove-points-with-identical-points-or-near-neighbours-in-real-data">
+</div>
+<div class="section" id="remove-points-with-identical-points-or-near-neighbours-in-real-data">
 <h3>Remove points with identical points or near neighbours in real data<a class="headerlink" href="#remove-points-with-identical-points-or-near-neighbours-in-real-data" title="Permalink to this headline">¶</a></h3>
 <p>Remove points with identical points or near neighbours in real data (these are examined by unit - two identical patients may exist if they are associated with different stroke units).~</p>
 <div class="cell docutils container">
@@ -869,24 +988,24 @@
 </div>
 </div>
 </div>
-</section>
-<section id="save-synthetic-data">
+</div>
+<div class="section" id="save-synthetic-data">
 <h3>Save synthetic data<a class="headerlink" href="#save-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save with same columns and order as orginal data</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">train_data</span><span class="p">)</span>
 <span class="n">synthetic_data_restricted</span> <span class="o">=</span> <span class="n">synthetic_data_restricted</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
-<span class="n">name</span> <span class="o">=</span> <span class="n">data_loc</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;synthetic_0.csv&#39;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">data_loc</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;test_run_0.csv&#39;</span>
 <span class="n">synthetic_data_restricted</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Note: Rounds of synthetic data may be repeated: ANother set of synthetic data based on this set of synthetic data.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -910,54 +1029,42 @@
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="01_synthetic_titanic_data%20_SMOTE.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Creating synthetic Titanic passenger data with SMOTE</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_synthetic_titanic_data%20_SMOTE.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Creating synthetic Titanic passenger data with SMOTE</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02b_test_synthetic_descriptive.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Testing of SAMueL-1 synthetic data: descriptive statistics</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="02b_test_synthetic_descriptive.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Testing of SAMueL-1 synthetic data: descriptive statistics</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By SAMueL project team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By SAMueL project team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

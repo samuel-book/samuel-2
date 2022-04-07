@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -32,30 +31,35 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Testing of SAMueL-1 synthetic data: random forest model" href="02d_test_synthetic_random_forest.html" />
     <link rel="prev" title="Testing of SAMueL-1 synthetic data: descriptive statistics" href="02b_test_synthetic_descriptive.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -89,7 +93,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -106,7 +110,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SAMueL-1 extension - embedding neural nets
  </span>
@@ -160,7 +164,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   SAMueL-1 extension - Explaining models with Shapley values
  </span>
@@ -189,7 +193,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Demo of synthetic data method
  </span>
@@ -283,7 +287,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -301,7 +305,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -405,14 +409,121 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-packages">
+   Load packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-standardise-data">
+     Function to standardise data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-to-find-closest-data-points">
+     Function to find closest data points
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-closest-distances-between-real-data-points-and-between-synthetic-and-real-data">
+   Get closest distances between real data points, and between synthetic and real data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardise-real-x-train-data-and-set-up-nearest-neighbour-algorithm">
+     Standardise real (X_train) data and set up nearest neighbour algorithm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nearest-neighbours-in-real-data">
+     Get nearest neighbours in real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nearest-neighbours-between-synthetic-data-and-real-data">
+     Get nearest neighbours between synthetic data and real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nearest-neighbours-between-double-synthetic-data-and-real-data">
+     Get nearest neighbours between double synthetic data and real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-nearest-neighbours-between-triple-synthetic-data-and-real-data">
+     Get nearest neighbours between triple synthetic data and real data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-histogram-of-distances-to-nearest-real-data-point">
+     Plot histogram of distances to nearest real data point
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-statistics-of-distances-to-nearest-real-data-point">
+   Summary statistics of distances to nearest real data point
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-proportion-of-points-that-are-identical-to-real-data">
+   Show proportion of points that are identical to real data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-near-neighbour-examples-between-real-data">
+   Show near neighbour examples between real data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-near-neighbour-examples-between-double-synthetic-data-and-real-data">
+   Show near neighbour examples between (double) synthetic data and real data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observations">
+   Observations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="testing-of-samuel-1-synthetic-data-compare-differences-between-synthetic-data-and-real-data-nearest-neighbours">
+  <div class="tex2jax_ignore mathjax_ignore section" id="testing-of-samuel-1-synthetic-data-compare-differences-between-synthetic-data-and-real-data-nearest-neighbours">
 <h1>Testing of SAMueL-1 synthetic data: Compare differences between synthetic data and real data nearest-neighbours<a class="headerlink" href="#testing-of-samuel-1-synthetic-data-compare-differences-between-synthetic-data-and-real-data-nearest-neighbours" title="Permalink to this headline">¶</a></h1>
 <p>This notebook shows some examples of synthetic data alongside the nearest-neighbour real data used to create the synthetic data, and show the distribution of distances between real data point nearest neighbours and nearest neighbour distances between synthetic and real data points. Distance between real and synthetic data is measured as Cartesian distance between standardised data for admissions to the same stroke unit.</p>
 <p>We look at synthetic data produced directly from real data, ‘double synthetic’ data - which is data produced from the first round of synthetic data, and ‘triple synthetic’ data - which is data produced from the double synthetic data.</p>
-<section id="load-packages">
+<div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -430,8 +541,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="load-data">
+</div>
+<div class="section" id="load-data">
 <h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -452,10 +563,10 @@
 </div>
 </div>
 </div>
-</section>
-<section id="functions">
+</div>
+<div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<section id="function-to-standardise-data">
+<div class="section" id="function-to-standardise-data">
 <h3>Function to standardise data<a class="headerlink" href="#function-to-standardise-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -475,8 +586,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-find-closest-data-points">
+</div>
+<div class="section" id="function-to-find-closest-data-points">
 <h3>Function to find closest data points<a class="headerlink" href="#function-to-find-closest-data-points" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -507,11 +618,11 @@
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="get-closest-distances-between-real-data-points-and-between-synthetic-and-real-data">
+</div>
+</div>
+<div class="section" id="get-closest-distances-between-real-data-points-and-between-synthetic-and-real-data">
 <h2>Get closest distances between real data points, and between synthetic and real data<a class="headerlink" href="#get-closest-distances-between-real-data-points-and-between-synthetic-and-real-data" title="Permalink to this headline">¶</a></h2>
-<section id="standardise-real-x-train-data-and-set-up-nearest-neighbour-algorithm">
+<div class="section" id="standardise-real-x-train-data-and-set-up-nearest-neighbour-algorithm">
 <h3>Standardise real (X_train) data and set up nearest neighbour algorithm<a class="headerlink" href="#standardise-real-x-train-data-and-set-up-nearest-neighbour-algorithm" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,8 +640,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="get-nearest-neighbours-in-real-data">
+</div>
+<div class="section" id="get-nearest-neighbours-in-real-data">
 <h3>Get nearest neighbours in real data<a class="headerlink" href="#get-nearest-neighbours-in-real-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -542,8 +653,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="get-nearest-neighbours-between-synthetic-data-and-real-data">
+</div>
+<div class="section" id="get-nearest-neighbours-between-synthetic-data-and-real-data">
 <h3>Get nearest neighbours between synthetic data and real data<a class="headerlink" href="#get-nearest-neighbours-between-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h3>
 <p>(Using synthetic data produced directly from real data).</p>
 <div class="cell docutils container">
@@ -560,8 +671,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="get-nearest-neighbours-between-double-synthetic-data-and-real-data">
+</div>
+<div class="section" id="get-nearest-neighbours-between-double-synthetic-data-and-real-data">
 <h3>Get nearest neighbours between double synthetic data and real data<a class="headerlink" href="#get-nearest-neighbours-between-double-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h3>
 <p>(Using synthetic data produced from synthetic data).</p>
 <div class="cell docutils container">
@@ -578,8 +689,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="get-nearest-neighbours-between-triple-synthetic-data-and-real-data">
+</div>
+<div class="section" id="get-nearest-neighbours-between-triple-synthetic-data-and-real-data">
 <h3>Get nearest neighbours between triple synthetic data and real data<a class="headerlink" href="#get-nearest-neighbours-between-triple-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h3>
 <p>(Using synthetic data produced from double synthetic data).</p>
 <div class="cell docutils container">
@@ -596,8 +707,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="plot-histogram-of-distances-to-nearest-real-data-point">
+</div>
+<div class="section" id="plot-histogram-of-distances-to-nearest-real-data-point">
 <h3>Plot histogram of distances to nearest real data point<a class="headerlink" href="#plot-histogram-of-distances-to-nearest-real-data-point" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -625,9 +736,9 @@
 <img alt="../_images/02c_compare_distances_to_real_data_22_0.png" src="../_images/02c_compare_distances_to_real_data_22_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="summary-statistics-of-distances-to-nearest-real-data-point">
+</div>
+</div>
+<div class="section" id="summary-statistics-of-distances-to-nearest-real-data-point">
 <h2>Summary statistics of distances to nearest real data point<a class="headerlink" href="#summary-statistics-of-distances-to-nearest-real-data-point" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -729,8 +840,8 @@
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="show-proportion-of-points-that-are-identical-to-real-data">
+</div>
+<div class="section" id="show-proportion-of-points-that-are-identical-to-real-data">
 <h2>Show proportion of points that are identical to real data<a class="headerlink" href="#show-proportion-of-points-that-are-identical-to-real-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -753,8 +864,8 @@ Proportion identical between real and double synthetic data: 0.000
 </div>
 </div>
 </div>
-</section>
-<section id="show-near-neighbour-examples-between-real-data">
+</div>
+<div class="section" id="show-near-neighbour-examples-between-real-data">
 <h2>Show near neighbour examples between real data<a class="headerlink" href="#show-near-neighbour-examples-between-real-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,8 +945,8 @@ Proportion identical between real and double synthetic data: 0.000
 <img alt="../_images/02c_compare_distances_to_real_data_30_0.png" src="../_images/02c_compare_distances_to_real_data_30_0.png" />
 </div>
 </div>
-</section>
-<section id="show-near-neighbour-examples-between-double-synthetic-data-and-real-data">
+</div>
+<div class="section" id="show-near-neighbour-examples-between-double-synthetic-data-and-real-data">
 <h2>Show near neighbour examples between (double) synthetic data and real data<a class="headerlink" href="#show-near-neighbour-examples-between-double-synthetic-data-and-real-data" title="Permalink to this headline">¶</a></h2>
 <p>Double synthetic data removes the peak of instances that are in close proximity to real data, so we will proceed woth double-synthetic data.</p>
 <div class="cell docutils container">
@@ -916,16 +1027,16 @@ Proportion identical between real and double synthetic data: 0.000
 <img alt="../_images/02c_compare_distances_to_real_data_34_0.png" src="../_images/02c_compare_distances_to_real_data_34_0.png" />
 </div>
 </div>
-</section>
-<section id="observations">
+</div>
+<div class="section" id="observations">
 <h2>Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The nearest neighbour distance between synthetic and real data points is generally smaller than the nearest neighbour distance between real data points.</p></li>
 <li><p>The use of double synthetic data avoids a peak of synthetic data that has close proximity to real data.</p></li>
 <li><p>There are no identical points in the real data or between real and synthetic data (of either type).</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -949,54 +1060,42 @@ Proportion identical between real and double synthetic data: 0.000
 
               </div>
               
-        
             
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="02b_test_synthetic_descriptive.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Testing of SAMueL-1 synthetic data: descriptive statistics</p>
-            </div>
-        </a>
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02b_test_synthetic_descriptive.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Testing of SAMueL-1 synthetic data: descriptive statistics</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02d_test_synthetic_random_forest.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Testing of SAMueL-1 synthetic data: random forest model</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="02d_test_synthetic_random_forest.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Testing of SAMueL-1 synthetic data: random forest model</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By SAMueL project team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By SAMueL project team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
