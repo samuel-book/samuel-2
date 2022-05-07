@@ -347,6 +347,18 @@ const thebe_selector_output = ".output, .cell_output"
      Compare top 10 weights and Shap values
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shap-plots">
+   Shap plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-plotting-replace-standardised-data-values-with-original-values">
+     For plotting replace standardised data values with original values
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-average-shap-values-against-average-weights">
      Plot average Shap values against average weights
@@ -434,6 +446,18 @@ const thebe_selector_output = ".output, .cell_output"
      Compare top 10 weights and Shap values
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shap-plots">
+   Shap plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-plotting-replace-standardised-data-values-with-original-values">
+     For plotting replace standardised data values with original values
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#plot-average-shap-values-against-average-weights">
      Plot average Shap values against average weights
@@ -483,6 +507,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/shapley.html">https://christophm.github.io/interpretable-ml-book/shapley.html</a></p>
 <p>More information on the shap library, inclusiong lots of useful examples may be found at: <a class="reference external" href="https://shap.readthedocs.io/en/latest/index.html">https://shap.readthedocs.io/en/latest/index.html</a></p>
 <p>Here we provide an example of using shap with logistic regression.</p>
+<p>NOTE: The Shap values are calculated from models using standardised data. For clarity of plotting we replace those data with non-standardised values.</p>
 <div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -668,62 +693,62 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-18.407621</td>
-      <td>18.407621</td>
+      <td>-18.407809</td>
+      <td>18.407809</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>2.649371</td>
-      <td>2.649371</td>
+      <td>2.649350</td>
+      <td>2.649350</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>-2.644069</td>
-      <td>2.644069</td>
+      <td>-2.644048</td>
+      <td>2.644048</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
-      <td>-0.503195</td>
-      <td>0.503195</td>
+      <td>-0.503190</td>
+      <td>0.503190</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
-      <td>-0.394638</td>
-      <td>0.394638</td>
+      <td>-0.394665</td>
+      <td>0.394665</td>
       <td>5.0</td>
     </tr>
     <tr>
       <th>Loc</th>
-      <td>-0.374935</td>
-      <td>0.374935</td>
+      <td>-0.374931</td>
+      <td>0.374931</td>
       <td>6.0</td>
     </tr>
     <tr>
       <th>BestLanguage</th>
-      <td>0.306445</td>
-      <td>0.306445</td>
+      <td>0.306440</td>
+      <td>0.306440</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.292375</td>
-      <td>0.292375</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>-0.292378</td>
+      <td>0.292378</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>-0.292375</td>
-      <td>0.292375</td>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.292378</td>
+      <td>0.292378</td>
       <td>9.0</td>
     </tr>
     <tr>
       <th>S1OnsetDateType_Stroke during sleep</th>
-      <td>-0.290345</td>
-      <td>0.290345</td>
+      <td>-0.290351</td>
+      <td>0.290351</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -767,72 +792,72 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-1.096812</td>
-      <td>1.096812</td>
-      <td>2.307967</td>
+      <td>-1.096823</td>
+      <td>1.096823</td>
+      <td>2.307990</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>0.380828</td>
-      <td>0.380828</td>
-      <td>2.139826</td>
+      <td>0.380825</td>
+      <td>0.380825</td>
+      <td>2.139809</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>0.392925</td>
-      <td>0.392925</td>
-      <td>2.137777</td>
+      <td>0.392922</td>
+      <td>0.392922</td>
+      <td>2.137760</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
       <td>-0.037584</td>
       <td>0.037584</td>
-      <td>0.405996</td>
+      <td>0.405992</td>
       <td>4.0</td>
-    </tr>
-    <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.013593</td>
-      <td>0.013593</td>
-      <td>0.286391</td>
-      <td>5.0</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Best estimate</th>
       <td>0.013593</td>
       <td>0.013593</td>
-      <td>0.286391</td>
+      <td>0.286394</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.013593</td>
+      <td>0.013593</td>
+      <td>0.286394</td>
       <td>6.0</td>
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
-      <td>0.009187</td>
-      <td>0.009187</td>
-      <td>0.266622</td>
+      <td>0.009188</td>
+      <td>0.009188</td>
+      <td>0.266640</td>
       <td>7.0</td>
     </tr>
     <tr>
       <th>BestLanguage</th>
-      <td>0.050849</td>
-      <td>0.050849</td>
-      <td>0.258668</td>
+      <td>0.050848</td>
+      <td>0.050848</td>
+      <td>0.258663</td>
       <td>8.0</td>
     </tr>
     <tr>
       <th>Loc</th>
       <td>-0.028140</td>
       <td>0.028140</td>
-      <td>0.230644</td>
+      <td>0.230642</td>
       <td>9.0</td>
     </tr>
     <tr>
       <th>S1OnsetToArrival_min</th>
       <td>-0.024913</td>
       <td>0.024913</td>
-      <td>0.220878</td>
+      <td>0.220880</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -862,8 +887,25 @@ Intersecting values:
  &#39;AFAnticoagulent_Yes&#39;,
  &#39;Loc&#39;,
  &#39;BestLanguage&#39;,
- &#39;S1OnsetTimeType_Precise&#39;,
- &#39;S1OnsetTimeType_Best estimate&#39;]
+ &#39;S1OnsetTimeType_Best estimate&#39;,
+ &#39;S1OnsetTimeType_Precise&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="shap-plots">
+<h2>Shap plots<a class="headerlink" href="#shap-plots" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-plotting-replace-standardised-data-values-with-original-values">
+<h3>For plotting replace standardised data values with original values<a class="headerlink" href="#for-plotting-replace-standardised-data-values-with-original-values" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a copy of shap_values_extended</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">shap_values_extended_ns</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">)</span>
+<span class="c1"># Replace .data with non-strandardised data</span>
+<span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -884,7 +926,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_18_0.png" src="../../_images/01_log_reg_shap_18_0.png" />
+<img alt="../../_images/01_log_reg_shap_20_0.png" src="../../_images/01_log_reg_shap_20_0.png" />
 </div>
 </div>
 </div>
@@ -893,12 +935,12 @@ Intersecting values:
 <p>This is a plot of the mean ansolute Shap values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># default is max_display=12</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_20_0.png" src="../../_images/01_log_reg_shap_20_0.png" />
+<img alt="../../_images/01_log_reg_shap_22_0.png" src="../../_images/01_log_reg_shap_22_0.png" />
 </div>
 </div>
 </div>
@@ -906,12 +948,12 @@ Intersecting values:
 <h3>Bar chart for individual case<a class="headerlink" href="#bar-chart-for-individual-case" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># For the first observation</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># For the first observation</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_22_0.png" src="../../_images/01_log_reg_shap_22_0.png" />
+<img alt="../../_images/01_log_reg_shap_24_0.png" src="../../_images/01_log_reg_shap_24_0.png" />
 </div>
 </div>
 </div>
@@ -933,7 +975,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_24_0.png" src="../../_images/01_log_reg_shap_24_0.png" />
+<img alt="../../_images/01_log_reg_shap_26_0.png" src="../../_images/01_log_reg_shap_26_0.png" />
 </div>
 </div>
 </div>
@@ -954,24 +996,25 @@ Intersecting values:
 <p>Example of a person with low probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span> 
                      <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_28_0.png" src="../../_images/01_log_reg_shap_28_0.png" />
+<img alt="../../_images/01_log_reg_shap_30_0.png" src="../../_images/01_log_reg_shap_30_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">location_low_probability</span>
 
-<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test_std_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
+<span class="c1"># Get instance from corresponding non-standardised data</span>
+<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
 <span class="n">shap_values_instance</span> <span class="o">=</span> <span class="n">shap_values</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
-<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
+<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The base value is </span><span class="si">{</span><span class="n">expected_value</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)&quot;</span><span class="p">)</span>
+
 
 <span class="n">shap</span><span class="o">.</span><span class="n">decision_plot</span><span class="p">(</span><span class="n">expected_value</span><span class="p">,</span> <span class="n">shap_values_instance</span><span class="p">,</span> <span class="n">chosen_instance</span><span class="p">)</span>
 </pre></div>
@@ -979,33 +1022,32 @@ Intersecting values:
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
-Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_29_1.png" src="../../_images/01_log_reg_shap_29_1.png" />
+<img alt="../../_images/01_log_reg_shap_31_1.png" src="../../_images/01_log_reg_shap_31_1.png" />
 </div>
 </div>
 <p>Example of a person high low probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span> 
                      <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_31_0.png" src="../../_images/01_log_reg_shap_31_0.png" />
+<img alt="../../_images/01_log_reg_shap_33_0.png" src="../../_images/01_log_reg_shap_33_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">location_high_probability</span>
 
-<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test_std_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
+<span class="c1"># Get instance from corresponding non-standardised data</span>
+<span class="n">chosen_instance</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
 <span class="n">shap_values_instance</span> <span class="o">=</span> <span class="n">shap_values</span><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
-<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
+<span class="n">expected_value</span> <span class="o">=</span> <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="c1">#explainer.expected_value</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The base value is </span><span class="si">{</span><span class="n">expected_value</span><span class="si">:</span><span class="s2">0.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)&quot;</span><span class="p">)</span>
 
 <span class="n">shap</span><span class="o">.</span><span class="n">decision_plot</span><span class="p">(</span><span class="n">expected_value</span><span class="p">,</span> <span class="n">shap_values_instance</span><span class="p">,</span> <span class="n">chosen_instance</span><span class="p">)</span>
 </pre></div>
@@ -1013,10 +1055,9 @@ Chart is dislaying in brackets the standardised feature values (model was traine
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
-Chart is dislaying in brackets the standardised feature values (model was trained on standardised values)
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_32_1.png" src="../../_images/01_log_reg_shap_32_1.png" />
+<img alt="../../_images/01_log_reg_shap_34_1.png" src="../../_images/01_log_reg_shap_34_1.png" />
 </div>
 </div>
 </div>
@@ -1027,15 +1068,38 @@ Chart is dislaying in brackets the standardised feature values (model was traine
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feat_to_show</span> <span class="o">=</span> <span class="n">top_10_shap</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">feat_to_show</span><span class="p">:</span>
-    <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[:,</span> <span class="n">feat</span><span class="p">],</span> <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[:,</span> <span class="n">feat</span><span class="p">],</span> <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_34_0.png" src="../../_images/01_log_reg_shap_34_0.png" />
-<img alt="../../_images/01_log_reg_shap_34_1.png" src="../../_images/01_log_reg_shap_34_1.png" />
-<img alt="../../_images/01_log_reg_shap_34_2.png" src="../../_images/01_log_reg_shap_34_2.png" />
-<img alt="../../_images/01_log_reg_shap_34_3.png" src="../../_images/01_log_reg_shap_34_3.png" />
+<img alt="../../_images/01_log_reg_shap_36_0.png" src="../../_images/01_log_reg_shap_36_0.png" />
+<img alt="../../_images/01_log_reg_shap_36_1.png" src="../../_images/01_log_reg_shap_36_1.png" />
+<img alt="../../_images/01_log_reg_shap_36_2.png" src="../../_images/01_log_reg_shap_36_2.png" />
+<img alt="../../_images/01_log_reg_shap_36_3.png" src="../../_images/01_log_reg_shap_36_3.png" />
+</div>
+</div>
+<p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="s1">&#39;S2BrainImagingTime_min&#39;</span>
+<span class="n">cutoff</span><span class="o">=</span> <span class="mi">400</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">shap_values_extended_ns</span><span class="p">[:,</span> <span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">cutoff</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[:,</span> <span class="s1">&#39;S2BrainImagingTime_min&#39;</span><span class="p">],</span> 
+                   <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">cutoff</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_38_0.png" src="../../_images/01_log_reg_shap_38_0.png" />
 </div>
 </div>
 </div>
