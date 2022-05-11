@@ -928,7 +928,7 @@ Intersecting values:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shap_transform_scale</span><span class="p">(</span><span class="n">original_shap</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Transform og odds shap values to probability. Based on content from:</span>
+<span class="sd">    Transform of odds shap values to probability. Based on content from:</span>
 <span class="sd">    https://medium.com/dataman-in-ai/the-shap-with-more-elegant-charts-bc3e73fa1c0c</span>
 <span class="sd">    </span>
 <span class="sd">    Create a copy of the extended shap object and replace shap values and </span>
@@ -942,29 +942,29 @@ Intersecting values:
     <span class="n">untransformed_base_value</span> <span class="o">=</span> <span class="n">original_shap</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     
     <span class="c1"># Computing the original_explanation_distance to construct the </span>
-    <span class="c1"># distance_coefficient used later on</span>
-    <span class="n">original_explanation_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">original_shap</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># distance_coefficient used later on. This is the total shap values for each</span>
+    <span class="c1"># instance.These are added to base value to get final prediction.</span>
+    <span class="n">untransformed_distance_to_explain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">original_shap</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="c1"># Convert model base value to probability</span>
-    <span class="n">base_value</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">untransformed_base_value</span><span class="p">)</span>
+    <span class="n">transformed_base_value</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">untransformed_base_value</span><span class="p">)</span>
     
-    <span class="c1"># Compute distance between model_prediction and transformed base_value</span>
-    <span class="n">distance_to_explain</span> <span class="o">=</span> <span class="n">y_prob</span> <span class="o">-</span> <span class="n">base_value</span>
+    <span class="c1"># Distance (in probability) between model base and model predicted</span>
+    <span class="n">transformed_distance_to_explain</span> <span class="o">=</span> <span class="n">y_prob</span> <span class="o">-</span> <span class="n">transformed_base_value</span>
     
-    <span class="c1"># Reshape to allow broadcasting</span>
-    <span class="c1"># distance_to_explain = distance_to_explain.reshape(-1, 1)</span>
-    
-    <span class="c1">#The distance_coefficient is the ratio between both distances</span>
-    <span class="n">distance_coefficient</span> <span class="o">=</span> <span class="n">original_explanation_distance</span> <span class="o">/</span> <span class="n">distance_to_explain</span>
+    <span class="c1"># The distance_coefficient is the ratio between log odds distance to explain</span>
+    <span class="c1"># and probability to explain</span>
+    <span class="n">distance_coefficient</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">transformed_distance_to_explain</span> <span class="o">/</span> <span class="n">untransformed_distance_to_explain</span><span class="p">)</span>
     
     <span class="c1"># Reshape to allow broadcasting</span>
     <span class="n">distance_coefficient</span> <span class="o">=</span> <span class="n">distance_coefficient</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
     
     <span class="c1"># Tansform the original shapley values to the new (probability) scale</span>
-    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">original_shap</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="n">distance_coefficient</span>
+    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">original_shap</span><span class="o">.</span><span class="n">values</span> <span class="o">*</span> <span class="n">distance_coefficient</span>
     
     <span class="c1"># Store transformed base value</span>
-    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">base_values</span> <span class="o">=</span> <span class="n">base_value</span>
+    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">base_values</span> <span class="o">=</span> <span class="n">transformed_base_value</span>
 
     <span class="c1">#return shap_values_transformed</span>
     <span class="k">return</span> <span class="n">shap_values_transformed</span>
@@ -987,7 +987,6 @@ Intersecting values:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a copy of shap_values_extended objects and replace data</span>
-
 <span class="n">shap_values_extended_ns</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">)</span>
 <span class="c1"># Replace .data with non-strandardised data</span>
 <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">values</span>
@@ -1032,6 +1031,17 @@ Intersecting values:
 <img alt="../../_images/01_log_reg_shap_25_0.png" src="../../_images/01_log_reg_shap_25_0.png" />
 </div>
 </div>
+<p>Use summary plot to plot overall effect, without sum of other features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_27_0.png" src="../../_images/01_log_reg_shap_27_0.png" />
+</div>
+</div>
 <p>Show summary for probabilities (rather than log odds).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,7 +1050,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_27_0.png" src="../../_images/01_log_reg_shap_27_0.png" />
+<img alt="../../_images/01_log_reg_shap_29_0.png" src="../../_images/01_log_reg_shap_29_0.png" />
 </div>
 </div>
 </div>
@@ -1053,7 +1063,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_29_0.png" src="../../_images/01_log_reg_shap_29_0.png" />
+<img alt="../../_images/01_log_reg_shap_31_0.png" src="../../_images/01_log_reg_shap_31_0.png" />
 </div>
 </div>
 <p>Show plot for probabilities (rather than log odds).</p>
@@ -1064,7 +1074,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_31_0.png" src="../../_images/01_log_reg_shap_31_0.png" />
+<img alt="../../_images/01_log_reg_shap_33_0.png" src="../../_images/01_log_reg_shap_33_0.png" />
 </div>
 </div>
 </div>
@@ -1087,7 +1097,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_33_0.png" src="../../_images/01_log_reg_shap_33_0.png" />
+<img alt="../../_images/01_log_reg_shap_35_0.png" src="../../_images/01_log_reg_shap_35_0.png" />
 </div>
 </div>
 <p>Show plot for probabilities (rather than log odds).</p>
@@ -1103,7 +1113,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_35_0.png" src="../../_images/01_log_reg_shap_35_0.png" />
+<img alt="../../_images/01_log_reg_shap_37_0.png" src="../../_images/01_log_reg_shap_37_0.png" />
 </div>
 </div>
 </div>
@@ -1130,7 +1140,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_39_0.png" src="../../_images/01_log_reg_shap_39_0.png" />
+<img alt="../../_images/01_log_reg_shap_41_0.png" src="../../_images/01_log_reg_shap_41_0.png" />
 </div>
 </div>
 <p>And as probabilities.</p>
@@ -1142,7 +1152,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_41_0.png" src="../../_images/01_log_reg_shap_41_0.png" />
+<img alt="../../_images/01_log_reg_shap_43_0.png" src="../../_images/01_log_reg_shap_43_0.png" />
 </div>
 </div>
 <p>‘Decision plot’:</p>
@@ -1165,7 +1175,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_43_1.png" src="../../_images/01_log_reg_shap_43_1.png" />
+<img alt="../../_images/01_log_reg_shap_45_1.png" src="../../_images/01_log_reg_shap_45_1.png" />
 </div>
 </div>
 <p>Example of a person high low probability of receiving thrombolysis.</p>
@@ -1177,7 +1187,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_45_0.png" src="../../_images/01_log_reg_shap_45_0.png" />
+<img alt="../../_images/01_log_reg_shap_47_0.png" src="../../_images/01_log_reg_shap_47_0.png" />
 </div>
 </div>
 <p>As probabilities:</p>
@@ -1189,7 +1199,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_47_0.png" src="../../_images/01_log_reg_shap_47_0.png" />
+<img alt="../../_images/01_log_reg_shap_49_0.png" src="../../_images/01_log_reg_shap_49_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1210,7 +1220,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_48_1.png" src="../../_images/01_log_reg_shap_48_1.png" />
+<img alt="../../_images/01_log_reg_shap_50_1.png" src="../../_images/01_log_reg_shap_50_1.png" />
 </div>
 </div>
 </div>
@@ -1226,11 +1236,11 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_50_0.png" src="../../_images/01_log_reg_shap_50_0.png" />
-<img alt="../../_images/01_log_reg_shap_50_1.png" src="../../_images/01_log_reg_shap_50_1.png" />
-<img alt="../../_images/01_log_reg_shap_50_2.png" src="../../_images/01_log_reg_shap_50_2.png" />
-<img alt="../../_images/01_log_reg_shap_50_3.png" src="../../_images/01_log_reg_shap_50_3.png" />
-<img alt="../../_images/01_log_reg_shap_50_4.png" src="../../_images/01_log_reg_shap_50_4.png" />
+<img alt="../../_images/01_log_reg_shap_52_0.png" src="../../_images/01_log_reg_shap_52_0.png" />
+<img alt="../../_images/01_log_reg_shap_52_1.png" src="../../_images/01_log_reg_shap_52_1.png" />
+<img alt="../../_images/01_log_reg_shap_52_2.png" src="../../_images/01_log_reg_shap_52_2.png" />
+<img alt="../../_images/01_log_reg_shap_52_3.png" src="../../_images/01_log_reg_shap_52_3.png" />
+<img alt="../../_images/01_log_reg_shap_52_4.png" src="../../_images/01_log_reg_shap_52_4.png" />
 </div>
 </div>
 <p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes.</p>
@@ -1256,7 +1266,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_52_0.png" src="../../_images/01_log_reg_shap_52_0.png" />
+<img alt="../../_images/01_log_reg_shap_54_0.png" src="../../_images/01_log_reg_shap_54_0.png" />
 </div>
 </div>
 <p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes as probabiltities.
@@ -1283,7 +1293,7 @@ Converting to probabilities has distorted the overall effect.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_54_0.png" src="../../_images/01_log_reg_shap_54_0.png" />
+<img alt="../../_images/01_log_reg_shap_56_0.png" src="../../_images/01_log_reg_shap_56_0.png" />
 </div>
 </div>
 </div>
