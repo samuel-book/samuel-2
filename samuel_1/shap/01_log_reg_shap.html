@@ -350,6 +350,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-shap-object-with-probability-rather-than-log-odds">
+   Create Shap object with probability rather than log odds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#shap-plots">
    Shap plots
   </a>
@@ -390,6 +395,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observations">
+   Observations
+  </a>
  </li>
 </ul>
 
@@ -449,6 +459,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-shap-object-with-probability-rather-than-log-odds">
+   Create Shap object with probability rather than log odds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#shap-plots">
    Shap plots
   </a>
@@ -490,6 +505,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#observations">
+   Observations
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -516,6 +536,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -523,6 +544,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">expit</span> <span class="c1"># log odds to probability transformation</span>
 </pre></div>
 </div>
 </div>
@@ -693,62 +716,62 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-18.407907</td>
-      <td>18.407907</td>
+      <td>-18.407809</td>
+      <td>18.407809</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>2.649340</td>
-      <td>2.649340</td>
+      <td>2.649350</td>
+      <td>2.649350</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>-2.644038</td>
-      <td>2.644038</td>
+      <td>-2.644048</td>
+      <td>2.644048</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
-      <td>-0.503188</td>
-      <td>0.503188</td>
+      <td>-0.503190</td>
+      <td>0.503190</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
-      <td>-0.394679</td>
-      <td>0.394679</td>
+      <td>-0.394665</td>
+      <td>0.394665</td>
       <td>5.0</td>
     </tr>
     <tr>
       <th>Loc</th>
-      <td>-0.374929</td>
-      <td>0.374929</td>
+      <td>-0.374931</td>
+      <td>0.374931</td>
       <td>6.0</td>
     </tr>
     <tr>
       <th>BestLanguage</th>
-      <td>0.306437</td>
-      <td>0.306437</td>
+      <td>0.306440</td>
+      <td>0.306440</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.292380</td>
-      <td>0.292380</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>-0.292378</td>
+      <td>0.292378</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>-0.292380</td>
-      <td>0.292380</td>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.292378</td>
+      <td>0.292378</td>
       <td>9.0</td>
     </tr>
     <tr>
       <th>S1OnsetDateType_Stroke during sleep</th>
-      <td>-0.290353</td>
-      <td>0.290353</td>
+      <td>-0.290351</td>
+      <td>0.290351</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -792,72 +815,72 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-1.096829</td>
-      <td>1.096829</td>
-      <td>2.308003</td>
+      <td>-1.096823</td>
+      <td>1.096823</td>
+      <td>2.307990</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>0.380823</td>
-      <td>0.380823</td>
-      <td>2.139801</td>
+      <td>0.380825</td>
+      <td>0.380825</td>
+      <td>2.139809</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>0.392921</td>
-      <td>0.392921</td>
-      <td>2.137752</td>
+      <td>0.392922</td>
+      <td>0.392922</td>
+      <td>2.137760</td>
       <td>3.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
       <td>-0.037584</td>
       <td>0.037584</td>
-      <td>0.405991</td>
+      <td>0.405992</td>
       <td>4.0</td>
-    </tr>
-    <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.013593</td>
-      <td>0.013593</td>
-      <td>0.286396</td>
-      <td>5.5</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Best estimate</th>
       <td>0.013593</td>
       <td>0.013593</td>
-      <td>0.286396</td>
-      <td>5.5</td>
+      <td>0.286394</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.013593</td>
+      <td>0.013593</td>
+      <td>0.286394</td>
+      <td>6.0</td>
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
       <td>0.009188</td>
       <td>0.009188</td>
-      <td>0.266649</td>
+      <td>0.266640</td>
       <td>7.0</td>
     </tr>
     <tr>
       <th>BestLanguage</th>
-      <td>0.050847</td>
-      <td>0.050847</td>
-      <td>0.258661</td>
+      <td>0.050848</td>
+      <td>0.050848</td>
+      <td>0.258663</td>
       <td>8.0</td>
     </tr>
     <tr>
       <th>Loc</th>
-      <td>-0.028139</td>
-      <td>0.028139</td>
-      <td>0.230641</td>
+      <td>-0.028140</td>
+      <td>0.028140</td>
+      <td>0.230642</td>
       <td>9.0</td>
     </tr>
     <tr>
       <th>S1OnsetToArrival_min</th>
       <td>-0.024913</td>
       <td>0.024913</td>
-      <td>0.220882</td>
+      <td>0.220880</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -887,10 +910,72 @@ Intersecting values:
  &#39;AFAnticoagulent_Yes&#39;,
  &#39;Loc&#39;,
  &#39;BestLanguage&#39;,
- &#39;S1OnsetTimeType_Precise&#39;,
- &#39;S1OnsetTimeType_Best estimate&#39;]
+ &#39;S1OnsetTimeType_Best estimate&#39;,
+ &#39;S1OnsetTimeType_Precise&#39;]
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="create-shap-object-with-probability-rather-than-log-odds">
+<h2>Create Shap object with probability rather than log odds<a class="headerlink" href="#create-shap-object-with-probability-rather-than-log-odds" title="Permalink to this headline">¶</a></h2>
+<p>By default, SHAP explains models in terms of their margin output before the logistic link function [<a class="reference external" href="https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/waterfall.html">https://shap.readthedocs.io/en/latest/example_notebooks/api_examples/plots/waterfall.html</a>], hence the x axis units in the waterfall plot are log-odds units, and not probability</p>
+<p>For the transform we use the <code class="docutils literal notranslate"><span class="pre">expit</span></code> function from scipy.</p>
+<p><em>expit(x) = 1/(1+exp(-x))</em></p>
+<p>These are beneficial mathematically as log odds are additive in their influence. But log odds are not as easy to understand to many we are trying to explain the model to, so here we transform the log odds Shap values to probability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shap_transform_scale</span><span class="p">(</span><span class="n">original_shap</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transform og odds shap values to probability. Based on content from:</span>
+<span class="sd">    https://medium.com/dataman-in-ai/the-shap-with-more-elegant-charts-bc3e73fa1c0c</span>
+<span class="sd">    </span>
+<span class="sd">    Create a copy of the extended shap object and replace shap values and </span>
+<span class="sd">    base values.    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Create a copy of the original extended shap values</span>
+    <span class="n">shap_values_transformed</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">original_shap</span><span class="p">)</span>
+    
+    <span class="c1"># Get original base values</span>
+    <span class="n">untransformed_base_value</span> <span class="o">=</span> <span class="n">original_shap</span><span class="o">.</span><span class="n">base_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># Computing the original_explanation_distance to construct the </span>
+    <span class="c1"># distance_coefficient used later on</span>
+    <span class="n">original_explanation_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">original_shap</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Convert model base value to probability</span>
+    <span class="n">base_value</span> <span class="o">=</span> <span class="n">expit</span><span class="p">(</span><span class="n">untransformed_base_value</span><span class="p">)</span>
+    
+    <span class="c1"># Compute distance between model_prediction and transformed base_value</span>
+    <span class="n">distance_to_explain</span> <span class="o">=</span> <span class="n">y_prob</span> <span class="o">-</span> <span class="n">base_value</span>
+    
+    <span class="c1"># Reshape to allow broadcasting</span>
+    <span class="c1"># distance_to_explain = distance_to_explain.reshape(-1, 1)</span>
+    
+    <span class="c1">#The distance_coefficient is the ratio between both distances</span>
+    <span class="n">distance_coefficient</span> <span class="o">=</span> <span class="n">original_explanation_distance</span> <span class="o">/</span> <span class="n">distance_to_explain</span>
+    
+    <span class="c1"># Reshape to allow broadcasting</span>
+    <span class="n">distance_coefficient</span> <span class="o">=</span> <span class="n">distance_coefficient</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Tansform the original shapley values to the new (probability) scale</span>
+    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">original_shap</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="n">distance_coefficient</span>
+    
+    <span class="c1"># Store transformed base value</span>
+    <span class="n">shap_values_transformed</span><span class="o">.</span><span class="n">base_values</span> <span class="o">=</span> <span class="n">base_value</span>
+
+    <span class="c1">#return shap_values_transformed</span>
+    <span class="k">return</span> <span class="n">shap_values_transformed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap_values_extended_probs</span> <span class="o">=</span> <span class="n">shap_transform_scale</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>
@@ -901,11 +986,15 @@ Intersecting values:
 <h3>For plotting replace standardised data values with original values<a class="headerlink" href="#for-plotting-replace-standardised-data-values-with-original-values" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a copy of shap_values_extended</span>
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="n">shap_values_extended_ns</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a copy of shap_values_extended objects and replace data</span>
+
+<span class="n">shap_values_extended_ns</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">)</span>
 <span class="c1"># Replace .data with non-strandardised data</span>
 <span class="n">shap_values_extended_ns</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">shap_values_probs_ns</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">shap_values_extended_probs</span><span class="p">)</span>
+<span class="c1"># Replace .data with non-strandardised data</span>
+<span class="n">shap_values_probs_ns</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
@@ -926,7 +1015,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_20_0.png" src="../../_images/01_log_reg_shap_20_0.png" />
+<img alt="../../_images/01_log_reg_shap_23_0.png" src="../../_images/01_log_reg_shap_23_0.png" />
 </div>
 </div>
 </div>
@@ -940,7 +1029,18 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_22_0.png" src="../../_images/01_log_reg_shap_22_0.png" />
+<img alt="../../_images/01_log_reg_shap_25_0.png" src="../../_images/01_log_reg_shap_25_0.png" />
+</div>
+</div>
+<p>Show summary for probabilities (rather than log odds).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_probs_ns</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_27_0.png" src="../../_images/01_log_reg_shap_27_0.png" />
 </div>
 </div>
 </div>
@@ -953,7 +1053,18 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_24_0.png" src="../../_images/01_log_reg_shap_24_0.png" />
+<img alt="../../_images/01_log_reg_shap_29_0.png" src="../../_images/01_log_reg_shap_29_0.png" />
+</div>
+</div>
+<p>Show plot for probabilities (rather than log odds).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">shap_values_probs_ns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># For the first observation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_31_0.png" src="../../_images/01_log_reg_shap_31_0.png" />
 </div>
 </div>
 </div>
@@ -966,8 +1077,9 @@ Intersecting values:
 
 <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="o">=</span><span class="n">shap_values</span><span class="p">,</span> 
                   <span class="n">features</span><span class="o">=</span><span class="n">X_test_std</span><span class="p">,</span>
-                  <span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> 
-                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">),</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                  <span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">),</span>
+                  <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Truncate x axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -975,7 +1087,23 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_26_0.png" src="../../_images/01_log_reg_shap_26_0.png" />
+<img alt="../../_images/01_log_reg_shap_33_0.png" src="../../_images/01_log_reg_shap_33_0.png" />
+</div>
+</div>
+<p>Show plot for probabilities (rather than log odds).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="o">=</span><span class="n">shap_values_probs_ns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+                  <span class="n">features</span><span class="o">=</span><span class="n">X_test_std</span><span class="p">,</span>
+                  <span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> 
+                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_35_0.png" src="../../_images/01_log_reg_shap_35_0.png" />
 </div>
 </div>
 </div>
@@ -1002,9 +1130,22 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_30_0.png" src="../../_images/01_log_reg_shap_30_0.png" />
+<img alt="../../_images/01_log_reg_shap_39_0.png" src="../../_images/01_log_reg_shap_39_0.png" />
 </div>
 </div>
+<p>And as probabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_probs_ns</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span> 
+                     <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_41_0.png" src="../../_images/01_log_reg_shap_41_0.png" />
+</div>
+</div>
+<p>‘Decision plot’:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">location_low_probability</span>
@@ -1024,7 +1165,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_31_1.png" src="../../_images/01_log_reg_shap_31_1.png" />
+<img alt="../../_images/01_log_reg_shap_43_1.png" src="../../_images/01_log_reg_shap_43_1.png" />
 </div>
 </div>
 <p>Example of a person high low probability of receiving thrombolysis.</p>
@@ -1036,7 +1177,19 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_33_0.png" src="../../_images/01_log_reg_shap_33_0.png" />
+<img alt="../../_images/01_log_reg_shap_45_0.png" src="../../_images/01_log_reg_shap_45_0.png" />
+</div>
+</div>
+<p>As probabilities:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_probs_ns</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span> 
+                     <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_47_0.png" src="../../_images/01_log_reg_shap_47_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1057,7 +1210,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is -4.68
 </pre></div>
 </div>
-<img alt="../../_images/01_log_reg_shap_34_1.png" src="../../_images/01_log_reg_shap_34_1.png" />
+<img alt="../../_images/01_log_reg_shap_48_1.png" src="../../_images/01_log_reg_shap_48_1.png" />
 </div>
 </div>
 </div>
@@ -1073,11 +1226,11 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_36_0.png" src="../../_images/01_log_reg_shap_36_0.png" />
-<img alt="../../_images/01_log_reg_shap_36_1.png" src="../../_images/01_log_reg_shap_36_1.png" />
-<img alt="../../_images/01_log_reg_shap_36_2.png" src="../../_images/01_log_reg_shap_36_2.png" />
-<img alt="../../_images/01_log_reg_shap_36_3.png" src="../../_images/01_log_reg_shap_36_3.png" />
-<img alt="../../_images/01_log_reg_shap_36_4.png" src="../../_images/01_log_reg_shap_36_4.png" />
+<img alt="../../_images/01_log_reg_shap_50_0.png" src="../../_images/01_log_reg_shap_50_0.png" />
+<img alt="../../_images/01_log_reg_shap_50_1.png" src="../../_images/01_log_reg_shap_50_1.png" />
+<img alt="../../_images/01_log_reg_shap_50_2.png" src="../../_images/01_log_reg_shap_50_2.png" />
+<img alt="../../_images/01_log_reg_shap_50_3.png" src="../../_images/01_log_reg_shap_50_3.png" />
+<img alt="../../_images/01_log_reg_shap_50_4.png" src="../../_images/01_log_reg_shap_50_4.png" />
 </div>
 </div>
 <p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes.</p>
@@ -1103,10 +1256,46 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_log_reg_shap_38_0.png" src="../../_images/01_log_reg_shap_38_0.png" />
+<img alt="../../_images/01_log_reg_shap_52_0.png" src="../../_images/01_log_reg_shap_52_0.png" />
+</div>
+</div>
+<p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes as probabiltities.
+Converting to probabilities has distorted the overall effect.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feature to look at </span>
+<span class="n">feature</span> <span class="o">=</span> <span class="s1">&#39;S2BrainImagingTime_min&#39;</span>
+<span class="n">cutoff</span><span class="o">=</span> <span class="mi">400</span>
+
+<span class="c1"># Get Shap min and max below feature cutoff</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">shap_values_probs_ns</span><span class="p">[:,</span> <span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">cutoff</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="n">shap_values_probs_ns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="n">shap_values_probs_ns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shap_values_probs_ns</span><span class="p">[:,</span> <span class="n">feature</span><span class="p">],</span> 
+                   <span class="n">x_jitter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">cutoff</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_log_reg_shap_54_0.png" src="../../_images/01_log_reg_shap_54_0.png" />
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="observations">
+<h2>Observations<a class="headerlink" href="#observations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Shap show global and individual influence of features</p></li>
+<li><p>Shap is based off the original model structure: in a logistic regression model, this means using standardised data and explaining influence (shap values) as log odds ratio</p></li>
+<li><p>To make the model more explainable these paramters may be transformed to non-standardised data and probability</p></li>
+<li><p>Probability values may distort the feature infleunce (e.g. especially when all probs are low - this hides influence that is revealed in log odds).</p></li>
+</ul>
 </div>
 </div>
 
