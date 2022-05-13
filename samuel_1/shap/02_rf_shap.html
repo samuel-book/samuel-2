@@ -492,7 +492,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;train_0.csv&#39;</span><span class="p">)</span>
 <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_loc</span> <span class="o">+</span> <span class="s1">&#39;test_0.csv&#39;</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2500</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +539,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.847
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.844
 </pre></div>
 </div>
 </div>
@@ -553,7 +552,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We will get the Shap values for the test set. Can chose to calculate shap and save, or load shap explainer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_shap_values</span> <span class="o">=</span> <span class="kc">False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_shap_values</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">if</span> <span class="n">calculate_shap_values</span><span class="p">:</span>
 
@@ -577,6 +576,11 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">filehandler</span><span class="p">:</span> 
         <span class="n">shap_values_extended</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filehandler</span><span class="p">)</span>
         <span class="n">shap_values</span> <span class="o">=</span> <span class="n">shap_values_extended</span><span class="o">.</span><span class="n">values</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|===================| 35511/35518 [12:03&lt;00:00]        
 </pre></div>
 </div>
 </div>
@@ -631,52 +635,52 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>0.102362</td>
+      <td>0.103864</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>S2NihssArrival</th>
-      <td>0.086858</td>
+      <th>S2StrokeType_Infarction</th>
+      <td>0.098804</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Infarction</th>
-      <td>0.059603</td>
+      <th>S2NihssArrival</th>
+      <td>0.089498</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>0.059196</td>
+      <th>S1OnsetToArrival_min</th>
+      <td>0.043328</td>
       <td>4.0</td>
     </tr>
     <tr>
-      <th>S1OnsetToArrival_min</th>
-      <td>0.040954</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>0.029121</td>
       <td>5.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>0.033480</td>
+      <th>S1OnsetTimeType_Precise</th>
+      <td>0.028463</td>
       <td>6.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
-      <td>0.025741</td>
+      <td>0.026372</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>FacialPalsy</th>
-      <td>0.023850</td>
+      <th>S1AgeOnArrival</th>
+      <td>0.025455</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Precise</th>
-      <td>0.022783</td>
+      <th>FacialPalsy</th>
+      <td>0.022628</td>
       <td>9.0</td>
     </tr>
     <tr>
-      <th>S1AgeOnArrival</th>
-      <td>0.022526</td>
+      <th>BestLanguage</th>
+      <td>0.019946</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -719,73 +723,73 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>S2NihssArrival</th>
-      <td>-0.012402</td>
-      <td>0.012402</td>
-      <td>0.062283</td>
+      <th>S2StrokeType_Infarction</th>
+      <td>0.052680</td>
+      <td>0.052680</td>
+      <td>0.109244</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-0.022796</td>
-      <td>0.022796</td>
-      <td>0.056885</td>
+      <td>0.007398</td>
+      <td>0.007398</td>
+      <td>0.065300</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <th>S1OnsetTimeType_Best estimate</th>
-      <td>0.001824</td>
-      <td>0.001824</td>
-      <td>0.042600</td>
+      <th>S2NihssArrival</th>
+      <td>0.015245</td>
+      <td>0.015245</td>
+      <td>0.063229</td>
       <td>3.0</td>
     </tr>
     <tr>
-      <th>AFAnticoagulent_Yes</th>
-      <td>0.021408</td>
-      <td>0.021408</td>
-      <td>0.037143</td>
+      <th>S1OnsetTimeType_Best estimate</th>
+      <td>-0.009282</td>
+      <td>0.009282</td>
+      <td>0.028635</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Precise</th>
-      <td>0.000998</td>
-      <td>0.000998</td>
-      <td>0.029677</td>
+      <td>-0.007989</td>
+      <td>0.007989</td>
+      <td>0.028541</td>
       <td>5.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
-      <td>-0.011059</td>
-      <td>0.011059</td>
-      <td>0.028493</td>
+      <td>-0.020037</td>
+      <td>0.020037</td>
+      <td>0.023425</td>
       <td>6.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Infarction</th>
-      <td>-0.022096</td>
-      <td>0.022096</td>
-      <td>0.022096</td>
+      <th>S1OnsetToArrival_min</th>
+      <td>0.005436</td>
+      <td>0.005436</td>
+      <td>0.018708</td>
       <td>7.0</td>
     </tr>
     <tr>
-      <th>S2StrokeType_Primary Intracerebral Haemorrhage</th>
-      <td>-0.021814</td>
-      <td>0.021814</td>
-      <td>0.021814</td>
+      <th>BestLanguage</th>
+      <td>-0.000081</td>
+      <td>0.000081</td>
+      <td>0.015448</td>
       <td>8.0</td>
     </tr>
     <tr>
-      <th>S1OnsetToArrival_min</th>
-      <td>-0.005802</td>
-      <td>0.005802</td>
-      <td>0.016718</td>
+      <th>AFAnticoagulent_Yes</th>
+      <td>-0.004805</td>
+      <td>0.004805</td>
+      <td>0.014967</td>
       <td>9.0</td>
     </tr>
     <tr>
-      <th>S1OnsetDateType_Precise</th>
-      <td>0.008033</td>
-      <td>0.008033</td>
-      <td>0.015924</td>
+      <th>S1AgeOnArrival</th>
+      <td>-0.009969</td>
+      <td>0.009969</td>
+      <td>0.013963</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -803,19 +807,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of intersection values = 8
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of intersection values = 9
 
 Intersecting values:
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;S2BrainImagingTime_min&#39;,
- &#39;S2NihssArrival&#39;,
  &#39;S2StrokeType_Infarction&#39;,
- &#39;S2StrokeType_Primary Intracerebral Haemorrhage&#39;,
+ &#39;S2NihssArrival&#39;,
  &#39;S1OnsetToArrival_min&#39;,
  &#39;S1OnsetTimeType_Best estimate&#39;,
+ &#39;S1OnsetTimeType_Precise&#39;,
  &#39;S2RankinBeforeStroke&#39;,
- &#39;S1OnsetTimeType_Precise&#39;]
+ &#39;S1AgeOnArrival&#39;,
+ &#39;BestLanguage&#39;]
 </pre></div>
 </div>
 </div>
@@ -915,7 +920,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.33
 </pre></div>
 </div>
 <img alt="../../_images/02_rf_shap_26_1.png" src="../../_images/02_rf_shap_26_1.png" />
@@ -947,7 +952,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.38
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.33
 </pre></div>
 </div>
 <img alt="../../_images/02_rf_shap_29_1.png" src="../../_images/02_rf_shap_29_1.png" />
