@@ -313,6 +313,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note-on-shap-version-0-40">
+   Note on shap version 0.40:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-packages">
    Load packages
   </a>
@@ -390,6 +395,11 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note-on-shap-version-0-40">
+   Note on shap version 0.40:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-packages">
    Load packages
   </a>
@@ -463,6 +473,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://christophm.github.io/interpretable-ml-book/shapley.html">https://christophm.github.io/interpretable-ml-book/shapley.html</a></p>
 <p>More information on the shap library, inclusiong lots of useful examples may be found at: <a class="reference external" href="https://shap.readthedocs.io/en/latest/index.html">https://shap.readthedocs.io/en/latest/index.html</a></p>
 <p>Here we provide an example of using shap with random forests.</p>
+<div class="section" id="note-on-shap-version-0-40">
+<h2>Note on shap version 0.40:<a class="headerlink" href="#note-on-shap-version-0-40" title="Permalink to this headline">¶</a></h2>
+<p>There is a bug in the waterfall plot where <code class="docutils literal notranslate"><span class="pre">show=False</span></code> (required to save plot) fails. To correct this find the <code class="docutils literal notranslate"><span class="pre">_waterfall.py</span></code> file in the shap library (e.g. in <code class="docutils literal notranslate"><span class="pre">anaconda/envs/samuel2/lib/python3.8/site-packages/shap/plots</span></code>, and search/replace all <code class="docutils literal notranslate"><span class="pre">pl.</span></code> to <code class="docutils literal notranslate"><span class="pre">.plt</span></code>.</p>
+</div>
 <div class="section" id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
@@ -836,7 +850,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_17_0.png" src="../../_images/02_rf_shap_17_0.png" />
+<img alt="../../_images/02_rf_shap_18_0.png" src="../../_images/02_rf_shap_18_0.png" />
 </div>
 </div>
 </div>
@@ -852,7 +866,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_19_0.png" src="../../_images/02_rf_shap_19_0.png" />
+<img alt="../../_images/02_rf_shap_20_0.png" src="../../_images/02_rf_shap_20_0.png" />
 </div>
 </div>
 </div>
@@ -875,7 +889,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_21_0.png" src="../../_images/02_rf_shap_21_0.png" />
+<img alt="../../_images/02_rf_shap_22_0.png" src="../../_images/02_rf_shap_22_0.png" />
 </div>
 </div>
 </div>
@@ -905,7 +919,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_25_0.png" src="../../_images/02_rf_shap_25_0.png" />
+<img alt="../../_images/02_rf_shap_26_0.png" src="../../_images/02_rf_shap_26_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -925,7 +939,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.33
 </pre></div>
 </div>
-<img alt="../../_images/02_rf_shap_26_1.png" src="../../_images/02_rf_shap_26_1.png" />
+<img alt="../../_images/02_rf_shap_27_1.png" src="../../_images/02_rf_shap_27_1.png" />
 </div>
 </div>
 <p>An example with high probability of receiving thrombolysis.</p>
@@ -940,7 +954,7 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_28_0.png" src="../../_images/02_rf_shap_28_0.png" />
+<img alt="../../_images/02_rf_shap_29_0.png" src="../../_images/02_rf_shap_29_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -960,7 +974,7 @@ Intersecting values:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The base value is 0.33
 </pre></div>
 </div>
-<img alt="../../_images/02_rf_shap_29_1.png" src="../../_images/02_rf_shap_29_1.png" />
+<img alt="../../_images/02_rf_shap_30_1.png" src="../../_images/02_rf_shap_30_1.png" />
 </div>
 </div>
 </div>
@@ -976,11 +990,11 @@ Intersecting values:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/02_rf_shap_31_0.png" src="../../_images/02_rf_shap_31_0.png" />
-<img alt="../../_images/02_rf_shap_31_1.png" src="../../_images/02_rf_shap_31_1.png" />
-<img alt="../../_images/02_rf_shap_31_2.png" src="../../_images/02_rf_shap_31_2.png" />
-<img alt="../../_images/02_rf_shap_31_3.png" src="../../_images/02_rf_shap_31_3.png" />
-<img alt="../../_images/02_rf_shap_31_4.png" src="../../_images/02_rf_shap_31_4.png" />
+<img alt="../../_images/02_rf_shap_32_0.png" src="../../_images/02_rf_shap_32_0.png" />
+<img alt="../../_images/02_rf_shap_32_1.png" src="../../_images/02_rf_shap_32_1.png" />
+<img alt="../../_images/02_rf_shap_32_2.png" src="../../_images/02_rf_shap_32_2.png" />
+<img alt="../../_images/02_rf_shap_32_3.png" src="../../_images/02_rf_shap_32_3.png" />
+<img alt="../../_images/02_rf_shap_32_4.png" src="../../_images/02_rf_shap_32_4.png" />
 </div>
 </div>
 <p>Examine <code class="docutils literal notranslate"><span class="pre">S2BrainImagingTime_min</span></code> in range 0-400 minutes.</p>
@@ -998,7 +1012,7 @@ Intersecting values:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 400.0)
 </pre></div>
 </div>
-<img alt="../../_images/02_rf_shap_33_1.png" src="../../_images/02_rf_shap_33_1.png" />
+<img alt="../../_images/02_rf_shap_34_1.png" src="../../_images/02_rf_shap_34_1.png" />
 </div>
 </div>
 </div>

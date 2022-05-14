@@ -730,20 +730,20 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>-18.305090</td>
-      <td>18.305090</td>
+      <td>-18.304662</td>
+      <td>18.304662</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>3.408114</td>
-      <td>3.408114</td>
+      <td>3.407734</td>
+      <td>3.407734</td>
       <td>2.0</td>
     </tr>
     <tr>
       <th>S2RankinBeforeStroke</th>
-      <td>-0.495290</td>
-      <td>0.495290</td>
+      <td>-0.495289</td>
+      <td>0.495289</td>
       <td>3.0</td>
     </tr>
     <tr>
@@ -754,8 +754,8 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
-      <td>-0.367180</td>
-      <td>0.367180</td>
+      <td>-0.367146</td>
+      <td>0.367146</td>
       <td>5.0</td>
     </tr>
     <tr>
@@ -766,20 +766,20 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
     <tr>
       <th>S1OnsetDateType_Stroke during sleep</th>
-      <td>-0.304547</td>
-      <td>0.304547</td>
+      <td>-0.304553</td>
+      <td>0.304553</td>
       <td>7.0</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Best estimate</th>
-      <td>-0.288579</td>
-      <td>0.288579</td>
+      <td>-0.288577</td>
+      <td>0.288577</td>
       <td>8.5</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Precise</th>
-      <td>0.288579</td>
-      <td>0.288579</td>
+      <td>0.288577</td>
+      <td>0.288577</td>
       <td>8.5</td>
     </tr>
     <tr>
@@ -829,16 +829,16 @@ const thebe_selector_output = ".output, .cell_output"
   <tbody>
     <tr>
       <th>S2BrainImagingTime_min</th>
-      <td>0.901740</td>
-      <td>0.901740</td>
-      <td>3.070410</td>
+      <td>0.901719</td>
+      <td>0.901719</td>
+      <td>3.070338</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>S2StrokeType_Infarction</th>
-      <td>0.370766</td>
-      <td>0.370766</td>
-      <td>2.719283</td>
+      <td>0.370725</td>
+      <td>0.370725</td>
+      <td>2.718980</td>
       <td>2.0</td>
     </tr>
     <tr>
@@ -852,28 +852,28 @@ const thebe_selector_output = ".output, .cell_output"
       <th>S1OnsetTimeType_Best estimate</th>
       <td>-0.004291</td>
       <td>0.004291</td>
-      <td>0.278309</td>
+      <td>0.278307</td>
       <td>4.5</td>
     </tr>
     <tr>
       <th>S1OnsetTimeType_Precise</th>
       <td>-0.004291</td>
       <td>0.004291</td>
-      <td>0.278309</td>
+      <td>0.278307</td>
       <td>4.5</td>
     </tr>
     <tr>
       <th>BestLanguage</th>
       <td>0.044839</td>
       <td>0.044839</td>
-      <td>0.265707</td>
+      <td>0.265708</td>
       <td>6.0</td>
     </tr>
     <tr>
       <th>AFAnticoagulent_Yes</th>
-      <td>0.017716</td>
-      <td>0.017716</td>
-      <td>0.258533</td>
+      <td>0.017714</td>
+      <td>0.017714</td>
+      <td>0.258509</td>
       <td>7.0</td>
     </tr>
     <tr>
@@ -887,14 +887,14 @@ const thebe_selector_output = ".output, .cell_output"
       <th>FacialPalsy</th>
       <td>0.042795</td>
       <td>0.042795</td>
-      <td>0.219952</td>
+      <td>0.219949</td>
       <td>9.0</td>
     </tr>
     <tr>
       <th>Loc</th>
       <td>-0.054318</td>
       <td>0.054318</td>
-      <td>0.218305</td>
+      <td>0.218306</td>
       <td>10.0</td>
     </tr>
   </tbody>
@@ -1048,7 +1048,9 @@ Intersecting values:
 <p>Use summary plot to plot overall effect, without sum of other features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">plot_type</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;output/shap_lr.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1089,12 +1091,16 @@ Intersecting values:
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="o">=</span><span class="n">shap_values</span><span class="p">,</span> 
-                  <span class="n">features</span><span class="o">=</span><span class="n">X_test_std</span><span class="p">,</span>
+                  <span class="n">features</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span>
                   <span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
-                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">),</span>
-                  <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                  <span class="n">max_display</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+                  <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">),</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="c1"># Truncate x axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;output/lr_beeswarm.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> 
+            <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1121,8 +1127,11 @@ Intersecting values:
 <p>Example of a person with low probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span> 
-                     <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_low_probability</span><span class="p">],</span>
+                           <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;output/lr_waterfall_low.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span>
+            <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1165,11 +1174,14 @@ Intersecting values:
 <img alt="../../_images/01_log_reg_shap_42_1.png" src="../../_images/01_log_reg_shap_42_1.png" />
 </div>
 </div>
-<p>Example of a person high low probability of receiving thrombolysis.</p>
+<p>Example of a person high probability of receiving thrombolysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended_ns</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span> 
-                     <span class="n">max_display</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">waterfall</span><span class="p">(</span><span class="n">shap_values_extended</span><span class="p">[</span><span class="n">location_high_probability</span><span class="p">],</span>
+                           <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_display</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;output/lr_waterfall_high.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span>
+            <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
