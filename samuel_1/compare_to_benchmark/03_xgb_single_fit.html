@@ -1475,10 +1475,10 @@ SD AUC: 0.0026
 <span class="c1"># Get average feature importance from k-fold</span>
 <span class="n">importances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">feature_importance</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">feature_importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">importances</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
-<span class="n">feature_importance</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span>
+<span class="n">feature_importance</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span>
 
 <span class="c1"># Sort by importance (weight)</span>
-<span class="n">feature_importance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">feature_importance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;importance&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Save</span>
 <span class="n">feature_importance</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;output/xgb_single_fit_feature_importance.csv&#39;</span><span class="p">)</span>
@@ -1507,7 +1507,7 @@ SD AUC: 0.0026
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>weight</th>
+      <th>importance</th>
     </tr>
   </thead>
   <tbody>
@@ -1624,7 +1624,7 @@ SD AUC: 0.0026
 
 <span class="c1"># Get labels and values</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
 
 <span class="c1"># Plot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
@@ -1656,7 +1656,7 @@ SD AUC: 0.0026
 <span class="c1"># Get labels and values</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
 <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
-<span class="n">val</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="p">[</span><span class="s1">&#39;importance&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">25</span><span class="p">]</span>
 
 <span class="c1"># Plot</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>

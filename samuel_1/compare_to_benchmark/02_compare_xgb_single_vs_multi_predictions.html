@@ -717,6 +717,11 @@ StDev: 0.080
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8528
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id1">
@@ -766,6 +771,9 @@ StDev: 0.080
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/02_compare_xgb_single_vs_multi_predictions_18_0.png" src="../../_images/02_compare_xgb_single_vs_multi_predictions_18_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="id3">
@@ -777,6 +785,12 @@ StDev: 0.080
 
 <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean: </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;StDev: </span><span class="si">{</span><span class="n">stdev</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 0.279
+StDev: 0.050
 </pre></div>
 </div>
 </div>
@@ -822,6 +836,12 @@ StDev: 0.080
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R squared 0.823
+</pre></div>
+</div>
+<img alt="../../_images/02_compare_xgb_single_vs_multi_predictions_23_1.png" src="../../_images/02_compare_xgb_single_vs_multi_predictions_23_1.png" />
+</div>
 </div>
 </div>
 <div class="section" id="test-simillarity-between-all-individual-predictions">
@@ -831,6 +851,11 @@ StDev: 0.080
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">same_predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">single_predictions</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">multi_predictions</span><span class="p">)</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">same_predictions</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Proportion predictions the same: </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion predictions the same: 0.879
 </pre></div>
 </div>
 </div>
