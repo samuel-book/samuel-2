@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mathematics for calculating odds and probabilities of mRS-level outcomes based on time to treatment &#8212; SAMueL Stroke Audit Machine Learning 2</title>
+    <title>Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Appendecies" href="outline.html" />
+    <link rel="prev" title="Appendicies" href="outline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -290,7 +290,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="outline.html">
-   Appendecies
+   Appendicies
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -300,7 +300,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Mathematics for calculating odds and probabilities of mRS-level outcomes based on time to treatment
+     Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment
     </a>
    </li>
   </ul>
@@ -377,6 +377,26 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modified-rankin-scale">
+   Modified Rankin Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reperfusion-treatment-for-ischaemic-stroke">
+   Reperfusion treatment for ischaemic stroke
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decay-of-effect-of-reperfusion-treatment">
+   Decay of effect of reperfusion treatment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-admin">
+   Notebook admin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#define-probability-and-odds">
    Define probability and odds
   </a>
@@ -543,6 +563,11 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
  </li>
 </ul>
 
@@ -554,7 +579,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Mathematics for calculating odds and probabilities of mRS-level outcomes based on time to treatment</h1>
+                <h1>Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -564,6 +589,26 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modified-rankin-scale">
+   Modified Rankin Scale
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reperfusion-treatment-for-ischaemic-stroke">
+   Reperfusion treatment for ischaemic stroke
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#decay-of-effect-of-reperfusion-treatment">
+   Decay of effect of reperfusion treatment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-admin">
+   Notebook admin
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#define-probability-and-odds">
    Define probability and odds
@@ -732,6 +777,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -741,13 +791,67 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="mathematics-for-calculating-odds-and-probabilities-of-mrs-level-outcomes-based-on-time-to-treatment">
-<h1>Mathematics for calculating odds and probabilities of mRS-level outcomes based on time to treatment<a class="headerlink" href="#mathematics-for-calculating-odds-and-probabilities-of-mrs-level-outcomes-based-on-time-to-treatment" title="Permalink to this headline">¶</a></h1>
-<p>In this notebook we explain how to derive various formulae for probability and odds that will be used in modified Rankin Scale (mRS) outcome modelling.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="mathematics-for-calculating-odds-and-probabilities-of-mrs-level-outcomes-after-stroke-based-on-time-to-reperfusion-treatment">
+<h1>Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment<a class="headerlink" href="#mathematics-for-calculating-odds-and-probabilities-of-mrs-level-outcomes-after-stroke-based-on-time-to-reperfusion-treatment" title="Permalink to this headline">¶</a></h1>
+<p>In this notebook we explain how to derive various formulae for probability and odds that will be used in predicting modified Rankin Scale (mRS) after stroke, depending on time to treatment.</p>
 <p>The data used in this example correspond to thrombectomy treatment, and can be switched for other data as required without changing the formulae.</p>
+<div class="section" id="modified-rankin-scale">
+<h2>Modified Rankin Scale<a class="headerlink" href="#modified-rankin-scale" title="Permalink to this headline">¶</a></h2>
+<p>The modified Rankin Scale (mRS) is a commonly used scale for measuring the degree of disability or dependence in the daily activities of people who have suffered a stroke or other causes of neurological disability [Saver <em>et al</em>., 2010].</p>
+<p>The scale runs from 0-6, running from perfect health without symptoms to death:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Score</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>No symptoms.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>No significant disability. Able to carry out all usual activities, despite some symptoms.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Slight disability. Able to look after own affairs without assistance, but unable to carry out all previous activities.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Moderate disability. Requires some help, but able to walk unassisted.</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Moderately severe disability. Unable to attend to own bodily needs without assistance, and unable to walk unassisted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Severe disability. Requires constant nursing care and attention, bedridden, incontinent.</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Dead.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reperfusion-treatment-for-ischaemic-stroke">
+<h2>Reperfusion treatment for ischaemic stroke<a class="headerlink" href="#reperfusion-treatment-for-ischaemic-stroke" title="Permalink to this headline">¶</a></h2>
+<p>Ischaemic stroke is a stroke caused by the blockage of blood supply to an area of the brain, caused by a clot. Ischaemic strokes account for 80-85% of all strokes, with the remainder being <em>haemorrhagic</em> strokes where loss of blood supply is caused by a bleed in the brain.</p>
+<p><em>Reperfusion</em> describes the restoration of blood flow following an ischaemic stroke. There are two potential reperfusion treatments:</p>
+<ul class="simple">
+<li><p><em>Thrombolysis</em> (also known as as <em>intravenous thrombolysis</em>, IVT) is a medical therapy where <em>clot-busting</em> drugs are used to reduce or remove the blood clot. About 20% of all stroke patients are suitable for thrombolysis.</p></li>
+<li><p><em>Thrombectomy</em> (also known as <em>mechanical thrombectomy</em>, MT) is the mechanical removal of a clot, by a mesh device under image guidance. Thrombectomy is suitable only for clots in a large vessel (these generally cause the worst strokes), and is a suitable treatment in about 10% of all stroke patients.</p></li>
+</ul>
+</div>
+<div class="section" id="decay-of-effect-of-reperfusion-treatment">
+<h2>Decay of effect of reperfusion treatment<a class="headerlink" href="#decay-of-effect-of-reperfusion-treatment" title="Permalink to this headline">¶</a></h2>
+<p>Reperfusion treatment becomes less effective with increasing time after stroke (with the loss of effect occurring over some hours). Emberson <em>et al.</em> and Fransen <em>et al.</em> have described the declining effect as the declining <em>odds ratio</em> of achieving an essentially <em>‘good outcome’</em> following thrombolysis (Emberson) or thrombectomy (Fransen). A <em>‘good outcome’</em> has been described differently with studied on thrombolysis generally using a threshold of mRS 0-1 at 3-6 months, and thrombectomy studies generally using a threshold of mRS 0-2 at 3-6 months. The <em>odds ratio</em> describes the odds of a <em>‘good outcome’</em> relative to the odds of a <em>‘good outcome’</em> in an untreated control group.</p>
+<p>The deacy in effectiveness of reperfusion is shown in the figure below (left panel = odds ratio, right panel = log odds ratio, IVT = thrombolysis, MT = thrombectomy).</p>
+<p><img alt="" src="../_images/odds_decay.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="notebook-admin">
+<h2>Notebook admin<a class="headerlink" href="#notebook-admin" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep notebook cleaner once finalised</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -755,24 +859,28 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change default colour scheme:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up MatPlotLib</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Change default colour scheme:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="section" id="define-probability-and-odds">
 <h2>Define probability and odds<a class="headerlink" href="#define-probability-and-odds" title="Permalink to this headline">¶</a></h2>
+<p>We define outcome in terms of probability distributions of mRS scores. These models assume overall mortality is not affected by reperfusion treatment, and so model the distrubition of mRS scores 0-5.</p>
 <div class="section" id="probability">
 <h3>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
 <p>Firstly we will define some probability distributions in terms of <span class="math notranslate nohighlight">\(x\)</span>, which is a given modified Rankin Scale (mRS), and <span class="math notranslate nohighlight">\(t\)</span>, the time from onset to treatment.</p>
@@ -955,10 +1063,10 @@ $<span class="math notranslate nohighlight">\( P(\mathrm{mRS}&gt;x\ |\ t) = 1.0 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_30_0.png" src="../_images/mRS_outcomes_maths_30_0.png" />
-<img alt="../_images/mRS_outcomes_maths_30_1.png" src="../_images/mRS_outcomes_maths_30_1.png" />
-<img alt="../_images/mRS_outcomes_maths_30_2.png" src="../_images/mRS_outcomes_maths_30_2.png" />
-<img alt="../_images/mRS_outcomes_maths_30_3.png" src="../_images/mRS_outcomes_maths_30_3.png" />
+<img alt="../_images/mRS_outcomes_maths_33_0.png" src="../_images/mRS_outcomes_maths_33_0.png" />
+<img alt="../_images/mRS_outcomes_maths_33_1.png" src="../_images/mRS_outcomes_maths_33_1.png" />
+<img alt="../_images/mRS_outcomes_maths_33_2.png" src="../_images/mRS_outcomes_maths_33_2.png" />
+<img alt="../_images/mRS_outcomes_maths_33_3.png" src="../_images/mRS_outcomes_maths_33_3.png" />
 </div>
 </div>
 <p>Some comments on the above plots:</p>
@@ -1133,7 +1241,7 @@ All of the <span class="math notranslate nohighlight">\(b\)</span> values are ne
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_53_0.png" src="../_images/mRS_outcomes_maths_53_0.png" />
+<img alt="../_images/mRS_outcomes_maths_56_0.png" src="../_images/mRS_outcomes_maths_56_0.png" />
 </div>
 </div>
 </div>
@@ -1213,7 +1321,7 @@ All of the <span class="math notranslate nohighlight">\(b\)</span> values are ne
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_64_0.png" src="../_images/mRS_outcomes_maths_64_0.png" />
+<img alt="../_images/mRS_outcomes_maths_67_0.png" src="../_images/mRS_outcomes_maths_67_0.png" />
 </div>
 </div>
 </div>
@@ -1254,7 +1362,7 @@ All of the <span class="math notranslate nohighlight">\(b\)</span> values are ne
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_68_0.png" src="../_images/mRS_outcomes_maths_68_0.png" />
+<img alt="../_images/mRS_outcomes_maths_71_0.png" src="../_images/mRS_outcomes_maths_71_0.png" />
 </div>
 </div>
 </div>
@@ -1324,7 +1432,7 @@ O &amp; = P(1+O) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_75_0.png" src="../_images/mRS_outcomes_maths_75_0.png" />
+<img alt="../_images/mRS_outcomes_maths_78_0.png" src="../_images/mRS_outcomes_maths_78_0.png" />
 </div>
 </div>
 </div>
@@ -1364,7 +1472,7 @@ O &amp; = P(1+O) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_78_0.png" src="../_images/mRS_outcomes_maths_78_0.png" />
+<img alt="../_images/mRS_outcomes_maths_81_0.png" src="../_images/mRS_outcomes_maths_81_0.png" />
 </div>
 </div>
 <p>The bend of <span class="math notranslate nohighlight">\(P(v)\)</span> changes at <span class="math notranslate nohighlight">\(v=0\)</span>, where <span class="math notranslate nohighlight">\(P(v)=0.5\)</span>. The <span class="math notranslate nohighlight">\(P(\mathrm{mRS})\)</span> lines are different shapes because some of them show mostly the <span class="math notranslate nohighlight">\(v&gt;0\)</span> curve (i.e. mRS=0,1), and the rest the <span class="math notranslate nohighlight">\(v&lt;0\)</span> part (i.e. mRS<span class="math notranslate nohighlight">\(\geq\)</span>2). This can be viewed as the <span class="math notranslate nohighlight">\(v\)</span>-axis here being offset to the right in the <span class="math notranslate nohighlight">\(P(t)\)</span> plots above. The size of the offset is different for each mRS line.</p>
@@ -1405,7 +1513,7 @@ O &amp; = P(1+O) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/mRS_outcomes_maths_80_0.png" src="../_images/mRS_outcomes_maths_80_0.png" />
+<img alt="../_images/mRS_outcomes_maths_83_0.png" src="../_images/mRS_outcomes_maths_83_0.png" />
 </div>
 </div>
 <p>Note that the scattered points above at <span class="math notranslate nohighlight">\(t=t_k\)</span> all share a probability <span class="math notranslate nohighlight">\(P(t=t_k)=0.5\)</span>.</p>
@@ -1423,6 +1531,12 @@ O &amp; = P(1+O) \\
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>Emberson J, Lees KR, Lyden P, et al. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: A meta-analysis of individual patient data from randomised trials. The Lancet 2014;384:1929–35. doi:10.1016/S0140-6736(14)60584-5</p>
+<p>Fransen PSS, Berkhemer OA, Lingsma HF, et al. Time to Reperfusion and Treatment Effect for Acute Ischemic Stroke: A Randomized Clinical Trial. JAMA Neurol 2016;73:190–6. doi:10.1001/jamaneurol.2015.3886</p>
+<p>Saver JL, Filip B, Hamilton S, et al. Improving the Reliability of Stroke Disability Grading in Clinical Trials and Clinical Practice. Stroke 2010;41:992–5. doi:10.1161/STROKEAHA.109.571364</p>
 </div>
 </div>
 
@@ -1455,7 +1569,7 @@ O &amp; = P(1+O) \\
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Appendecies</p>
+            <p class="prev-next-title">Appendicies</p>
         </div>
     </a>
 </div>
