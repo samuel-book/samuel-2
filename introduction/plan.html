@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Research plan (detailed) &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Introduction to SAMueL-2 (Stroke Audit Machine Learning)
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -305,76 +320,161 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Exploratory notebooks
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../exploratory/outline.html">
+   Outline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exploratory/01_LR_model_investigate_weights_and_standardised_values.html">
+     Logistic regression: Understanding hospital one-hot coefficients
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/introduction/plan.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/introduction/plan.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary-of-research">
    Summary of research
@@ -681,12 +781,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Research plan (detailed)</h1>
@@ -1009,16 +1108,17 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="research-plan-detailed">
-<h1>Research plan (detailed)<a class="headerlink" href="#research-plan-detailed" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="research-plan-detailed">
+<h1>Research plan (detailed)<a class="headerlink" href="#research-plan-detailed" title="Permalink to this headline">#</a></h1>
 <p>NIHR134326: Stroke Audit Machine Learning (SAMueL-2)</p>
 <p>Note: This is a follow-on project to a NIHR HS&amp;DR project (Ref: 17/99/89), referred to here as SAMueL-1. An online book for SAMueL-1 (which includes both summaries and details of work) is available at: <a class="reference external" href="https://samuel-book.github.io/samuel-1">https://samuel-book.github.io/samuel-1</a></p>
 <p>(This is Research Plan V3, 20/12/2021)</p>
-<div class="section" id="summary-of-research">
-<h2>Summary of research<a class="headerlink" href="#summary-of-research" title="Permalink to this headline">¶</a></h2>
+<section id="summary-of-research">
+<h2>Summary of research<a class="headerlink" href="#summary-of-research" title="Permalink to this headline">#</a></h2>
 <p>BACKGROUND AND OVERALL AIM</p>
 <p>In England and Wales, 11%-12% of emergency stroke patients receive thrombolysis, significantly below the NHS Long Term Plan target of 20% by 2025.</p>
 <p>The overall aim of SAMUeL-2 is to work with the Sentinel Stroke National Audit Programme (SSNAP) to increase the impact of national audit by providing advanced tools for in-depth comparisons between hospitals, helping to address the gap between actual and achievable thrombolysis use.</p>
@@ -1032,28 +1132,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Generation of synthetic data and artificial patient vignettes: 1) build on pilot work already performed for generating synthetic patient-level stroke data that may be shared freely and used for discussion of ’virtual’ patients, 2) automatic generation of artificial clinical vignettes from real or synthetic SSNAP data.</p></li>
 <li><p>Co-production of project outputs with clinicians to promote acceptance and use for local quality improvement: By using both information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the content and style of our intervention (SAMueL tool). Working with our Public and Patient Involvement (PPI) group we will also produce key public-facing output.</p></li>
 </ol>
-</div>
-<div class="section" id="background-and-rationale">
-<h2>Background and rationale<a class="headerlink" href="#background-and-rationale" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="stroke">
-<h3>Stroke<a class="headerlink" href="#stroke" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="background-and-rationale">
+<h2>Background and rationale<a class="headerlink" href="#background-and-rationale" title="Permalink to this headline">#</a></h2>
+<section id="stroke">
+<h3>Stroke<a class="headerlink" href="#stroke" title="Permalink to this headline">#</a></h3>
 <p>Stroke happens when blood flow to an area of the brain has been interrupted, causing cell death [1]. Stroke may be ischaemic, due to an arterial blockage, or haemorrhagic, due to bleeding. Stroke is the main cause of adult-onset long-term disability and a major burden on health and social care services. It was estimated that in 2010, there were 5.9 million deaths and 33 million stroke survivors worldwide [2]. Eighty-five thousand people are hospitalised with stroke each year in England, Wales and Northern Ireland [3]. Over the last 25 years in England stroke has consistently been one of the leading cause of lost disability-adjusted life years, which combine mortality and disability burdens [4].</p>
-</div>
-<div class="section" id="intravenous-thrombolysis">
-<h3>Intravenous thrombolysis<a class="headerlink" href="#intravenous-thrombolysis" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="intravenous-thrombolysis">
+<h3>Intravenous thrombolysis<a class="headerlink" href="#intravenous-thrombolysis" title="Permalink to this headline">#</a></h3>
 <p>Intravenous thrombolysis is a ‘clot-busting’ therapy developed to treat ischaemic stroke by removing or reducing the blood clot obstructing blood flow in the brain. For ischaemic stroke, thrombolysis is an effective but time-critical treatment for the management of acute stroke if given within four and a half hours of stroke onset [5], and is recommended for use in expert guidelines worldwide [6].</p>
-</div>
-<div class="section" id="targets-for-thrombolysis-use-and-speed">
-<h3>Targets for thrombolysis use and speed<a class="headerlink" href="#targets-for-thrombolysis-use-and-speed" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="targets-for-thrombolysis-use-and-speed">
+<h3>Targets for thrombolysis use and speed<a class="headerlink" href="#targets-for-thrombolysis-use-and-speed" title="Permalink to this headline">#</a></h3>
 <p>The European Stroke Organisation have promoted a European Stroke Action Plan [7], including a target of at least 15% thrombolysis, with median onset-to-treatment times of &lt;120 minutes, noting that evidence suggests that achieving these targets may be aided by centralisation of stroke services [8,9]. An analysis of the largest randomised trial of thrombolysis concluded that 60% of ischaemic stroke patients arriving within 4 hours of known stroke onset were suitable for thrombolysis [10]. In 2016-18 in England and Wales, about 40% of emergency stroke patients arrived within 4 hours of known stroke onset (data from SAMueL-1). Given that about 85% is stroke is ischaemic, this gives a potential target of 20% thrombolysis.</p>
 <p>The 2019 NHS Long Term Plan [11] sets out the ambition of 20% of emergency stroke patients receiving thrombolysis, such that by 2025 England will have amongst the best performance in Europe for delivering thrombolysis. This target is incorporated into the 2021 service specification for the 20 new Integrated Stroke Delivery Networks [12]. Current thrombolysis use in England and Wales is 11-12% on average but ranges from about 2% to 25% between hospitals [3], and has been static at this level for the last 8 years.</p>
 <p>The NHS plan for improving stroke care also sets a target that patients should receive thrombolysis within 60 minutes of arrival, but ideally within 20 minutes [12]. Whilst this speed of thrombolysis, called door-to-needle time, provides an ambitious target, it has been shown to be achievable as Helsinki University Central Hospital has reported a median door-to-needle time of 20 minutes, with 94% of patients treated within 60 minutes [13] - a model that has proved rapidly transferable elsewhere [14]. This speed was achieved by innovative solutions like paramedics taking patients straight to the scanner and with thrombolysis delivered close to or in the scanner.</p>
-</div>
-<div class="section" id="clinical-audit">
-<h3>Clinical audit<a class="headerlink" href="#clinical-audit" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="clinical-audit">
+<h3>Clinical audit<a class="headerlink" href="#clinical-audit" title="Permalink to this headline">#</a></h3>
 <p>Clinical audit seeks to drive quality improvement through the measurement of clinical quality against evidence-based standards [15]. In England and Wales, the Healthcare Quality Improvement Partnership (HQIP) is responsible for commissioning 28 national clinical audits which form the National Clinical Audit and Patient Outcomes Programme. The national audit of stroke is the Sentinel Stroke National Audit Programme (SSNAP), which collects data on the processes and outcomes of stroke care up to 6 months post-stroke for more than 90% of acute stroke admissions to hospitals in England, Wales, and Northern Ireland. Every year data from approximately 85,000 patients are collected. SSNAP publishes quarterly and yearly analysis of results on its website [16].</p>
-<div class="section" id="id1">
-<h4>Clinical audit<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<section id="id1">
+<h4>Clinical audit<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <p>Foy et al. [17] recently revisited the case for national audits being effective and how they may be improved. Audit and feedback have been found to improve care, for example by showing individuals or providers that they are outliers, but it is important that recipients of the feedback are convinced by the audit, see it as specific to them and that audit promotes improvement action beyond simply measurement. A barrier to accepting feedback is the belief (true or otherwise) that “my patients are different”. Also, persistent negative feedback can lead to disconnection from the process of quality improvement. Foy calls for more intelligent use of audit with the call.</p>
 <p><em>“Audit and feedback are widely used, sometimes abused, and often under-realised in healthcare. More imaginative design and responses are overdue; these require evidence-informed conversations between clinicians, patients, and academic communities. It is time to fully leverage national audits to accelerate data guided improvement and reduce unwarranted variations in healthcare. The status quo is no longer ethical.”</em> Foy et al. 2020.</p>
 <p>We respond to this challenge by using state-of-the-art modelling and machine learning tools that:</p>
@@ -1065,21 +1165,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Are action-focussed – identifying the actions to prioritise that will make most difference.</p></li>
 </ol>
 <p>We are encouraged by discussions we have had on outputs from our previous work with several of the new Integrated Stroke Delivery Networks (ISDNs). Our existing work has stimulated significant interest already, particularly in the bespoke nature of the analysis and feedback. This encourages us regarding positive engagement with these improvement networks, especially regarding support with involving sites and/or clinicians that might otherwise be reluctant to engage or are sceptical about nationally-dictated ‘top down’ or ‘one size fits all’ targets.</p>
-</div>
-</div>
-</div>
-<div class="section" id="summary-of-samuel-1">
-<h2>Summary of SAMueL-1<a class="headerlink" href="#summary-of-samuel-1" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="summary-of-samuel-1">
+<h2>Summary of SAMueL-1<a class="headerlink" href="#summary-of-samuel-1" title="Permalink to this headline">#</a></h2>
 <p>We built clinical pathway simulation models, and clinical decision-making models, based on patient-level data from SSNAP. We built machine learning models that would closely replicate the clinical decisions made at each hospital, predicting if a patient who arrived within the treatment window would receive thrombolysis. The decision models are based on clinical pathway timings and patient clinical features recorded in SSNAP, such as age, components of the stroke severity scale (National Institutes of Health Stroke Scale; NIHSS), co-morbidities such as atrial fibrillation etc. The clinical decision-making models allow us to ask the counter-factual question, “What treatment would my patient be likely to receive at other hospitals?”. The clinical pathway simulation models predicted each hospital’s thrombolysis rate with an average absolute error of less than 0.5 percentage points. The clinical decision-making models predicted clinical decisions with 85% accuracy (achieving 84% sensitivity and specificity simultaneously) for those patients arriving within 4 hours of known stroke onset, with neural networks or random forest models having the highest accuracy.</p>
 <p>Using our models, we found that about half of the current inter-hospital variation in thrombolysis is accounted for by differences in local patient populations. Most of the remaining inter-hospital differences were attributable to differences in clinical decision-making and, to a lesser extent, difference in hospital processes such as door-to-needle time.</p>
 <p>We then tested three alternative scenarios at each hospital: 1) What if door-to-needle time was 30 minutes?, 2) What if all hospitals determined stroke onset time at least as frequently as the current upper quartile of hospitals?, 3) What if clinical decisions were made according to the majority vote of 30 top ‘benchmark’ hospitals? These benchmark hospitals are the 30 acutely-admitting stroke units with highest predicted users of thrombolysis using a standard set of 10,000 patients passed through all hospital decision models. The infographic below summarises our modelling findings. We found that making these changes at all hospitals would increase the national average thrombolysis rate to 18-19% (range 6-27%). The change that would have most impact would be alignment of clinical decision-making with hospitals more enthusiastic in their use of thrombolysis, then through better ascertainment of stroke onset times, and finally through speeding internal processes - although reducing door-to-needle time has a larger effect on overall clinical benefit, as they will benefit all patients who receive thrombolysis. For every additional 10 patients treated under these scenarios the primary reason was: clinical decision making in 5, determining stroke onset time in 4, and door-to-needle time in 1. The modelling produces a bespoke breakdown for each hospital, giving the realistic and achievable thrombolysis rate, and the impact of each component - helping to identify at each hospital which change would make the greatest difference to outcomes for their own local population. This is an important finding as prior to this, most improvement effort in thrombolysis has been based on the generalised assumption that the largest improvements in thrombolysis rate come from reductions in door-to-needle time [13].</p>
 <p><a class="reference internal" href="#samuel1-summary"><span class="std std-numref">Figure 1</span></a> below shows a summary of findings from SAMueL-1.</p>
-<div class="figure align-default" id="samuel1-summary">
+<figure class="align-default" id="samuel1-summary">
 <a class="reference internal image-reference" href="../_images/samuel1_summary.png"><img alt="../_images/samuel1_summary.png" src="../_images/samuel1_summary.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">A summary of findings from SAMueL-1.</span><a class="headerlink" href="#samuel1-summary" title="Permalink to this image">¶</a></p>
-</div>
-<div class="section" id="previous-qualitative-research">
-<h3>Previous qualitative research<a class="headerlink" href="#previous-qualitative-research" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">A summary of findings from SAMueL-1.</span><a class="headerlink" href="#samuel1-summary" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="previous-qualitative-research">
+<h3>Previous qualitative research<a class="headerlink" href="#previous-qualitative-research" title="Permalink to this headline">#</a></h3>
 <p>During SAMueL-1 we held physician workshops and conducted semi-structured interviews with groups and individuals. We found attitudes to our clinical pathway simulation and machine learning were related to whether the physician came from a hospital with either a higher or lower use of thrombolysis.</p>
 <p>Doctors from hospitals with higher thrombolysis use:
 Were interested in the modelling and what it might mean for their own local circumstances.</p>
@@ -1095,10 +1197,10 @@ Were interested in the modelling and what it might mean for their own local circ
 <li><p>Tended to think their patients were different (e.g. they arrived later, had more complex needs, were not classic/typical stroke).</p></li>
 <li><p>Were concerned that increased use of thrombolysis would cause more harm than good.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="samuel-2-aims-and-objectives">
-<h2>SAMueL-2 aims and objectives<a class="headerlink" href="#samuel-2-aims-and-objectives" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="samuel-2-aims-and-objectives">
+<h2>SAMueL-2 aims and objectives<a class="headerlink" href="#samuel-2-aims-and-objectives" title="Permalink to this headline">#</a></h2>
 <p>The primary aims of the project are:</p>
 <p><a class="reference external" href="http://1.To">1.To</a> maximise the impact of national comparative audit on clinical practice change in thrombolysis through the development and use of sophisticated hospital-level analysis and bespoke feedback. This analysis, allowing for differences in hospital patient populations, will investigate both the benefit and potential harms of thrombolysis. Hospitals will be compared with both national benchmarks and with a group of hospitals with similar patient populations.</p>
 <ol class="simple">
@@ -1106,8 +1208,8 @@ Were interested in the modelling and what it might mean for their own local circ
 <li><p>Using co-production with clinicians, determine the best way to use and present the outputs from SAMueL-2 to increase impact and reduce unwarranted variation in clinical practice in thrombolysis.</p></li>
 </ol>
 <p>Based on clinician feedback received during SAMueL-1, and feedback received during first stage review, the specific objectives of this project are as follows:</p>
-<div class="section" id="machine-learning-and-clinical-pathway-simulation">
-<h3>Machine learning and clinical pathway simulation<a class="headerlink" href="#machine-learning-and-clinical-pathway-simulation" title="Permalink to this headline">¶</a></h3>
+<section id="machine-learning-and-clinical-pathway-simulation">
+<h3>Machine learning and clinical pathway simulation<a class="headerlink" href="#machine-learning-and-clinical-pathway-simulation" title="Permalink to this headline">#</a></h3>
 <p>We will build significantly on the machine learning of SAMueL-1:</p>
 <ol class="simple">
 <li><p><em>Outcomes</em>: Include prediction of clinical outcomes at 24 hours after thrombolysis, discharge, and 6 months in machine learning, and prediction of thrombolysis-related haemorrhage. This objective is to address concerns that using higher-thrombolysing hospitals as the benchmark may drive thrombolysis use that may cause more harm than good.</p></li>
@@ -1115,30 +1217,30 @@ Were interested in the modelling and what it might mean for their own local circ
 <li><p><em>Ambulance response</em>: Include ambulance response times in clinical pathway simulation. This objective addresses the observation from SSNAP that in recent years improvements in door-to-needle time have been cancelled out by lengthening pre-hospital onset-to-arrival times [18].</p></li>
 <li><p><em>Thrombectomy</em>: Extend the application of this approach to thrombectomy (endovascular treatment of stroke). This extension will apply to both the clinical pathway simulation model and the machine learning models. This objective responds to the developing landscape of stroke treatment. Thrombectomy numbers in the UK are likely to remain too limited for robust analysis through machine learning, but we will pilot an extension that may include use of thrombectomy as well as thrombolysis.</p></li>
 </ol>
-</div>
-<div class="section" id="incorporate-health-economic-models">
-<h3>Incorporate Health Economic models<a class="headerlink" href="#incorporate-health-economic-models" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="incorporate-health-economic-models">
+<h3>Incorporate Health Economic models<a class="headerlink" href="#incorporate-health-economic-models" title="Permalink to this headline">#</a></h3>
 <p>This project shares investigators with the NIHR Programme Grants for Applied Research PEARS (Promoting Effective And Rapid Stroke care) and OPTIMIST (OPTimising IMplementation of Ischaemic Stroke Thrombectomy). These projects have implemented, or are implementing, health economic modelling for use and speed of thrombolysis and thrombectomy. In this project we will incorporate and adapt health economic methods developed by these other NIHR projects and apply them in our modelling.</p>
-</div>
-<div class="section" id="improve-intelligibility-and-trust-in-modelling-and-machine-learning">
-<h3>Improve intelligibility and trust in modelling and machine learning<a class="headerlink" href="#improve-intelligibility-and-trust-in-modelling-and-machine-learning" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="improve-intelligibility-and-trust-in-modelling-and-machine-learning">
+<h3>Improve intelligibility and trust in modelling and machine learning<a class="headerlink" href="#improve-intelligibility-and-trust-in-modelling-and-machine-learning" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>Implement Shapley values, a recently developed method that may be used in all machine learning model types, to explain the contribution of individual features to predictions the model is making. This responds to a lack of trust from some clinicians in the concept of predictive modelling. We will allow them to see how the model is making predictions and which factors influence the model prediction more towards or away from giving thrombolysis.</p></li>
 <li><p>Improve methods for patient clustering, such as by using decision-tree distance in random forests, or embedding distance in neural networks. This will more easily identify groups of similar patients where clinical decision-making varies between hospitals, and identify typical patients in each group. Being able to measure similarity between patients (and hence patient populations) will also allow us to find hospitals with similar patient populations for use as peer comparators.</p></li>
 <li><p>Generate dashboards and other methods for model interrogation to augment the key statistics. This seeks to make the models more transparent and understandable, and hence increase acceptance and gain traction. We will produce pilot dashboards in a <a class="reference external" href="http://streamlit.io">streamlit.io</a> framework (currently being adopted by SNAP) that may be adopted and/or refined by SSNAP and may inform initiatives in other national audits.</p></li>
 <li><p>Investigate bias in the model. We will analyse two types of bias: 1) Bias that reflects real-world bias such as differences in hospital decision-making regarding whether patients with pre-stroke disability should receive thrombolysis, and 2) bias in the model whereby model accuracy is not equal for all subgroups.</p></li>
 </ol>
-</div>
-<div class="section" id="create-synthetic-data-and-patient-vignettes">
-<h3>Create synthetic data and patient vignettes<a class="headerlink" href="#create-synthetic-data-and-patient-vignettes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="create-synthetic-data-and-patient-vignettes">
+<h3>Create synthetic data and patient vignettes<a class="headerlink" href="#create-synthetic-data-and-patient-vignettes" title="Permalink to this headline">#</a></h3>
 <p>Synthetic data allows people to explore a machine learning model in more detail with large cohorts of representative data, and is therefore beneficial to the open exploration of issues and uncertainties, and to open science (our synthetic datasets will be published so that allow other groups to apply novel methods and tools to address this pro). Patient vignettes may be used to provoke discussion between clinicians on when to use thrombolysis. We will extend our work in two areas:</p>
 <ol class="simple">
 <li><p>Generation of synthetic patient-level stroke data. This data will resemble raw SSNAP data.</p></li>
 <li><p>Generation of synthetic patient vignettes which convert SSNAP-like data into a clinical vignette for discussion. We piloted this approach in the first project and found clinicians engaged with these well.</p></li>
 </ol>
-</div>
-<div class="section" id="explore-how-best-to-incorporate-modelling-and-machine-learning-into-local-improvement">
-<h3>Explore how best to incorporate modelling and machine learning into local improvement<a class="headerlink" href="#explore-how-best-to-incorporate-modelling-and-machine-learning-into-local-improvement" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="explore-how-best-to-incorporate-modelling-and-machine-learning-into-local-improvement">
+<h3>Explore how best to incorporate modelling and machine learning into local improvement<a class="headerlink" href="#explore-how-best-to-incorporate-modelling-and-machine-learning-into-local-improvement" title="Permalink to this headline">#</a></h3>
 <p>We will carry out qualitative work to answer the question “Given existing variations in thrombolysis use, what is the best way for us to use and present the outputs of machine learning to reduce unnecessary variation and promote best patient outcomes?” This work will form a vital bridge between clinicians (users) and the modelling team to ensure that the science translates to real world settings and practice.</p>
 <p>We will recruit up to 40 clinicians from hospitals across the spectrum of thrombolysis use (ensuring we get good representation from those hospitals with lower thrombolysis rates) to a clinician panel that will be asked to provide feedback and critical comments via regular meetings and email contact throughout the project. Specific planned activities include:</p>
 <ol class="simple">
@@ -1147,20 +1249,20 @@ Were interested in the modelling and what it might mean for their own local circ
 <li><p>Explore intelligibility and trust in modelling and machine learning. We will again use think aloud interviews with approximately 20 of these clinicians to explore intelligibility and trust in modelling and machine learning and to understand how the SAMuel-2 tool could address individual scepticism and organisational barriers to improving rates of thrombolysis.</p></li>
 </ol>
 <p>In addition to these activities, we will work flexibly and responsively with this panel to explore specific implementation questions that emerge during the project, for example convening virtual meetings to examine how best to configure the dashboard, or to understand the kinds of health economics modelling they would find most useful. Qualitative data will comprise meeting notes, interview transcripts and workshop outputs which will primarily be analysed using a combination of thematic approaches and framework analysis.</p>
-</div>
-<div class="section" id="promoting-open-science">
-<h3>Promoting Open Science<a class="headerlink" href="#promoting-open-science" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="promoting-open-science">
+<h3>Promoting Open Science<a class="headerlink" href="#promoting-open-science" title="Permalink to this headline">#</a></h3>
 <p>We will continue to work using the principles of open science, as described by The Alan Turing Institute in The Turing Way (<a class="reference external" href="https://www.turing.ac.uk/research/research-projects/turing-way-handbook-reproducible-data-science">https://www.turing.ac.uk/research/research-projects/turing-way-handbook-reproducible-data-science</a>). Using fully open code published in an online Jupyter Book like SAMueL-1, and using synthetic data, we hope this project will be useful as an example to others working with large publicly-funded datasets.</p>
-</div>
-</div>
-<div class="section" id="research-plan-and-methods">
-<h2>Research plan and methods<a class="headerlink" href="#research-plan-and-methods" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overall-attribution-of-requested-funding">
-<h3>Overall attribution of requested funding<a class="headerlink" href="#overall-attribution-of-requested-funding" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="research-plan-and-methods">
+<h2>Research plan and methods<a class="headerlink" href="#research-plan-and-methods" title="Permalink to this headline">#</a></h2>
+<section id="overall-attribution-of-requested-funding">
+<h3>Overall attribution of requested funding<a class="headerlink" href="#overall-attribution-of-requested-funding" title="Permalink to this headline">#</a></h3>
 <p>Leadership &amp; management: £25,970; Modelling and health economics: £171,284; Qualitative (co-production): £134,726 (+ £8,640 NHS support costs); PPI: £5,665; Dissemination: £2,240; University overheads: £256,515.</p>
-</div>
-<div class="section" id="clinical-pathway-simulation-and-machine-learning">
-<h3>Clinical pathway simulation and machine learning<a class="headerlink" href="#clinical-pathway-simulation-and-machine-learning" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="clinical-pathway-simulation-and-machine-learning">
+<h3>Clinical pathway simulation and machine learning<a class="headerlink" href="#clinical-pathway-simulation-and-machine-learning" title="Permalink to this headline">#</a></h3>
 <p>The key methodology of the project will be based on the methodologies employed in SAMueL-1, namely:</p>
 <ul class="simple">
 <li><p><em>Clinical pathway simulation</em>: Based on Monte-Carlo simulation using Python/NumPy. Prediction of probability of good outcome derived from a meta-analysis of clinical trials and is based on age group and time from onset to treatment [5].</p></li>
@@ -1175,9 +1277,9 @@ Were interested in the modelling and what it might mean for their own local circ
 <li><p>Prediction of patient-level outcomes and risk of thrombolysis-related haemorrhage, based on data in SSNAP (24 hour NIHSS, modified Rankin Scale (mRS) at discharge, mRS at 6 months, label of thrombolysis-related haemorrhage). Note: mRS at 6 months is only partially complete, with just over 40% of those who survive to discharge having a recorded outcome at 6 months. We will test our ability to predict 6-month mRS (and therefore impute it when missing) using regression machine learning algorithms (e.g. random forests regression, neural network regression). A ‘fall-back’ strategy is to base outcome models just on 24 hour NIHSS, mRS at discharge, and thrombolysis-related haemorrhage.</p></li>
 <li><p>Incorporation of organisational factors (such as staffing) for each hospital. This will come from the biennial SSNAP organisational audit being conducted in October 2021.</p></li>
 </ul>
-</div>
-<div class="section" id="building-acceptance-of-and-trust-in-modelling">
-<h3>Building acceptance of, and trust in, modelling<a class="headerlink" href="#building-acceptance-of-and-trust-in-modelling" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="building-acceptance-of-and-trust-in-modelling">
+<h3>Building acceptance of, and trust in, modelling<a class="headerlink" href="#building-acceptance-of-and-trust-in-modelling" title="Permalink to this headline">#</a></h3>
 <p>An important focus in SAMueL-2 will be building methods to demonstrate trustworthiness of the models. We will be guided by the FAT-ML Principles for
 Accountable Algorithms (<a class="reference external" href="https://www.fatml.org/resources/principles-for-accountable-algorithms">https://www.fatml.org/resources/principles-for-accountable-algorithms</a>):</p>
 <ul class="simple">
@@ -1187,89 +1289,95 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p><em>Auditability</em>: Allow others to probe, understand, and review the behaviour of the algorithms.</p></li>
 <li><p><em>Fairness</em>: Ensure that algorithmic decisions do not create discriminatory or unjust impacts when comparing across different demographics (e.g. race, sex, etc).</p></li>
 </ul>
-</div>
-<div class="section" id="conceptual-model-for-decision-making">
-<h3>Conceptual model for decision-making<a class="headerlink" href="#conceptual-model-for-decision-making" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="conceptual-model-for-decision-making">
+<h3>Conceptual model for decision-making<a class="headerlink" href="#conceptual-model-for-decision-making" title="Permalink to this headline">#</a></h3>
 <p>We will explore clinical decision-making in two ways: 1) A machine learning model, and 2) Qualitative research. An overall conceptual model is shown in <a class="reference internal" href="#conceptual"><span class="std std-numref">Figure 2</span></a>.</p>
-<div class="figure align-default" id="conceptual">
+<figure class="align-default" id="conceptual">
 <a class="reference internal image-reference" href="../_images/conceptual_model.png"><img alt="../_images/conceptual_model.png" src="../_images/conceptual_model.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Conceptual model of decision-making</span><a class="headerlink" href="#conceptual" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Conceptual model of decision-making</span><a class="headerlink" href="#conceptual" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Machine learning models are necessary simplifications of real-world decision-making. This is especially true when applying these models to audit data as, though extensive data is available, we are limited to the data that has been collected and stored nationally. We do not expect the machine learning model to incorporate all aspects of clinical-decision making, but results from our previous project show that we can achieve an ROC-AUC of 92% and an overall accuracy of 86% for those patients arriving at hospital with time left to give thrombolysis. The model therefore encapsulates a lot of the information that drives decision-making (and the planned project will add some further information to the model inputs, so we may improve accuracy). These models reveal differences in decision-making such as attitudes to giving thrombolysis to milder strokes, to patients with pre-existing disability, or to patients with imprecise stroke onset times.</p>
 <p>Including in our modelling are explanatory models showing what factors are most influential in the model, both overall and for individual patients. We know our models are ‘well calibrated’ – that is when the model has high certainty on whether a patient will receive thrombolysis or not, then it is almost always right. But when the model has low certainty then the accuracy of the model is worse. We will explore what the characteristics of the input that enable the model to be certain, and what are the input characteristics of the model when it is uncertain (we will also perform a similar analysis on looking at the characteristics of patients with predicted high variation in expected treatment between stroke teams).</p>
 <p>Our qualitative research will add another layer to exploring decision-making, exploring the context of the decision-making – who is making the decision, and what the aspects of the decision-making that are not included in our machine learning model. This adds a ‘real world’ rich view on top of the machine-learning model, and through this work we will also explore how we might best influence decision-making.</p>
-</div>
-<div class="section" id="clustering-of-patients-and-identification-of-hospitals-with-similar-patient-populations">
-<h3>Clustering of patients and identification of hospitals with similar patient populations<a class="headerlink" href="#clustering-of-patients-and-identification-of-hospitals-with-similar-patient-populations" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="clustering-of-patients-and-identification-of-hospitals-with-similar-patient-populations">
+<h3>Clustering of patients and identification of hospitals with similar patient populations<a class="headerlink" href="#clustering-of-patients-and-identification-of-hospitals-with-similar-patient-populations" title="Permalink to this headline">#</a></h3>
 <p>Clustering of patients, using similarity metrics between patients, allows us to identify ‘typical’ patients that exemplify key differences in decision-making between hospitals. By generating similarity metrics between patients, we may also identify hospitals with similar patient populations. These may be used as comparator hospitals such as the ‘similar ten’ comparator groups used to compare Clinical Commissioning Group performance (<a class="reference external" href="https://www.england.nhs.uk/publication/similar-10-ccg-explorer-tool/">https://www.england.nhs.uk/publication/similar-10-ccg-explorer-tool/</a>), avoiding the problem of comparing hospitals with dissimilar populations.</p>
 <p>In SAMueL-1 we began this work, using both random forests (looking at distances between patient ‘leaves’ induced by the sequence of decisions used to classify them) and neural networks. An example of a novel approach to patient clustering, using neural networks, is shown below in <a class="reference internal" href="#cluster"><span class="std std-numref">Figure 3</span></a>.</p>
-<div class="figure align-default" id="cluster">
+<figure class="align-default" id="cluster">
 <a class="reference internal image-reference" href="../_images/cluster.png"><img alt="../_images/cluster.png" src="../_images/cluster.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Patient characteristic embedding, marking of those patients with a haemorrhagic stroke (red) as opposed to a non-haemorrhagic stroke (blue).</span><a class="headerlink" href="#cluster" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Patient characteristic embedding, marking of those patients with a haemorrhagic stroke (red) as opposed to a non-haemorrhagic stroke (blue).</span><a class="headerlink" href="#cluster" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>We use <em>embedding layers</em> in a similar way to natural language models which encode words so that similar words (e.g. ‘big’ and ‘large’) end up close to each other in the encoded embedding space. The figure shows an example where the neural network encodes patients by similarity in decision-making, so that patients that appear similar when making decisions are located closely together. Using this approach, we find haemorrhagic patients closely clustered together (red cluster of patients in lower right of plot). Though not shown in this figure, we find other groups also closely located together elsewhere in the embedding space (e.g. patients who received thrombolysis, or patients who were not given thrombolysis but had very severe stroke). Expanding the number of embedding dimensions (here we use just 2 for simplicity) and using clustering techniques, such as k-means, should allow us to find types of patients that are typical of differences in decision-making between hospitals.</p>
-</div>
-<div class="section" id="synthetic-patient-level-data-and-vignettes">
-<h3>Synthetic patient-level data and vignettes<a class="headerlink" href="#synthetic-patient-level-data-and-vignettes" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="synthetic-data">
-<h4>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="synthetic-patient-level-data-and-vignettes">
+<h3>Synthetic patient-level data and vignettes<a class="headerlink" href="#synthetic-patient-level-data-and-vignettes" title="Permalink to this headline">#</a></h3>
+<section id="synthetic-data">
+<h4>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this headline">#</a></h4>
 <p>In SAMueL-1 we piloted generation of synthetic patient-level data that could be used to train machine learning models [21]. Techniques included SMOTE, generative adversarial networks, variational auto-encoders, and sampling from principal component analysis distributions. We found that synthetic data could be used to train and exemplify machine learning models with minimal loss in accuracy. We will extend and use these methods (e.g. with additional random-forest based methods and with an additional differential privacy layer) to generate large data sets of synthetic patient level data that can be used by people examining the model, or used to discuss examples of differences in decision-making between hospitals without risk of breaching patient confidentiality. We will assess the quality of the generated data by implementing methods to measure both utility (how well do the statistical properties of the synthetic data match those of the real data) and disclosure (how much information does the synthetic data reveal about the real data). Specifically, we will use:</p>
 <ul class="simple">
 <li><p><em>Cross-classification</em> to measure the utility of the synthetic data. Cross-classification involves training a model on synthetic data and assessing its performance on real data. It is a method we have tested in SAMueL-1.</p></li>
 <li><p><em>Random forest similarity</em> to measure the disclosure of the synthetic data. Disclosure can be minimised by ensuring that no point in the synthetic data is too close to any point in the real data. Using the similarity metric developed in our previous work, for each point in the real data we will find the closest point in the synthetic data. If the distance between these points is less than a threshold value, the synthetic data point will be perturbed to increase their distance.</p></li>
 <li><p><em>A differential privacy</em> layer to add an extra layer of privacy2.</p></li>
 </ul>
-</div>
-<div class="section" id="vignettes">
-<h4>Vignettes<a class="headerlink" href="#vignettes" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="vignettes">
+<h4>Vignettes<a class="headerlink" href="#vignettes" title="Permalink to this headline">#</a></h4>
 <p>Below is an example artificial patient vignette from SAMueL-1.  This is based on key SSNAP data, with an imagined narrative that fits that data. Doctors have engaged well with these, which bring an additional human dimension to the raw data. In SAMueL-2 we plan to automate vignette generation by building up from a selection of appropriate blocks that match the SSNAP data.</p>
 <p><em>Sally is a 76 year old woman with hypertension who had a TIA three years ago, who was taking clopidogrel, bendroflumethiazide and a statin. She found her knee arthritis a bit of a nuisance when shopping. She started to feel a slight weakness in her left arm and leg as she was making dinner for herself and her husband, Roy, one Thursday evening. She thought her knee was playing up and put the 6 O’Clock news on the radio to take her mind off it. However, when Sally and Roy sat down to eat at 7pm he noticed that she was clumsy with her fork and he thought her face looked twisted on the right. As she had previously had a TIA, Roy was alarmed and quickly dialled 999. An ambulance arrived within 10 minutes, and by 7:28 pm she was being assessed in the emergency department of her local hospital.</em></p>
 <p><em>The first doctor to see Sally quickly sent her for a CT brain scan, which happened at 7:59pm. Once back in the emergency department, the doctor assessing Sally noted her history of hypertension and TIA but that she was otherwise generally well. The doctor noted a minor drooping of her face, and a drift of her left arm and leg which were also slightly numb, and it seemed to make her left arm rather clumsy. Her NIHSS was 5. The scan showed no signs of haemorrhage, but there was an old lacunar infarct in the left hemisphere. The doctor decided that the risks of thrombolysis outweighed her potential to benefit as she thought the natural prognosis from her mild stroke was good even without thrombolysis. She subsequently admitted her to the stroke unit for observation.</em></p>
-</div>
-</div>
-<div class="section" id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">#</a></h3>
 <p>The code we generate will use all open Python libraries and, as with SAMueL-1, we will create a single Python file or Jupyter Notebook that will run all the standard analyses, off the back of a SQL query by SSNAP. We have worked with the SSNAP analytics team during SAMueL-1 on integration, and we will continue to work with them to ensure that our methodology and code is ready to implement following their upgrade to Microsoft Azure Database servers.</p>
 <p>In order to enhance user-friendliness, SSNAP are currently reconfiguring their dashboards away from downloaded Excel sheets to interactive web pages using <a class="reference external" href="http://streamlit.io">streamlit.io</a>. We will similarly develop pilot output using <a class="reference external" href="http://streamlit.io">streamlit.io</a> that may be adopted or refined by SSNAP (<a class="reference external" href="http://streamlit.io">streamlit.io</a> is designed to be easily compatible with Jupyter Notebooks,  which is the environment our project already uses for clinical pathway simulation and machine learning).</p>
-</div>
-<div class="section" id="health-economic-modelling">
-<h3>Health economic modelling<a class="headerlink" href="#health-economic-modelling" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="overview">
-<h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="health-economic-modelling">
+<h3>Health economic modelling<a class="headerlink" href="#health-economic-modelling" title="Permalink to this headline">#</a></h3>
+<section id="overview">
+<h4>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h4>
 <p>The health economic theme of SAMueL-2 is concerned with the short-term and long-term resource and health-related quality of life outcomes that are a consequence of differing levels and speeds of thrombolysis treatment. The analyses undertaken in SAMueL-2 will aim specifically at informing policy makers and commissioners of acute services about the health and resource consequences of differing levels of treatment.</p>
-</div>
-<div class="section" id="methodologies">
-<h4>Methodologies<a class="headerlink" href="#methodologies" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="methodologies">
+<h4>Methodologies<a class="headerlink" href="#methodologies" title="Permalink to this headline">#</a></h4>
 <p>The health economics methods will comply with appropriate guidelines, notably the Professional Society for Health Economics and Outcomes Research (ISPOR) Task Force on Good Research Practices-Modelling [22]. Models developed will take an NHS perspective within an extra-welfareist framework [23]. Specifically, the resources included within the analyses will be those consumed by the NHS in prehospital, hospital and community care settings. Health quality of life will be quantified using an instrument to which national tariffs apply and, when appropriate, ‘willingness-to-pay’ for gains in health-related quality of life will be applied. Health economic outcomes will be expressed in terms of the marginal difference between the service levels being modelled and the most appropriate alternative. The three types of economic analyses that will be used (Budget Impact Analysis, Cost-Effective Analysis and Cost-Utility Analysis) are listed in <a class="reference internal" href="#health-economics"><span class="std std-numref">Figure 4</span></a>, together with their key summary inputs.</p>
-<div class="figure align-default" id="health-economics">
+<figure class="align-default" id="health-economics">
 <a class="reference internal image-reference" href="../_images/health_economics.png"><img alt="../_images/health_economics.png" src="../_images/health_economics.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Types of economic evaluation and their constituents.</span><a class="headerlink" href="#health-economics" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Types of economic evaluation and their constituents.</span><a class="headerlink" href="#health-economics" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The economic analyses each report on a different facet of the consequences of different levels of service provision: 1) A Budget Impact Analysis is focused on the financial consequences (and is often reported in time-frames consistent with NHS budgetary cycles); 2) the cost-effectiveness analysis on efficiency of provision and, 3) the cost-utility analysis on the gains in health-related quality of life. Each analysis addresses different issues for policy makers. The estimation method used will be based on a Kaplan-Meier sample average type estimator. This method weights expected health-related quality of life and costs by the probability of survival.</p>
 <p>The health economic analysis will use appropriate techniques to address the issue of uncertainty in estimates. Uncertainty is particularly relevant to economic models where data is drawn from different sources [24]. Appropriate sensitivity analyses will be carried out alongside estimation of overall uncertainty around the results of each analysis. Such sensitivity analysis may be informed, for an example, by comparison of the Northumbrian patient cohort with the national SSNAP data set obtained by the project for the machine learning and clinical pathway simulation modelling.</p>
-</div>
-<div class="section" id="data-informing-health-economic-analyses">
-<h4>Data informing health economic analyses<a class="headerlink" href="#data-informing-health-economic-analyses" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="data-informing-health-economic-analyses">
+<h4>Data informing health economic analyses<a class="headerlink" href="#data-informing-health-economic-analyses" title="Permalink to this headline">#</a></h4>
 <p>In the majority of health economic analyses, complete primary data is not available. Instead, data are frequently combined from several sources, including literature reviews and registries. The modelling for SAMueL-2 will rely on data gathered from a variety of sources. The process of building the health economic models will include a review of the most appropriate sources of evidence to include in the models as well as identifying what sensitivity analyses should be carried out. Evidence can either be short or long-term. Short term evidence includes data about the acute phase of care and is typically drawn from trials and registries, with care being taken to ensure data used is relevant to the NHS context.</p>
 <p>The first long-term evidence used within the health economic models will be mortality. SAMueL-2 will use estimates based on mRS post stroke (recorded at hospital discharge and at 6 months). The techniques used will be the same as used in other longer term economic models such as the United Kingdom Prospective Diabetes Study, which used a Gompertz regression model for death following onset of type 2 diabetes [25]. In-hospital mortality and mortality within 30 days from admission will be obtained from SSNAP. Longer term mortality, in the form of conditional parametric survival functions, will be derived from a linked data-set of 2,000 stroke patients, followed up for an average of nine years (Northumbria Healthcare). As well as allowing an estimate to be made of the effects of increased treatment rates on mortality, these estimates will directly inform the economic analysis through their effect on health-related quality of life and resource use. As this data set is obtained from a single provider, sensitivity analysis will be undertaken to explore uncertainty of the derived parameters. This sensitivity analysis will be based on published life expectancy after stroke [26–28].</p>
 <p>Health-related quality of life will also be modelled with a quality adjusted life year (QALY) framework. In this model, mortality and morbidity are combined to create the QALY [29]. In SAMueL-2 morbidity estimates will be come from utilities mapped to the mRS, although over the duration of SAMueL-2 an increasing amount of outcome data will accumulate using the EuroQoL EQ-5D-5L which was introduced into SSNAP in July 2021. Utilities are values scaled between zero and one that reflect health related quality of life, where one represents full health and zero represents death. The conditional probability of a QALY will be derived from post stroke mRS (or EQ-5D-5L), its associated utility score and probability of survival. For example, a recent study found utility values of 0.97, 0.88, 0.74, 0.55, 0.20, −0.19, and 0 for mRS scores of zero (no symptoms) to 6 (dead) respectively [30]. Utility values used in SAMueL-2 health economic models will be drawn from the literature following a literature search. A similar method will be used to estimate lifetime costs. Annual healthcare costs associated with different levels of the mRS will be weighted by the probability of survival. A review of published studies will be conducted to identify these costs. Longitudinal studies of costs are typically less common than cross sectional studies of costs or health related quality of life because of follow-up costs. In the case of non NHS sources, for example Dewilde and colleagues reported Belgian healthcare costs [31], a purchasing power parity conversion will be carried out to facilitate use across national boundaries [32]. In keeping with best practice, all future costs and QALYs will be discounted at an appropriate rate - currently 3.5% annually for costs and 1.5% for QALYs [33].</p>
-</div>
-</div>
-<div class="section" id="qualitative-research">
-<h3>Qualitative research<a class="headerlink" href="#qualitative-research" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="research-question">
-<h4>Research question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="qualitative-research">
+<h3>Qualitative research<a class="headerlink" href="#qualitative-research" title="Permalink to this headline">#</a></h3>
+<section id="research-question">
+<h4>Research question<a class="headerlink" href="#research-question" title="Permalink to this headline">#</a></h4>
 <p>Our research question is: “Given existing variations in thrombolysis use, what is the best way for us to use and present the outputs of machine learning to reduce unnecessary variation and promote best patient outcomes?” This will involve comparing our clinical decision-making model with clinicians description of clinical decision-making (who makes the decision and how?), and how to do we use the machine learning model to drive beneficial adjustments to clinical decision-making?</p>
 <p>Qualitative research will work alongside the modelling work – enabling us to field-test and refine modelling outputs as they are produced. We will work with clinicians and others (e.g. commissioners) in order to co-produce a means of bringing about change in practice using our SAMueL-2 models. The goal of this co-production is to bring together our group’s machine learning and modelling knowledge with clinicians’ expertise and perceptions of what will improve the decision-making of themselves and their peers, so that the clinicians can help shape the outputs from the tool to be most constructively engaging.</p>
-</div>
-<div class="section" id="background">
-<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="background">
+<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h4>
 <p>From our group’s previous work in SAMueL-1 on variation in thrombolysis practice we know that clinicians’ perceptions of why they will not or cannot change their practice are influenced by practical and resource constraints and by concerns regarding risks. From other work on changing practice, we know, first, that changes in practice do not automatically or straightforwardly follow the existence, or even the awareness, of evidence [34]; second, that clinicians are not always consistent/methodical decision-makers [35,36]; and, third, that it is important to pay attention to the broader context in which clinicians work and consider “the historical, economic, professional, and social forces” [37] that influence their behaviour, including in relation to evidence-based practice in acute stroke care [38].</p>
 <p>Across a range of clinical settings, the implementation of evidence-based practice is affected by multiple overlapping factors at system, organisational, department, and individual levels [39] as well as by differences in new and existing practices, practitioners, patients, and policies and by the interactions between these things [40]. Even decisions apparently based on individual clinical experience and judgement are situated within and shaped by organisational cultures [41] and by organisational climate and social context [42].</p>
 <p>In light of this complexity, we need to consider how we can best use our SAMueL-2 models to reduce variation in the use of thrombolysis, and thus to improve patient care and outcomes. Another way of looking at this is as a double implementation problem in which we are concerned with: 1) the uneven implementation of thrombolysis [43], and 2) with preparing and presenting our model in a way that will make it the most acceptable and effective tool possible to support optimal implementation of thrombolysis.</p>
-</div>
-<div class="section" id="theoretical-framework">
-<h4>Theoretical framework<a class="headerlink" href="#theoretical-framework" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="theoretical-framework">
+<h4>Theoretical framework<a class="headerlink" href="#theoretical-framework" title="Permalink to this headline">#</a></h4>
 <p>We will anchor our work in established theory and frameworks. Our theoretical approach is grounded in strong structuration, which has been used before to examine socio-technical aspects of healthcare IT implementation [44] as well as in organisational studies more broadly [45]. Giddens [46] proposed structuration as a way of moving beyond the sociological tension between structure and agency - that is, of resolving the argument over whether human actions produce social conditions or social conditions determine human actions - by recognising that the two things are mutually informing and that social conditions (structure) both shape and are shaped by human action (agency) such that the two things co-evolve. Giddens’ work was highly theoretical and abstract but from it Stones developed strong structuration theory [47], which he designed to be more empirically and epistemologically grounded in specific, situated social situations and practices [45].</p>
 <p>We will encourage participants to draw on their own experiences, particularly in relation to evidence, evidence-based medicine, and individual clinical judgement within their professional and organisational context. We will shape our approach and analyses after the four questions described by Broom and colleagues [41].</p>
 <ol class="simple">
@@ -1279,30 +1387,30 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>What are the implications of such actions/beliefs for particular actors/institutional forms?</p></li>
 </ol>
 <p>Although audit and feedback is moderately effective as a means of improving quality of care, and leads to modest improvement in professional practice, there is substantial variation in the reported effects [48]. One proposed way to increase the effectiveness of audit and feedback is to construct feedback through social interaction, based on the observation that learning from feedback is better when people engage with it in a social situation rather than passively received [49]. Our combination of national comparative audit data with machine learning-informed case studies/vignettes allows us to do something that has seldom been possible in previous studies [50] and allow recipients to construct their own learning by means of close interaction with peers and with the team providing the feedback [51–53].</p>
-</div>
-<div class="section" id="data-collection">
-<h4>Data collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="data-collection">
+<h4>Data collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">#</a></h4>
 <p>Ultimately, we want to be able to present clinicians with information about thrombolysis in a way that will encourage them to change their practice and improve patient outcomes. Understanding how and what clinicians think when we introduce that information will help us to optimise the way we do it. To attain that understanding we will use an iterative combination of two methods: <em>think-aloud interviews</em> and <em>co-production workshops</em>.</p>
 <p>Think-aloud interviews are a form of cognitive interviewing that involve inviting participants to give voice to their thoughts as they respond to something in front of them [54]. They help us understand thought processes and have been widely used in the development and evaluation of health technologies [55]. We will use this approach to collect and understand the responses of individual clinicians to the information with which we present them and will feed this into our workshops. While remaining flexible to project needs, we will focus interviews especially on two areas we consider most significant: 1) use of artificial clinical vignettes (which seek to show and explore differences in clinical decision-making), and 2) trust in the models.</p>
 <p>Co-production workshops are useful for our purposes because the ways in which people, including clinicians, interpret and make sense of information relating to their practice has both individual and social components [56,57] and professional interactions influence decisions regarding thrombolysis [43]. Studying the processes by which this interpretation occurs can be difficult and time consuming (Gabbay and Le May [58] spent years observing General Practitioners) but through these workshops we hope to arrive at an approximation of some of the group processes involved. At the same time, these workshops will be where participants can propose and discuss changes to our intervention, which we will then show to participants in our interviews. We will use these workshops to present and gain feedback on both the content and form of the key output of the SAMueL-2 models.</p>
 <p>By alternating between information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the style and substance of our intervention. We will repeat interviews with the same clinicians as well as engage new interviewees at each iteration. By using a panel approach, with two groups of stakeholders (clinicians plus PPI representatives plus other stakeholders such as managers) each convened at three-month interviews, we will engage group members as co-producers of our model-based intervention. To us, this means that we will go beyond having clinicians and others as informants and will share power over decision-making and information-sharing with them in a way that enables joint ownership, understanding, and support for both the process and the outcomes, along the lines proposed by NHS England, NHS Improvement, and the Coalition for Personalised Care (C4CC 2020).</p>
-</div>
-<div class="section" id="recruitment">
-<h4>Recruitment<a class="headerlink" href="#recruitment" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="recruitment">
+<h4>Recruitment<a class="headerlink" href="#recruitment" title="Permalink to this headline">#</a></h4>
 <p>To enable us to explore why low thrombolysis rates persist in some acute stroke services we will ensure we engage clinicians (medics and specialist stroke nurses) working in these services, along with non-clinical staff involved in the commissioning of services. Our previous research for SAMueL-1 identified that R&amp;D departments in low thrombolysing sites (often smaller, more rural, more socio-economically deprived) have lower capacity and capability to participate in qualitative studies (which are perceived as low priority), and can struggle to identify a physician as local principal investigator. Working with our NIHR CRN Research Delivery Manager and NIHR Study Support Service Manager, our recruitment strategy will involve a CRN nurse actively engaging the sites (especially ensuring we have good representation from those that are in the lower tertile for thrombolysis in the SSNAP audit), conducting site initiation visits, and supporting local capacity and capability to engage and recruit acute stroke clinicians.</p>
 <p>In SAMueL-1 we also recognised that physicians who thrombolyse less are also less likely to engage with us through existing stroke networks and conferences. To address this, we will work with the new ISDNs – whose remit is specifically to improve the whole stroke pathway by facilitating a collaborative approach to service transformation – as an additional way of identifying and engaging clinicians. Where we identify local and less formal networks we may use snowballing techniques, asking participants to identify suitable peers and colleagues whom we can then approach to participate. Health Research Authority (HRA) ethical approval will be required for this proposal and we will ensure that all recruitment practices are compliant.</p>
 <p>We aim to recruit 40 clinicians in total, and in order to be flexible and minimise any burden, we will offer them the opportunity to participate in an interview (individual or as part of a local group) and/or participate in our stakeholder workshops. As an additional incentive to participate, we will offer them a £40 voucher for each episode of engagement, which will include the option of charity donation (such as to Médecins Sans Frontières).</p>
-</div>
-<div class="section" id="data-analysis">
-<h4>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="data-analysis">
+<h4>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this headline">#</a></h4>
 <p>Building on our SAMueL-1 qualitative work, we will undertake a Framework Analysis [59,60] of the interview and workshop data as well as of our field-notes and demographic data about the stroke delivery networks. All data will be transcribed, anonymised and managed in NVivo. Our analysis will be informed by the NASSS framework, specifically for exploring the complex configuration of conditions in which technological innovations may flourish or fail [61]. This will enable exploration of factors such as our stakeholders’ perceptions of and attitudes to stroke service delivery, machine learning, the modelling ‘offer’, interpersonal dynamics, organisational capacity to innovate (both local and central), as well as the broader cultural context of resilience and scope for adaptation. This will maximise the clinical application of our research findings and enhance the development of the modelling outputs to support staff working with stroke patients to enhance their thrombolysis decision making.</p>
-</div>
-<div class="section" id="sampling">
-<h4>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="sampling">
+<h4>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">#</a></h4>
 <p>The data used in this work is historic anonymised national audit data from SSNAP. We use all emergency stroke admissions in SSNAP (three years data), though we restrict the modelling to hospitals classed by SSNAP as ‘routinely admitting teams’ with at least 100 emergency stroke admissions per year. For qualitative research we will allocate hospitals to tertile of thrombolysis use and sample evenly from each.</p>
-</div>
-<div class="section" id="anticipated-route-to-impact">
-<h4>Anticipated route to impact<a class="headerlink" href="#anticipated-route-to-impact" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="anticipated-route-to-impact">
+<h4>Anticipated route to impact<a class="headerlink" href="#anticipated-route-to-impact" title="Permalink to this headline">#</a></h4>
 <p>The ultimate aim of the project is to assist SSNAP in improving use of thrombolysis. Clinical expert opinion is that there is currently predominantly under-use of thrombolysis, but the project is open-minded to the possibility that some units may have over-use of thrombolysis. As we are working through SSNAP, the focus will be on producing tools that provide rich analysis at national, regional (Integrated Stroke Delivery Networks, ISDNs), and hospital level. We will use the Qualitative Research arm of the project to extend and refine the analysis performed, but key example of anticipated output include:</p>
 <ul class="simple">
 <li><p>We will petition NHS-England to include the principle of the use of local targets for thrombolysis in the NHS Long Term Plan.</p></li>
@@ -1311,10 +1419,10 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>An analysis of patient characteristics where decision-making differs between hospitals will be provided to ISDNs. A preliminary analysis suggests that factors that make decisions more variable between hospitals, compared to patients where the large majority of hospitals would agree to give thrombolysis include: 1) having an estimated, rather than precise, onset time, 2) arrive later and/or scanned later after arrival, 3) have a lower NIHSS, 4) have greater disability before stroke, 5) do not have facial palsy or visual field deficits. This preliminary  analysis was conducted after writing up the SAMueL report, but is available at: <a class="reference external" href="https://samuel-book.github.io/samuel-1/random_forest/characterise_contentious_patients.html">https://samuel-book.github.io/samuel-1/random_forest/characterise_contentious_patients.html</a></p></li>
 <li><p>There is potential to highlight to hospitals patients where the model predicted high probability of receiving thrombolysis, but the patient did not receive thrombolysis. This may be due to missing factors in the SSNAP data, but may also highlight patients where the thrombolysis pathway could have failed.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="summary-of-patients-service-users-carers-public-as-research-participants">
-<h3>Summary of patients/service users/carers/public as research participants<a class="headerlink" href="#summary-of-patients-service-users-carers-public-as-research-participants" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="summary-of-patients-service-users-carers-public-as-research-participants">
+<h3>Summary of patients/service users/carers/public as research participants<a class="headerlink" href="#summary-of-patients-service-users-carers-public-as-research-participants" title="Permalink to this headline">#</a></h3>
 <p>The data used in this work is solely historic anonymised national audit data from SSNAP. We do not recruit any patients/service users/carers/public as research participants.</p>
 <p>Leon Farmer, a PPI representative is a co-investigator on the project and will join all project meetings.</p>
 <p>A PPI group will meet nine times throughout the course of the project. Key roles of the PPI group are:</p>
@@ -1323,14 +1431,14 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>Allow a lay audience to interrogate the study methods and findings from a different perspective from the project team, and help direct research as appropriate. Previous experience is that in preparing research findings for the PPI group, the most important outputs of the project have become clearer. The PPI group will be used as a sounding board for investigating potential bias in the model…</p></li>
 <li><p>Assist the project team in producing plain English project outputs.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="dissemination-outputs-and-anticipated-impact">
-<h2>Dissemination, outputs, and anticipated Impact<a class="headerlink" href="#dissemination-outputs-and-anticipated-impact" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="what-do-you-intend-to-produce-from-your-research">
-<h3>What do you intend to produce from your research?<a class="headerlink" href="#what-do-you-intend-to-produce-from-your-research" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="practical-output-the-samuel-tool-code-to-be-run-as-part-of-national-stroke-audit">
-<h4>Practical output – the SAMueL tool (code) to be run as part of national stroke audit<a class="headerlink" href="#practical-output-the-samuel-tool-code-to-be-run-as-part-of-national-stroke-audit" title="Permalink to this headline">¶</a></h4>
+</section>
+</section>
+<section id="dissemination-outputs-and-anticipated-impact">
+<h2>Dissemination, outputs, and anticipated Impact<a class="headerlink" href="#dissemination-outputs-and-anticipated-impact" title="Permalink to this headline">#</a></h2>
+<section id="what-do-you-intend-to-produce-from-your-research">
+<h3>What do you intend to produce from your research?<a class="headerlink" href="#what-do-you-intend-to-produce-from-your-research" title="Permalink to this headline">#</a></h3>
+<section id="practical-output-the-samuel-tool-code-to-be-run-as-part-of-national-stroke-audit">
+<h4>Practical output – the SAMueL tool (code) to be run as part of national stroke audit<a class="headerlink" href="#practical-output-the-samuel-tool-code-to-be-run-as-part-of-national-stroke-audit" title="Permalink to this headline">#</a></h4>
 <p>The key practical output is to produce code that can be run as part of ‘business as usual’ for the national stroke audit SSNAP, to create sophisticated audit outputs on use of thrombolysis. During our first project we have ensured that all code developed may be run using open source libraries, and have made the code compatible with raw SSNAP query output. SAMueL-1 code is being piloted by SSNAP in August 2021.</p>
 <p>At a national level we plan to produce high level outputs that can be incorporated into active dashboards (using the same <a class="reference external" href="http://streamlit.io">streamlit.io</a> framework SSNAP is adopting) and quarterly and annual stroke audit reports:</p>
 <ul class="simple">
@@ -1345,9 +1453,9 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p><em>Hospital-level reports</em> detailing more analysis, and showing comparisons with other hospitals (e.g. hospitals with similar demographic, or other hospitals within the ISDN).</p></li>
 <li><p><em>Patient-facing outputs</em> (developed with our PPI group).</p></li>
 </ul>
-</div>
-<div class="section" id="knowledge">
-<h4>Knowledge<a class="headerlink" href="#knowledge" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="knowledge">
+<h4>Knowledge<a class="headerlink" href="#knowledge" title="Permalink to this headline">#</a></h4>
 <p>In addition to incorporating the SAMueL-2 tool into routine national audit outputs we expect to have three main areas of knowledge output:</p>
 <ul class="simple">
 <li><p><em>Improved understanding of the causes of inter-hospital variation in use of thrombolysis</em> (and a framework for thrombectomy), along with the effect of key process changes that may affect thrombolysis use. This will extend our current work by including additional inputs (pre-hospital pathway, and hospital organisation factors), and additional outputs (prediction of likely outcome at patient level, health economic outcomes).</p></li>
@@ -1366,29 +1474,29 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>Informal social media content: YouTube summaries, Tweets, podcasts.</p></li>
 <li><p>Appropriate links with the NIHR Centre for Engagement and Dissemination to pursue further specific routes to dissemination/impact.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="how-will-you-inform-and-engage-patients-service-user-carers-nhs-social-care-organisations-and-the-wider-population-about-your-work">
-<h3>How will you inform and engage patients/service user, carers, NHS, social care organisations and the wider population about your work?<a class="headerlink" href="#how-will-you-inform-and-engage-patients-service-user-carers-nhs-social-care-organisations-and-the-wider-population-about-your-work" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="how-will-you-inform-and-engage-patients-service-user-carers-nhs-social-care-organisations-and-the-wider-population-about-your-work">
+<h3>How will you inform and engage patients/service user, carers, NHS, social care organisations and the wider population about your work?<a class="headerlink" href="#how-will-you-inform-and-engage-patients-service-user-carers-nhs-social-care-organisations-and-the-wider-population-about-your-work" title="Permalink to this headline">#</a></h3>
 <p>As well as having a PPI co-investigator on the project team, and a PPI group within the project, we will be using our PPI group to help design outputs that may be understood by patients. We will share this particularly with the Stroke Association and discuss with them how it may be further disseminated nationally and within ISDNs.</p>
-</div>
-<div class="section" id="how-will-your-outputs-enter-our-health-and-or-social-care-system-or-society-as-a-whole">
-<h3>How will your outputs enter our health and/or social care system or society as a whole?<a class="headerlink" href="#how-will-your-outputs-enter-our-health-and-or-social-care-system-or-society-as-a-whole" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="how-will-your-outputs-enter-our-health-and-or-social-care-system-or-society-as-a-whole">
+<h3>How will your outputs enter our health and/or social care system or society as a whole?<a class="headerlink" href="#how-will-your-outputs-enter-our-health-and-or-social-care-system-or-society-as-a-whole" title="Permalink to this headline">#</a></h3>
 <p>By working with the national stroke audit we have an immediate way to access the health system along with other stroke audit outputs. SSNAP is already tightly tied in with national improvement initiatives such as NHS England &amp; Improvement’s Getting It Right First Time (GIRFT) programme, and is working with the new ISDNs which will drive quality improvement at a regional level.</p>
 <p>We also intend to influence those setting NHS stroke strategy through the regional and national forums above, especially with the message that there still remains considerable ‘headroom’ to improve the population benefit from thrombolysis through renewed and more sophisticated data-driven quality improvement efforts, focused around an improved understanding of the potential for each acute hospital to deliver benefits for their own local population, as opposed to a uniform target.</p>
-</div>
-<div class="section" id="what-further-funding-or-support-will-be-required-if-this-research-is-successful">
-<h3>What further funding or support will be required if this research is successful?<a class="headerlink" href="#what-further-funding-or-support-will-be-required-if-this-research-is-successful" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="what-further-funding-or-support-will-be-required-if-this-research-is-successful">
+<h3>What further funding or support will be required if this research is successful?<a class="headerlink" href="#what-further-funding-or-support-will-be-required-if-this-research-is-successful" title="Permalink to this headline">#</a></h3>
 <p>The project most importantly needs continued support from the national stroke audit, SSNAP. The code from the project is designed to run simply alongside the regular SSNAP dashboards and quarterly/yearly outputs, and will using the same frameworks (Python backend and <a class="reference external" href="http://streamlit.io">streamlit.io</a> dashboards). The overall aims of the project are also dependent on the continuance of the quality improvement effort in stroke currently manifested in the ISDNs.</p>
 <p>Assuming the project is successful, we would also like to collaborate with HQIP to look at what other national audits may benefit from this type of approach.</p>
-</div>
-<div class="section" id="what-do-you-think-the-impact-of-your-research-will-be-and-for-whom">
-<h3>What do you think the impact of your research will be and for whom?<a class="headerlink" href="#what-do-you-think-the-impact-of-your-research-will-be-and-for-whom" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="what-do-you-think-the-impact-of-your-research-will-be-and-for-whom">
+<h3>What do you think the impact of your research will be and for whom?<a class="headerlink" href="#what-do-you-think-the-impact-of-your-research-will-be-and-for-whom" title="Permalink to this headline">#</a></h3>
 <p>Ultimately the key impact should be for patients – helping to make emergency stroke care more consistent between hospitals so that a patient receives similar care wherever they are admitted. We will also help inform clinicians, commissioners, and other stakeholders on what additional interventions would lead to better emergency stroke care. Patient advocacy groups such as the Stroke Association remain very concerned about the unusually high and persistent degree of variation in thrombolysis practice across the UK at a level that would be considered intolerable in other areas of clinical practice – in essence, a ‘postcode lottery’. Implementation of our findings would reassure policymakers, people with stroke and the public that the NHS is committed to reducing unwarranted variation and consistently delivering evidence-based, NICE-approved therapies for emergency stroke.</p>
-</div>
-</div>
-<div class="section" id="project-research-timetable">
-<h2>Project / research timetable<a class="headerlink" href="#project-research-timetable" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="project-research-timetable">
+<h2>Project / research timetable<a class="headerlink" href="#project-research-timetable" title="Permalink to this headline">#</a></h2>
 <p><em>Pre-work (-3 to 0 months)</em></p>
 <p>HQIP data access request for SSNAP data. This period also to include a discussion with HQIP on the approval process for sharing of synthetic data (previous discussions were indicated that this would be a follow-on request after synthetic data had been generated). Begin recruitment of research fellow when possible.</p>
 <p><em>0-6 months</em></p>
@@ -1406,31 +1514,31 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <p><em>18-24 months</em></p>
 <p><em>Modelling</em>: 1) project write up and documentation including production of Jupyter Book of code, synthetic data, and results, 2) start dissemination activities.</p>
 <p><em>Qualitative</em>: 1) complete data collection and analysis, 2) write up and disseminate qualitative findings, 3) start dissemination activities.</p>
-</div>
-<div class="section" id="project-management">
-<h2>Project management<a class="headerlink" href="#project-management" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="project-management">
+<h2>Project management<a class="headerlink" href="#project-management" title="Permalink to this headline">#</a></h2>
 <p>The project has an experienced project planner, Chrissie Walker, on the project team.</p>
 <p>The project will be informed by an external advisory committee. This will continue from the current project chaired by Dr Ajay Bhalla (SSNAP audit associate director, and clinical lead for stroke at Guy’s and St Thomas’), with other members including Prof Gary Ford CBE (Chief Executive Officer of Oxford Academic Health Science Network and Chair of the AHSN Network, Professor of Stroke Medicine, and Visiting Professor of Clinical Pharmacology, Oxford University) and one other (currently being recruited after a retirement of previous member). The external advisory committee will meet four times throughout the project (approx. at months 0, 9, 15, and 22).</p>
 <p>The project will have inclusive project team meetings every 2 months, involving all team members. All key project-level decisions are expected to be made at these meetings.</p>
 <p>The project will have an internal steering group (Martin James, Michael Allen, Ken Stein, Iain Lang) who will review progress every 4 months (or ad-hoc as required) and highlight issues for resolution to the project team.</p>
-</div>
-<div class="section" id="ethics-regulatory-approvals">
-<h2>Ethics / Regulatory Approvals<a class="headerlink" href="#ethics-regulatory-approvals" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ethics-regulatory-approvals">
+<h2>Ethics / Regulatory Approvals<a class="headerlink" href="#ethics-regulatory-approvals" title="Permalink to this headline">#</a></h2>
 <p>SSNAP audit data will be accessed through prescribed access protocols managed by HQIP (the team has experience of this from SAMueL-1). We will work with HQIP on a two-stage process: 1) accessing data for internal project use, and 2) gaining approval to be able to share synthetic patient-level data. For qualitative research we will seek ethical approval from the University of Exeter College of Medicine and Health REC, followed by a HRA. Once HRA approval is in place then site level approval from the selected NHS sites will be sought in collaboration with the NIHR relevant Clinical Research Networks (this would be an automatically-adopted study).</p>
 <p>The project has a broad range of expertise competent in all areas of the project.</p>
 <p><em>Clinical and Academic</em>: Prof Martin James is co-lead for SAMueL-2. He is the stroke lead for Royal Devon and Exeter Hospital and Clinical Lead for the SW Peninsula ISDN, and has over 30 years of experience of applied health research in the aetiology of stroke, stroke prevention, and quality improvement, and as chief investigator of randomised controlled trials. Since 2019 he has been the Clinical Director of the national stroke audit (SSNAP). He is influential at a national level, for example co-authoring the Royal College of Physicians 2016 National Clinical Guideline for Stroke. Martin will be supported by Prof Ken Stein. Ken is highly experienced public health physician and applied healthcare researcher, with extensive experience in health technology assessment and evidence synthesis, and he is currently Editor in Chief of the NIHR Journals Library.</p>
 <p><em>Modelling and Machine Learning</em>: Dr Michael Allen is co-lead for SAMueL-2, and is a very experienced researcher and practitioner of applied healthcare modelling, using modelling based on clinical pathway simulation, machine learning, and geographic optimisation methods. His modelling of acute stroke services has been commissioned by NHS England, NHS Scotland, NHS Wales, HSC Northern Ireland, and regional NHS commissioners. Dr Allen has also published pilot work on patient-level synthetic data generation. Dr Allen is supported by Prof Richard Everson, Professor of Machine Learning at the University of Exeter, , a Fellow of the Alan Turing Institute and Director of the Institute for Data Science &amp; AI. The modelling team also includes two experienced modelling and machine learning researchers who were part of SAMueL-1: Dr Charlotte James and Kerry Pearn.</p>
 <p><em>Qualitative research</em>: The qualitative research is led by two experienced qualitative researchers: Dr Iain Lang, and Dr Julia Frost. Dr Lang’s research focus is on implementation research, knowledge mobilization, and implementation science, particularly in relation to health and care in later life. Dr Frost is qualitative lead on several NIHR-funded studies and leads the Third Gap Research Group at the University of Exeter. Dr Lang and Dr Frost are supported by Prof Catherine Pope, professor of medical sociology at the University of Oxford. Prof Pope is an internationally recognised researcher and expert in qualitative and mixed methods for applied health research.</p>
 <p><em>Health Economics</em>: The health economics part of the project is led by Prof Peter McMeekin, Northumbria University. Prof McMeekin has extensive experience in applying health economic analysis to stroke outcomes, and has been/is lead for health economics evaluation in stroke for a number of NIHR projects/programmes: PASTA, PEARS, OPTMIST. Prof McMeekin will help transfer the models developed in those other programmes to SAMueL-2, with implementation being performed by the modelling and machine learning group (see above). He will also use SAMueL-2 as an opportunity to further develop health economics models in stroke.</p>
-<div class="section" id="ppi-lead">
-<h3>PPI lead<a class="headerlink" href="#ppi-lead" title="Permalink to this headline">¶</a></h3>
+<section id="ppi-lead">
+<h3>PPI lead<a class="headerlink" href="#ppi-lead" title="Permalink to this headline">#</a></h3>
 <p>The project team has a PPI member as co-applicant, Mr Leon Farmer. Mr Farmer is a stroke survivor, and played a key PPI role in SAMueL-1 although not in a formal role as a co-applicant. Leon is keen and ready to take a larger role in this new project, and in this he will be supported by Dr Kristin Liabo, the lead of the Patient and Public Involvement group in the NIHR South West Peninsula ARC (PenARC).</p>
-</div>
-</div>
-<div class="section" id="success-criteria-and-barriers-to-proposed-work">
-<h2>Success criteria and barriers to proposed work<a class="headerlink" href="#success-criteria-and-barriers-to-proposed-work" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="success-criteria">
-<h3>Success criteria<a class="headerlink" href="#success-criteria" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="success-criteria-and-barriers-to-proposed-work">
+<h2>Success criteria and barriers to proposed work<a class="headerlink" href="#success-criteria-and-barriers-to-proposed-work" title="Permalink to this headline">#</a></h2>
+<section id="success-criteria">
+<h3>Success criteria<a class="headerlink" href="#success-criteria" title="Permalink to this headline">#</a></h3>
 <p>Ultimately the project will be a success if it contributes to improved stroke outcomes through the better use of thrombolysis. However, it is well recognised that audit has greater impact when interventions are multi-faceted, get the right message to the right recipients, considers the needs of clinicians and patients, and emphasises action towards realistic goals over measurement. Our project aims to increase the precision of feedback from national audit, and therefore contribute to the broader range of quality improvement initiatives to increase the population benefit from acute stroke treatments.</p>
 <p>More practical success criteria would be:</p>
 <ol class="simple">
@@ -1438,18 +1546,18 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>Positive feedback received during qualitative research interviews, including examples of increased ‘willingness to change’ on the basis of receiving this enhanced audit output.</p></li>
 <li><p>Interest from other audits on application in other clinical domains.</p></li>
 </ol>
-</div>
-<div class="section" id="barriers-to-proposed-work">
-<h3>Barriers to proposed work<a class="headerlink" href="#barriers-to-proposed-work" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="barriers-to-proposed-work">
+<h3>Barriers to proposed work<a class="headerlink" href="#barriers-to-proposed-work" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p><em>Risk of not accessing SSNAP data, or being unable to share synthetic patient-level data</em>: As the project team has previously accessed SSNAP data the risk of not accessing data appears minimal, though requesting more data may lead to some extra time needed to negotiate regulatory processes. There is also some risk about being unable to share synthetic patient-level data. HQIP have previously been encouraging on the production of synthetic data, and have informed us that when produced we should return to HQIP with the request to share. We have mitigated this risk by performing some early pilot work in which we demonstrated the ability to produce synthetic patient level data with enough quality to train machine learning models well. We will mitigate both of the above risks by starting the data access process three months before the planned project start.</p></li>
 <li><p><em>Risk of not recruiting sufficient clinicians or other stakeholders into qualitative research</em>: Our experience from SAMueL-1 was that it is not difficult to access senior stroke clinicians from large departments with higher thrombolysis use. More challenging was to access those from smaller departments, or from departments with lower thrombolysis use, or more general physicians responsible for delivering thrombolysis. In order to mitigate this risk we are modifying our approach to improve our reach to the latter groups, and we have significantly increased resource for qualitative work compared with SAMueL-1, to allow for the significant time and effort required to engage clinicians from this group and build relationships. Compared with our previous work, we are also seeking to establish a project-long relationship with these clinicians. We are establishing a formal relationship with CRNs to aid recruitment (which has been costed into the project) and will offer an incentive for all interviews/workshops in the project (through vouchers or charity donations). We will also be flexible to how people want to interact with us – using both focus groups (workshops) or individual conversations as preferred. We will also make more background available in short YouTube videos.</p></li>
 <li><p><em>Risk of models not being implemented</em>: The final risk is that we produce a model that is not implemented by SSNAP. We believe this risk is well-mitigated by having the clinical director of the SSNAP as co-lead, and another associate director of SSNAP on the external advisory committee. The project also has established links with the database/software team of SSNAP, to ensure that we overcome minimal technical barriers to implementation. Implementation is also aided by support from the National Clinical Director of Stroke at NHS England.</p></li>
 </ol>
-</div>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>NIH National Heart Blood and Lung Institute. Stroke [Internet]. 2021. Available from: <a class="reference external" href="https://www.nhlbi.nih.gov/health-topics/stroke">https://www.nhlbi.nih.gov/health-topics/stroke</a></p></li>
 <li><p>Feigin VL, Forouzanfar MH, Krishnamurthi R, Mensah GA, Connor M, Bennett DA, et al. Global and regional burden of stroke during 1990–2010: findings from the Global Burden of Disease Study 2010. The Lancet. 2014 Apr 13;383(9913):245–55.</p></li>
@@ -1513,8 +1621,8 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 <li><p>Miles M, Huberman A, Saldana J. Qualitative Data Analysis. London: Sage; 2014.</p></li>
 <li><p>Greenhalgh T, Wherton J, Papoutsi C, Lynch J, Hughes G, A’Court C, et al. Beyond adoption: A new framework for theorizing and evaluating nonadoption, abandonment, and challenges to the scale-up, spread, and sustainability of health and care technologies. Journal of Medical Internet Research. 2017 Nov 1;19(11).</p></li>
 </ol>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1538,9 +1646,11 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="plain_english_plan.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1556,24 +1666,28 @@ Accountable Algorithms (<a class="reference external" href="https://www.fatml.or
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SAMueL project team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By SAMueL project team<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
