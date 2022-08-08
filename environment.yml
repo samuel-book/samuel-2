@@ -4,14 +4,17 @@ channels:
   - conda-forge
 dependencies:
   - jupyterlab
-  - matplotlib
+  - matplotlib=3.4
   - numpy
   - pip
   - pandas
   - python=3.8
   - scikit-learn
   - tensorflow-gpu=2.4
+  - xgboost=1.5
   - pip:
     - graphviz
+    - imbalanced-learn
     - pydot
-    - shap==0.40.0
+    - shap==0.41
+    - optuna
