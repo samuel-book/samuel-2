@@ -18,3 +18,4 @@ dependencies:
     - pydot
     - shap==0.41
     - optuna
+    - torch
