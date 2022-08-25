@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to SAMueL-2 (Stroke Audit Machine Learning) &#8212; SAMueL Stroke Audit Machine Learning 2</title>
+    <title>Proportion of ischaemic patients with LVO &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Research plan (plain English summary)" href="plain_english_plan.html" />
+    <link rel="next" title="Outline - what is in this section?" href="../synthetic_data_demo/outline.html" />
+    <link rel="prev" title="Show outcome model python code" href="show_outcome_model_code.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -101,8 +102,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
                     Introduction to SAMueL-2 (Stroke Audit Machine Learning)
                 </a>
             </li>
@@ -114,12 +115,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="plain_english_plan.html">
+  <a class="reference internal" href="../introduction/plain_english_plan.html">
    Research plan (plain English summary)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="plan.html">
+  <a class="reference internal" href="../introduction/plan.html">
    Research plan (detailed)
   </a>
  </li>
@@ -212,39 +213,39 @@ const thebe_selector_output = ".output, .cell_output"
   Outcome modelling
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../outcome_modelling/intro.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    Predicting granular disability outcomes after treatment of stroke with thrombolysis (IVT) or thrombectomy (MT)
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../outcome_modelling/mRS_datasets_full.html">
+    <a class="reference internal" href="mRS_datasets_full.html">
      Defining modified Rankin Scale (mRS) probability distributions for untreated patients, and predicted distributions if treatment given at time of stroke onset
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../outcome_modelling/mRS_outcomes_maths.html">
+    <a class="reference internal" href="mRS_outcomes_maths.html">
      Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../outcome_modelling/demo_of_outcome_model.html">
+    <a class="reference internal" href="demo_of_outcome_model.html">
      Example output from stroke outcome model
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../outcome_modelling/show_outcome_model_code.html">
+    <a class="reference internal" href="show_outcome_model_code.html">
      Show outcome model python code
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../outcome_modelling/proportion_ischaemic_with_lvo.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Proportion of ischaemic patients with LVO
     </a>
    </li>
@@ -401,7 +402,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/introduction/intro.md"
+        <a href="../_sources/outcome_modelling/proportion_ischaemic_with_lvo.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -461,25 +462,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-research">
-   Summary of research
+  <a class="reference internal nav-link" href="#analysis-of-samuel-data">
+   Analysis of SAMueL data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#background-and-overall-aim">
-     BACKGROUND AND OVERALL AIM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specific-objectives">
-     SPECIFIC OBJECTIVES
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#previous-work-samuel-1">
-   Previous work (SAMueL-1)
+  <a class="reference internal nav-link" href="#racecat-pre-hospital-diagnosis-of-lvo">
+   RACECAT pre-hospital diagnosis of LVO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-number-of-uk-stroke-patients-eligible-for-endovascular-thrombectomy-review-analysis">
+   Estimating the number of UK stroke patients eligible for endovascular thrombectomy (review/analysis)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thrombolysis-meta-analysis-emberson-et-al">
+   Thrombolysis meta-analysis (Emberson et al.)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
   </a>
  </li>
 </ul>
@@ -491,7 +495,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to SAMueL-2 (Stroke Audit Machine Learning)</h1>
+                <h1>Proportion of ischaemic patients with LVO</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -502,25 +506,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-of-research">
-   Summary of research
+  <a class="reference internal nav-link" href="#analysis-of-samuel-data">
+   Analysis of SAMueL data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#background-and-overall-aim">
-     BACKGROUND AND OVERALL AIM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specific-objectives">
-     SPECIFIC OBJECTIVES
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#previous-work-samuel-1">
-   Previous work (SAMueL-1)
+  <a class="reference internal nav-link" href="#racecat-pre-hospital-diagnosis-of-lvo">
+   RACECAT pre-hospital diagnosis of LVO
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-the-number-of-uk-stroke-patients-eligible-for-endovascular-thrombectomy-review-analysis">
+   Estimating the number of UK stroke patients eligible for endovascular thrombectomy (review/analysis)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thrombolysis-meta-analysis-emberson-et-al">
+   Thrombolysis meta-analysis (Emberson et al.)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
   </a>
  </li>
 </ul>
@@ -533,52 +540,78 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-samuel-2-stroke-audit-machine-learning">
-<h1>Introduction to SAMueL-2 (Stroke Audit Machine Learning)<a class="headerlink" href="#introduction-to-samuel-2-stroke-audit-machine-learning" title="Permalink to this headline">#</a></h1>
-<p><strong>Use of simulation and machine learning to identify key levers for maximising the disability benefit of intravenous thrombolysis in acute stroke pathways</strong></p>
-<blockquote class="epigraph">
-<div><p>“Your decision to treat or not treat … That’s the difficult part. That’s the grey area where everyone does a different thing.”</p>
-<p class="attribution">—Stroke Consultant during interviews for SAMueL-1</p>
-</div></blockquote>
-<section id="summary-of-research">
-<h2>Summary of research<a class="headerlink" href="#summary-of-research" title="Permalink to this headline">#</a></h2>
-<section id="background-and-overall-aim">
-<h3>BACKGROUND AND OVERALL AIM<a class="headerlink" href="#background-and-overall-aim" title="Permalink to this headline">#</a></h3>
-<p>In England and Wales, 11%-12% of emergency stroke patients receive thrombolysis, significantly below the NHS Long Term Plan target of 20% by 2025.</p>
-<p>The overall aim of SAMUeL-2 is to work with the Sentinel Stroke National Audit Programme (SSNAP) to increase the impact of national audit by providing advanced tools for in-depth comparisons between hospitals, helping to address the gap between actual and achievable thrombolysis use.</p>
-<p>In previous work (SAMueL-1) we have used clinical pathway simulation and machine learning to model stroke pathways to thrombolysis at all (anonymised) hospitals, and to compare decision-making between hospitals. We found that about half of the current inter-hospital variation in thrombolysis use comes from differences in local patient populations and the other half from differences in hospital processes and decision-making. We found that stroke thrombolysis use could be reasonably expected to reach 18%-19% of hospitalised stroke patients. The largest single improvement would come from clinical decision-making at all hospitals being similar to 30 top- ‘benchmark’ hospitals with higher thrombolysis use. The next largest improvement would come from increasing the proportion of stroke patients whose stroke onset time is determined, to a level currently achieved by hospitals achieving upper quartile performance. Finally, speeding the stroke pathway at all hospitals would increase thrombolysis use, but by the smallest margin - although speeding the stroke pathway increases the clinical benefit of thrombolysis for all treated patients.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="proportion-of-ischaemic-patients-with-lvo">
+<h1>Proportion of ischaemic patients with LVO<a class="headerlink" href="#proportion-of-ischaemic-patients-with-lvo" title="Permalink to this headline">#</a></h1>
+<p>The proportion of ischaemic patients with LVO may be estimated in various ways. Estimates are likely to be swayed by the population being studied (e.g. treatment trial results may under-estimate nLVO as very low severity patients may not be selected for the trial). Below are various estimates of the relative occurrence of LVO and nLVO.</p>
+<section id="analysis-of-samuel-data">
+<h2>Analysis of SAMueL data<a class="headerlink" href="#analysis-of-samuel-data" title="Permalink to this headline">#</a></h2>
+<p>Data from SAMueL using NIHSS 11+ as a surrogate for LVO:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Admission type</p></th>
+<th class="head"><p>All arrivals</p></th>
+<th class="head"><p>Arrival within 6 hrs known onset</p></th>
+<th class="head"><p>Arrival within 4 hrs known onset</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Proportion all admissions</p></td>
+<td><p>100</p></td>
+<td><p>42.9</p></td>
+<td><p>37.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Proportion haemorrhagic</p></td>
+<td><p>11.5</p></td>
+<td><p>13.6</p></td>
+<td><p>14.1</p></td>
+</tr>
+<tr class="row-even"><td><p>Proportion ischaemic</p></td>
+<td><p>88.5</p></td>
+<td><p>86.4</p></td>
+<td><p>85.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>Proportion ischaemic with NIHSS 0-10</p></td>
+<td><p>74.9</p></td>
+<td><p>67.4</p></td>
+<td><p>65.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Proportion ischaemic with NIHSS 11+</p></td>
+<td><p>25.1</p></td>
+<td><p>32.6</p></td>
+<td><p>34.3</p></td>
+</tr>
+</tbody>
+</table>
+<p>For original analysis see: <a class="reference external" href="https://samuel-book.github.io/samuel-1/descriptive_stats/10_using_nihss_10_for_lvo.html">https://samuel-book.github.io/samuel-1/descriptive_stats/10_using_nihss_10_for_lvo.html</a></p>
 </section>
-<section id="specific-objectives">
-<h3>SPECIFIC OBJECTIVES<a class="headerlink" href="#specific-objectives" title="Permalink to this headline">#</a></h3>
-<p>Specific objectives are based on feedback received during SAMueL-1, and feedback on the SAMueL-2 bid proposal.</p>
-<ol class="simple">
-<li><p>Expansion of SAMueL-1 modelling to include: 1) outcome and adverse event prediction at patient-level, 2) inclusion of pre-hospital times in pathway model, 3) use of organisational factors (such as staffing) in predicting use of thrombolysis, and 4) piloting of a model that incorporates use of thrombectomy alongside thrombolysis.</p></li>
-<li><p>Incorporation of health economic outcomes (Quality Adjusted Life Years): These will be adapted from other NIHR projects involving this team that have already developed health economic models for thrombolysis in acute ischaemic stroke.</p></li>
-<li><p>Promote acceptance of the modelling by increased transparency and explainability: 1) make use of Shapley values to show the contribution of individual features to the prediction that the model is making, 2) improved methods for clustering of patients to clarify patterns of differences in clinical decision-making between hospitals and to allow identification of ‘similar hospitals’ (by patient population) for comparison, 3) investigation of bias in model (e.g. accuracy analysis by patient subgroups), 4) generation of dashboards and other interrogative methods.</p></li>
-<li><p>Generation of synthetic data and artificial patient vignettes: 1) build on pilot work already performed for generating synthetic patient-level stroke data that may be shared freely and used for discussion of ’virtual’ patients, 2) automatic generation of artificial clinical vignettes from real or synthetic SSNAP data.</p></li>
-<li><p>Co-production of project outputs with clinicians to promote acceptance and use for local quality improvement: By using both information gathering (through interviews) and intervention refinement (in workshops) we will incrementally modify and improve the content and style of our intervention (SAMueL tool). Working with our Public and Patient Involvement (PPI) group we will also produce key public-facing output.</p></li>
-</ol>
+<section id="racecat-pre-hospital-diagnosis-of-lvo">
+<h2>RACECAT pre-hospital diagnosis of LVO<a class="headerlink" href="#racecat-pre-hospital-diagnosis-of-lvo" title="Permalink to this headline">#</a></h2>
+<p>A breakdown on stroke type from the design of the RACE test for pre-hopsital diagnosis of LVO (de la Ossa Herrero et al., 2013). Note - there appears to be some discrepancies between reporting of the results between the text and the detailed breakdown by RACE score in figure 2 of the paper.</p>
+<ul class="simple">
+<li><p>Trial recruited from patients who presented at the emergency department within 6 hours from symptoms onset.</p></li>
+<li><p>In the text: Of 357 patients in the analysis, the stroke subtype was ischemic stroke in 240 (67.2%), hemorrhagic stroke in 52 (14.6%), transient ischemic attack in 20 (5.6%), and stroke mimic in 45 (12.6%). LVO was detected in 76 patients (31.7% of ischaemic strokes).</p></li>
+<li><p>In figure 2: Of 357 patients in the analysis, the stroke subtype was ischemic stroke in 260 (72.8), hemorrhagic stroke in 52 (14.6%), and stroke mimic in 45 (12.6%). LVO was detected in 99 patients (38.1% of ischaemic strokes).</p></li>
+<li><p>It appears that TIAs may be counted in with ischaemic strokes in this analysis.</p></li>
+</ul>
 </section>
+<section id="estimating-the-number-of-uk-stroke-patients-eligible-for-endovascular-thrombectomy-review-analysis">
+<h2>Estimating the number of UK stroke patients eligible for endovascular thrombectomy (review/analysis)<a class="headerlink" href="#estimating-the-number-of-uk-stroke-patients-eligible-for-endovascular-thrombectomy-review-analysis" title="Permalink to this headline">#</a></h2>
+<p>McMeekin et al. (2017) review the evdidence for estimating the number of UK stroke patients eligible for endovascular thrombectomy. They estimate:</p>
+<ul class="simple">
+<li><p>40% of ischaemic stroke patients have LVO; 80% of which have NIHSS &gt;=6 and may be suitable for thrombectomy. This is equivalent to 32% of admitted patients having LVO suitable for thrombectomy.</p></li>
+</ul>
 </section>
-<section id="previous-work-samuel-1">
-<h2>Previous work (SAMueL-1)<a class="headerlink" href="#previous-work-samuel-1" title="Permalink to this headline">#</a></h2>
-<p>An online Jupyter book for our previous work, SAMueL-1, may be found at: <a class="reference external" href="https://samuel-book.github.io/samuel-1/">https://samuel-book.github.io/samuel-1/</a></p>
-<p>Summary videos for SAMueL-1</p>
-<p>Short (10 min): <a class="reference external" href="https://youtu.be/d7Z0dpU3iiM">https://youtu.be/d7Z0dpU3iiM</a></p>
-<p>Long (45 min): <a class="reference external" href="https://youtu.be/6UXdEF9Hrbw">https://youtu.be/6UXdEF9Hrbw</a></p>
+<section id="thrombolysis-meta-analysis-emberson-et-al">
+<h2>Thrombolysis meta-analysis (Emberson et al.)<a class="headerlink" href="#thrombolysis-meta-analysis-emberson-et-al" title="Permalink to this headline">#</a></h2>
+<p>In Emberson’s meta-analysis of thrombolysis trials, 52.6% of all participants had a NIHSS of 11+ (a surrogate for LVO).</p>
 </section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>de la Ossa Herrero N, Carrera D, Gorchs M, Querol M, Millán M, Gomis M, et al. Design and Validation of a Prehospital Stroke Scale to Predict Large Arterial Occlusion The Rapid Arterial Occlusion Evaluation Scale. Stroke; a journal of cerebral circulation. 2013 Nov 26;45.</p>
+<p>Emberson J, Lees KR, Lyden P, et al. <em>Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: A meta-analysis of individual patient data from randomised trials.</em> The Lancet 2014;384:1929–35. doi:10.1016/S0140-6736(14)60584-5</p>
+<p>McMeekin P, White P, James MA, Price CI, Flynn D, Ford GA. Estimating the number of UK stroke patients eligible for endovascular thrombectomy. European Stroke Journal. 2017;2:319–26.</p>
+<p>SAMueL-1 data, from SSNAP, on mRS before stroke (DOI: 10.5281/zenodo.6896710): <a class="reference external" href="https://samuel-book.github.io/samuel-1/descriptive_stats/08_prestroke_mrs.html">https://samuel-book.github.io/samuel-1/descriptive_stats/08_prestroke_mrs.html</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -594,7 +627,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./introduction"
+            path: "./outcome_modelling"
         },
         predefinedOutput: true
     }
@@ -608,10 +641,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="plain_english_plan.html" title="next page">
+    <a class='left-prev' id="prev-link" href="show_outcome_model_code.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Show outcome model python code</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../synthetic_data_demo/outline.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Research plan (plain English summary)</p>
+        <p class="prev-next-title">Outline - what is in this section?</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
