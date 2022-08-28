@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Example output from stroke outcome model &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,13 +39,12 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -52,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Outline - what is in this section?" href="../synthetic_data_demo/outline.html" />
+    <link rel="next" title="Show outcome model python code" href="show_outcome_model_code.html" />
     <link rel="prev" title="Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment" href="mRS_outcomes_maths.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -61,21 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -84,10 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -100,15 +86,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../introduction/intro.html">
-                    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/intro.html">
+   Introduction to SAMueL-2 (Stroke Audit Machine Learning)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -239,6 +224,16 @@ const thebe_selector_output = ".output, .cell_output"
      Example output from stroke outcome model
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="show_outcome_model_code.html">
+     Show outcome model python code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="proportion_ischaemic_with_lvo.html">
+     Proportion of ischaemic patients with LVO
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -322,17 +317,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -340,128 +330,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/outcome_modelling/demo_of_outcome_model.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/outcome_modelling/demo_of_outcome_model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-packages-and-data-file">
    Load packages and data file
@@ -485,11 +408,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plot-mrs-distributions">
    Plot mRS distributions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-changes-in-mrs-proportions-with-treatment">
-   Plot changes in mRS proportions with treatment
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -521,11 +439,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Example output from stroke outcome model</h1>
@@ -564,11 +483,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-changes-in-mrs-proportions-with-treatment">
-   Plot changes in mRS proportions with treatment
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#other-stats">
    Other stats
   </a>
@@ -601,16 +515,15 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="example-output-from-stroke-outcome-model">
-<h1>Example output from stroke outcome model<a class="headerlink" href="#example-output-from-stroke-outcome-model" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-output-from-stroke-outcome-model">
+<h1>Example output from stroke outcome model<a class="headerlink" href="#example-output-from-stroke-outcome-model" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook we provide an example of the output from the stroke outcome model assuming IVT is delivered at 90 mins and MT is delivered at 120 mins after stroke onset.</p>
 <p>The model provides a sample distribution of mRS scores for 1,000 patients.</p>
-<section id="load-packages-and-data-file">
-<h2>Load packages and data file<a class="headerlink" href="#load-packages-and-data-file" title="Permalink to this headline">#</a></h2>
+<div class="section" id="load-packages-and-data-file">
+<h2>Load packages and data file<a class="headerlink" href="#load-packages-and-data-file" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -628,9 +541,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="view-the-loaded-mrs-distributions">
-<h2>View the loaded mRS distributions<a class="headerlink" href="#view-the-loaded-mrs-distributions" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="view-the-loaded-mrs-distributions">
+<h2>View the loaded mRS distributions<a class="headerlink" href="#view-the-loaded-mrs-distributions" title="Permalink to this headline">¶</a></h2>
 <p>For each stroke type (by row) the the imported table shows the cumulative proportion of patients with each mRS score (0-6)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -779,12 +692,12 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>no_effect_lvo_mt_deaths</th>
-      <td>0.047626</td>
-      <td>0.122876</td>
-      <td>0.252420</td>
-      <td>0.408634</td>
-      <td>0.643909</td>
-      <td>0.772500</td>
+      <td>0.047781</td>
+      <td>0.123274</td>
+      <td>0.253237</td>
+      <td>0.409957</td>
+      <td>0.645993</td>
+      <td>0.775000</td>
       <td>1.0</td>
     </tr>
     <tr>
@@ -799,21 +712,21 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>t0_treatment_lvo_mt</th>
-      <td>0.314044</td>
-      <td>0.436216</td>
-      <td>0.554227</td>
-      <td>0.712005</td>
-      <td>0.853083</td>
-      <td>0.916125</td>
+      <td>0.314082</td>
+      <td>0.436315</td>
+      <td>0.554431</td>
+      <td>0.712335</td>
+      <td>0.853604</td>
+      <td>0.916750</td>
       <td>1.0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="set-up-outcome-model-and-get-output">
-<h2>Set up outcome model and get output<a class="headerlink" href="#set-up-outcome-model-and-get-output" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="set-up-outcome-model-and-get-output">
+<h2>Set up outcome model and get output<a class="headerlink" href="#set-up-outcome-model-and-get-output" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up outcome model</span>
@@ -827,9 +740,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="show-raw-model-output">
-<h2>Show raw model output<a class="headerlink" href="#show-raw-model-output" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="show-raw-model-output">
+<h2>Show raw model output<a class="headerlink" href="#show-raw-model-output" title="Permalink to this headline">¶</a></h2>
 <p>The model output is a dictionary of results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,91 +751,175 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;lvo_untreated_probs&#39;: array([0.047, 0.073, 0.141, 0.155, 0.255, 0.124, 0.205]),
- &#39;nlvo_untreated_probs&#39;: array([0.211, 0.278, 0.117, 0.125, 0.133, 0.061, 0.075]),
- &#39;lvo_ivt_probs&#39;: array([0.091, 0.082, 0.126, 0.156, 0.226, 0.108, 0.211]),
- &#39;lvo_mt_probs&#39;: array([0.213, 0.133, 0.142, 0.146, 0.179, 0.08 , 0.107]),
- &#39;nlvo_ivt_probs&#39;: array([0.39 , 0.228, 0.108, 0.1  , 0.096, 0.035, 0.043]),
- &#39;lvo_untreated_mean_utility&#39;: 0.32685999999999993,
- &#39;nlvo_untreated_mean_utility&#39;: 0.6196499999999999,
- &#39;lvo_ivt_mean_utility&#39;: 0.36415000000000003,
- &#39;lvo_mt_mean_utility&#39;: 0.5296299999999999,
- &#39;nlvo_ivt_mean_utility&#39;: 0.72641,
- &#39;lvo_ivt_added_utility&#39;: 0.0372900000000001,
- &#39;lvo_mt_added_utility&#39;: 0.20277,
- &#39;nlvo_ivt_added_utility&#39;: 0.10676000000000008,
- &#39;lvo_untreated_cum_probs&#39;: array([0.047, 0.12 , 0.261, 0.416, 0.671, 0.795, 1.   ]),
- &#39;nlvo_untreated_cum_probs&#39;: array([0.211, 0.489, 0.606, 0.731, 0.864, 0.925, 1.   ]),
- &#39;lvo_ivt_cum_probs&#39;: array([0.091, 0.173, 0.299, 0.455, 0.681, 0.789, 1.   ]),
- &#39;lvo_mt_cum_probs&#39;: array([0.213, 0.346, 0.488, 0.634, 0.813, 0.893, 1.   ]),
- &#39;nlvo_ivt_cum_probs&#39;: array([0.39 , 0.618, 0.726, 0.826, 0.922, 0.957, 1.   ]),
- &#39;lvo_ivt_shift&#39;: array([ 0.044,  0.009, -0.015,  0.001, -0.029, -0.016,  0.006]),
- &#39;lvo_mt_shift&#39;: array([ 0.166,  0.06 ,  0.001, -0.009, -0.076, -0.044, -0.098]),
- &#39;nlvo_ivt_shift&#39;: array([ 0.179, -0.05 , -0.009, -0.025, -0.037, -0.026, -0.032]),
- &#39;lvo_untreated_mean_mRS&#39;: 3.69,
- &#39;nlvo_untreated_mean_mRS&#39;: 2.174,
- &#39;lvo_ivt_mean_mRS&#39;: 3.512,
- &#39;lvo_mt_mean_mRS&#39;: 2.613,
- &#39;nlvo_ivt_mean_mRS&#39;: 1.561,
- &#39;lvo_ivt_mean_shift&#39;: -0.178,
- &#39;lvo_mt_mean_shift&#39;: -1.022,
- &#39;nlvo_ivt_mean_shift&#39;: -0.613,
- &#39;lvo_ivt_improved&#39;: 0.184,
- &#39;lvo_mt_improved&#39;: 0.806,
- &#39;nlvo_ivt_improved&#39;: 0.601}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;lvo_untreated_probs&#39;: array([0.037, 0.098, 0.14 , 0.154, 0.245, 0.121, 0.205]),
+ &#39;nlvo_untreated_probs&#39;: array([0.191, 0.265, 0.119, 0.133, 0.156, 0.053, 0.083]),
+ &#39;lvo_ivt_probs&#39;: array([0.082, 0.098, 0.127, 0.163, 0.217, 0.1  , 0.213]),
+ &#39;lvo_mt_probs&#39;: array([0.214, 0.112, 0.139, 0.183, 0.152, 0.087, 0.113]),
+ &#39;nlvo_ivt_probs&#39;: array([0.369, 0.214, 0.12 , 0.117, 0.092, 0.031, 0.057]),
+ &#39;lvo_untreated_mean_utility&#39;: 0.33643999999999996,
+ &#39;nlvo_untreated_mean_utility&#39;: 0.6008100000000001,
+ &#39;lvo_ivt_mean_utility&#39;: 0.37381,
+ &#39;lvo_mt_mean_utility&#39;: 0.5235199999999999,
+ &#39;nlvo_ivt_mean_utility&#39;: 0.7119099999999999,
+ &#39;lvo_ivt_added_utility&#39;: 0.037370000000000014,
+ &#39;lvo_mt_added_utility&#39;: 0.1870799999999999,
+ &#39;nlvo_ivt_added_utility&#39;: 0.11109999999999987,
+ &#39;lvo_untreated_cum_probs&#39;: array([0.037, 0.135, 0.275, 0.429, 0.674, 0.795, 1.   ]),
+ &#39;nlvo_untreated_cum_probs&#39;: array([0.191, 0.456, 0.575, 0.708, 0.864, 0.917, 1.   ]),
+ &#39;lvo_ivt_cum_probs&#39;: array([0.082, 0.18 , 0.307, 0.47 , 0.687, 0.787, 1.   ]),
+ &#39;lvo_mt_cum_probs&#39;: array([0.214, 0.326, 0.465, 0.648, 0.8  , 0.887, 1.   ]),
+ &#39;nlvo_ivt_cum_probs&#39;: array([0.369, 0.583, 0.703, 0.82 , 0.912, 0.943, 1.   ]),
+ &#39;lvo_ivt_shift&#39;: array([ 0.045,  0.   , -0.013,  0.009, -0.028, -0.021,  0.008]),
+ &#39;lvo_mt_shift&#39;: array([ 0.177,  0.014, -0.001,  0.029, -0.093, -0.034, -0.092]),
+ &#39;nlvo_ivt_shift&#39;: array([ 0.178, -0.051,  0.001, -0.016, -0.064, -0.022, -0.026]),
+ &#39;lvo_untreated_mean_mRS&#39;: 3.655,
+ &#39;nlvo_untreated_mean_mRS&#39;: 2.289,
+ &#39;lvo_ivt_mean_mRS&#39;: 3.487,
+ &#39;lvo_mt_mean_mRS&#39;: 2.66,
+ &#39;nlvo_ivt_mean_mRS&#39;: 1.67,
+ &#39;lvo_ivt_mean_shift&#39;: -0.168,
+ &#39;lvo_mt_mean_shift&#39;: -1.01,
+ &#39;nlvo_ivt_mean_shift&#39;: -0.619,
+ &#39;lvo_ivt_improved&#39;: 0.176,
+ &#39;lvo_mt_improved&#39;: 0.816,
+ &#39;nlvo_ivt_improved&#39;: 0.611}
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="plot-mrs-distributions">
-<h2>Plot mRS distributions<a class="headerlink" href="#plot-mrs-distributions" title="Permalink to this headline">#</a></h2>
-<p>Define the plotting function:</p>
+</div>
+<div class="section" id="plot-mrs-distributions">
+<h2>Plot mRS distributions<a class="headerlink" href="#plot-mrs-distributions" title="Permalink to this headline">¶</a></h2>
+<p>mRS distributions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_horizontal_bar</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Draw a stacked horizontal bar chart of the values in &#39;dist&#39;.</span>
-<span class="sd">    </span>
-<span class="sd">    dist  - list or np.array. The probability distribution </span>
-<span class="sd">            (non-cumulative).</span>
-<span class="sd">    label - string. The name printed next to these stacked bars.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_frame_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-    
-    <span class="n">colour_list</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">by_key</span><span class="p">()[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
-    <span class="c1"># The first bar will start at this point on the x-axis:</span>
-    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dist</span><span class="p">)):</span>
-        <span class="c1"># Draw a bar starting from &#39;left&#39;, the end of the previous bar,</span>
-        <span class="c1"># with a width equal to the probability of this mRS:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
-                 <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colour_list</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="k">6</span>])
-        <span class="c1"># Update &#39;left&#39; with the width of the current bar so that the </span>
-        <span class="c1"># next bar drawn will start in the correct place.    </span>
-        <span class="n">left</span> <span class="o">+=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;mRS&#39;</span><span class="p">,</span> 
-               <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.20</span><span class="p">])</span>   <span class="c1"># Legend below axis.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># nLVO</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_probs&#39;</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Untreated&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_probs&#39;</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;nLVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># LVO</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_probs&#39;</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Untreated&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_probs&#39;</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;LVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins; Time to MT </span><span class="si">{</span><span class="n">time_to_mt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/demo_mrs_dists.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/demo_of_outcome_model_11_0.png" src="../_images/demo_of_outcome_model_11_0.png" />
 </div>
-<p>Set the plot colour scheme</p>
+</div>
+<p>Cumulative mRS distributions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-colorblind&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># nLVO</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_probs&#39;</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Untreated&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_probs&#39;</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;nLVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative probability&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># LVO</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_probs&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Untreated&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_probs&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;LVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins; Time to MT </span><span class="si">{</span><span class="n">time_to_mt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative probability&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/demo_cum_mrs_dists.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/demo_of_outcome_model_13_0.png" src="../_images/demo_of_outcome_model_13_0.png" />
 </div>
-<p>Plot mRS distribution for untreated LVO.</p>
+</div>
+<p>Plot changes in mRS proportions with treatment</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_probs&#39;</span><span class="p">],</span> <span class="s1">&#39;LVO untreated&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># nLVO</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_shift&#39;</span><span class="p">]</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;nLVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Change in probability&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># LVO</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_shift&#39;</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IVT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_shift&#39;</span><span class="p">]</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;LVO</span><span class="se">\n</span><span class="s1">Time to IVT </span><span class="si">{</span><span class="n">time_to_ivt</span><span class="si">}</span><span class="s1"> mins; Time to MT </span><span class="si">{</span><span class="n">time_to_mt</span><span class="si">}</span><span class="s1"> mins.&#39;</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./images/demo_mrs_shifts.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -930,107 +927,11 @@ title="Print to PDF"
 <img alt="../_images/demo_of_outcome_model_15_0.png" src="../_images/demo_of_outcome_model_15_0.png" />
 </div>
 </div>
-<p>Plot mRS distribution for LVO treated with IVT.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_probs&#39;</span><span class="p">],</span> <span class="s1">&#39;LVO IVT&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_17_0.png" src="../_images/demo_of_outcome_model_17_0.png" />
-</div>
-</div>
-<p>Plot mRS distribution for LVO treated with MT.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">],</span> <span class="s1">&#39;LVO MT&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_19_0.png" src="../_images/demo_of_outcome_model_19_0.png" />
-</div>
-</div>
-<p>Plot mRS distribution for untreated nLVO.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_probs&#39;</span><span class="p">],</span> <span class="s1">&#39;nLVO untreated&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_21_0.png" src="../_images/demo_of_outcome_model_21_0.png" />
-</div>
-</div>
-<p>Plot mRS distribution for nLVO treated with IVT.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_probs&#39;</span><span class="p">],</span> <span class="s1">&#39;nLVO IVT&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_23_0.png" src="../_images/demo_of_outcome_model_23_0.png" />
-</div>
-</div>
-</section>
-<section id="plot-changes-in-mrs-proportions-with-treatment">
-<h2>Plot changes in mRS proportions with treatment<a class="headerlink" href="#plot-changes-in-mrs-proportions-with-treatment" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_shift</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;mRS&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Change in probability&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Plot changes in mRS proportions for LVO patients: comparing having no treatment to having IVT:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_shift</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_shift&#39;</span><span class="p">],</span> <span class="s1">&#39;LVO-IVT shift (untreated to treated with IVT)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_27_0.png" src="../_images/demo_of_outcome_model_27_0.png" />
-</div>
-</div>
-<p>Plot changes in mRS proportions for LVO patients: comparing having no treatment to having MT:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_shift</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_shift&#39;</span><span class="p">],</span> <span class="s1">&#39;LVO-MT shift (untreated to treated with MT)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_29_0.png" src="../_images/demo_of_outcome_model_29_0.png" />
-</div>
-</div>
-<p>Plot changes in mRS proportions for nLVO patients: comparing having no treatment to having IVT:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_shift</span><span class="p">(</span><span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_shift&#39;</span><span class="p">],</span> <span class="s1">&#39;nLVO-IVT shift (untreated to treated with IVT)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/demo_of_outcome_model_31_0.png" src="../_images/demo_of_outcome_model_31_0.png" />
-</div>
-</div>
-</section>
-<section id="other-stats">
-<h2>Other stats<a class="headerlink" href="#other-stats" title="Permalink to this headline">#</a></h2>
-<section id="mean-mrs">
-<h3>Mean mRS<a class="headerlink" href="#mean-mrs" title="Permalink to this headline">#</a></h3>
+<div class="section" id="other-stats">
+<h2>Other stats<a class="headerlink" href="#other-stats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mean-mrs">
+<h3>Mean mRS<a class="headerlink" href="#mean-mrs" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean mRS&#39;</span><span class="p">)</span>
@@ -1046,18 +947,18 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean mRS
 --------
-LVO untreated: 3.69
-LVO IVT: 3.512
-LVO MT: 2.613
-nLVO untreated: 2.174
-nLVO IVT: 1.561
+LVO untreated: 3.655
+LVO IVT: 3.487
+LVO MT: 2.66
+nLVO untreated: 2.289
+nLVO IVT: 1.67
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="mean-shift-in-mrs">
-<h3>Mean shift in mRS<a class="headerlink" href="#mean-shift-in-mrs" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="mean-shift-in-mrs">
+<h3>Mean shift in mRS<a class="headerlink" href="#mean-shift-in-mrs" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean mRS shift&#39;</span><span class="p">)</span>
@@ -1071,16 +972,16 @@ nLVO IVT: 1.561
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean mRS shift
 --------------
-LVO IVT: -0.178
-LVO MT: -1.022
-nLVO IVT: -0.613
+LVO IVT: -0.168
+LVO MT: -1.01
+nLVO IVT: -0.619
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="the-proportion-of-patients-with-improved-mrs">
-<h3>The proportion of patients with improved mRS<a class="headerlink" href="#the-proportion-of-patients-with-improved-mrs" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="the-proportion-of-patients-with-improved-mrs">
+<h3>The proportion of patients with improved mRS<a class="headerlink" href="#the-proportion-of-patients-with-improved-mrs" title="Permalink to this headline">¶</a></h3>
 <p>Assuming all patients move up the mRS.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1095,16 +996,16 @@ nLVO IVT: -0.613
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion improved
 -------------------
-LVO IVT: 0.184
-LVO MT: 0.806
-nLVO IVT: 0.601
+LVO IVT: 0.176
+LVO MT: 0.816
+nLVO IVT: 0.611
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="utility-weighted-mrs-outcomes">
-<h3>Utility-weighted mRS outcomes<a class="headerlink" href="#utility-weighted-mrs-outcomes" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="utility-weighted-mrs-outcomes">
+<h3>Utility-weighted mRS outcomes<a class="headerlink" href="#utility-weighted-mrs-outcomes" title="Permalink to this headline">¶</a></h3>
 <p>In addition to mRS, we may calculate utility-weighted mRS (UW-mRS).</p>
 <p>UW-mRS incorporates both treatment effect and patient perceived quality of life as a single outcome measure for stroke trials.</p>
 <p>UW-mRS scores are based on a pooled analysis of 2,000+ patients.
@@ -1158,18 +1059,18 @@ Outcome. Stroke. 2020 Aug 1;51(8):2411-7.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LVO untreated UW-mRS: 0.327
-LVO IVT UW-mRS: 0.364 (added UW-mRS: 0.037)
-LVO MT UW-mRS: 0.530 (added UW-mRS: 0.203)
-nLVO untreated UW-mRS: 0.620
-nLVO IVT UW-mRS: 0.726 (added UW-mRS: 0.107)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LVO untreated UW-mRS: 0.336
+LVO IVT UW-mRS: 0.374 (added UW-mRS: 0.037)
+LVO MT UW-mRS: 0.524 (added UW-mRS: 0.187)
+nLVO untreated UW-mRS: 0.601
+nLVO IVT UW-mRS: 0.712 (added UW-mRS: 0.111)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1193,11 +1094,9 @@ nLVO IVT UW-mRS: 0.726 (added UW-mRS: 0.107)
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="mRS_outcomes_maths.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1205,36 +1104,32 @@ nLVO IVT UW-mRS: 0.726 (added UW-mRS: 0.107)
             <p class="prev-next-title">Mathematics for calculating odds and probabilities of mRS-level outcomes after stroke, based on time to reperfusion treatment</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../synthetic_data_demo/outline.html" title="next page">
+    <a class='right-next' id="next-link" href="show_outcome_model_code.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Outline - what is in this section?</p>
+        <p class="prev-next-title">Show outcome model python code</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By SAMueL project team<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By SAMueL project team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>

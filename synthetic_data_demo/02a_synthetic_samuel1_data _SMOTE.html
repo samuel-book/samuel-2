@@ -4,13 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creating synthetic SAMUeL data data with SMOTE &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +18,20 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,13 +39,12 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -61,21 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
     <div class="container-fluid" id="banner"></div>
 
@@ -84,10 +71,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -100,15 +86,14 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../introduction/intro.html">
-                    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/intro.html">
+   Introduction to SAMueL-2 (Stroke Audit Machine Learning)
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -239,6 +224,16 @@ const thebe_selector_output = ".output, .cell_output"
      Example output from stroke outcome model
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../outcome_modelling/show_outcome_model_code.html">
+     Show outcome model python code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../outcome_modelling/proportion_ischaemic_with_lvo.html">
+     Proportion of ischaemic patients with LVO
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -322,17 +317,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
 </div>
 
 
@@ -340,128 +330,61 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="header-article row sticky-top noprint">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
         
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/synthetic_data_demo/02a_synthetic_samuel1_data _SMOTE.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/synthetic_data_demo/02a_synthetic_samuel1_data _SMOTE.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#description-of-smote">
    Description of SMOTE
@@ -560,11 +483,12 @@ title="Print to PDF"
  </li>
 </ul>
 
-    </nav>
-</div>
+            </nav>
+        </div>
     </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Creating synthetic SAMUeL data  data with SMOTE</h1>
@@ -679,37 +603,36 @@ title="Print to PDF"
                     </div>
                 </div>
             </div>
-            <main id="main-content" role="main">
-                
+            
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="creating-synthetic-samuel-data-data-with-smote">
-<h1>Creating synthetic SAMUeL data  data with SMOTE<a class="headerlink" href="#creating-synthetic-samuel-data-data-with-smote" title="Permalink to this headline">#</a></h1>
-<section id="description-of-smote">
-<h2>Description of SMOTE<a class="headerlink" href="#description-of-smote" title="Permalink to this headline">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="creating-synthetic-samuel-data-data-with-smote">
+<h1>Creating synthetic SAMUeL data  data with SMOTE<a class="headerlink" href="#creating-synthetic-samuel-data-data-with-smote" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description-of-smote">
+<h2>Description of SMOTE<a class="headerlink" href="#description-of-smote" title="Permalink to this headline">¶</a></h2>
 <p>SMOTE stands for Synthetic Minority Oversampling Technique [1]. SMOTE is more commonly used to create additional data to enhance modelling fitting, especially when one or more classes have low prevalence in the data set. Hence the description of <em>oversampling</em>.</p>
 <p>SMOTE works by finding near-neighbor points in the original data, and creating new data points from interpolating between two near-neighbor points.</p>
 <p>Here we remove the real data used to create the synthetic data, leaving only the synthetic data. After generating synthetic data we remove any data points that, by chance, are identical to original real data points, and also remove 10% of points that are closest to the original data points. We measure ‘closeness’ by the Cartesian distance between standardised data values.</p>
 <p><img alt="" src="../_images/smote.png" /></p>
 <p><em>Demonstration of SMOTE method. (a) Data points with two features (shown on x and y axes) are represented. Points are colour-coded by class label. (b) A data point from a class is picked at random, shown by the black point, and then the closest neighbours of the same class are identified, as shown by yellow points. Here we show 3 closest neighbours, but the default in the SMOTE <code class="docutils literal notranslate"><span class="pre">Imbalanced-Learn</span></code> library is 6. One of those near-neighbour points is selected at random (shown by the second black point). A new data point, shown in red, is created at a random distance between the two selected data points.</em></p>
-<section id="handling-integer-binary-and-categorical-data">
-<h3>Handling integer, binary, and categorical data<a class="headerlink" href="#handling-integer-binary-and-categorical-data" title="Permalink to this headline">#</a></h3>
+<div class="section" id="handling-integer-binary-and-categorical-data">
+<h3>Handling integer, binary, and categorical data<a class="headerlink" href="#handling-integer-binary-and-categorical-data" title="Permalink to this headline">¶</a></h3>
 <p>The standard SMOTE method generates floating point non-integer) values between data points. There are alternative ways of handing integer, binary, and categorical data using the SMOTE method. Here the methods we use are:</p>
 <ul class="simple">
 <li><p><em>Integer</em> values: Round the resulting synthetic data point value to the closest integer.</p></li>
 <li><p><em>Binary</em>: Code the value as 0 or 1, and round the resulting synthetic data point value to the closest integer (0 or 1).</p></li>
 <li><p><em>Categorical</em>: One-hot encode the categorical feature. Generate the synthetic data for each category value. Identify the category with the highest value and set to 1 while setting all others to 0.</p></li>
 </ul>
-</section>
-<section id="implementation-with-imblearn">
-<h3>Implementation with IMBLEARN<a class="headerlink" href="#implementation-with-imblearn" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="implementation-with-imblearn">
+<h3>Implementation with IMBLEARN<a class="headerlink" href="#implementation-with-imblearn" title="Permalink to this headline">¶</a></h3>
 <p>Here use the implementation in the IMBLEARN IMBALANCED-LEARN [2]</p>
 <p>[1] Chawla, N.V., Bowyer, K.W., Hall, L.O., Kegelmeyer, W.P. “SMOTE: Synthetic minority over-sampling technique,” Journal of Artificial Intelligence Research, vol. 16, pp. 321-357, 2002.</p>
 <p>[2] Lemaitre, G., Nogueira, F. and Aridas, C. (2016), Imbalanced-learn: A Python Toolbox to Tackle the Curse of Imbalanced Datasets in Machine Learning. arXiv:1609.06570 (<a class="reference external" href="https://pypi.org/project/imbalanced-learn/">https://pypi.org/project/imbalanced-learn/</a>, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">imbalanced-learn</span></code>).</p>
-</section>
-</section>
-<section id="load-packages">
-<h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="load-packages">
+<h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -730,9 +653,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="set-minimum-allowable-distance-from-synthetic-to-closest-real-data">
-<h2>Set minimum allowable distance from synthetic to closest real data<a class="headerlink" href="#set-minimum-allowable-distance-from-synthetic-to-closest-real-data" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="set-minimum-allowable-distance-from-synthetic-to-closest-real-data">
+<h2>Set minimum allowable distance from synthetic to closest real data<a class="headerlink" href="#set-minimum-allowable-distance-from-synthetic-to-closest-real-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_epsilon</span> <span class="o">=</span> <span class="mf">0.5</span>
@@ -740,9 +663,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="load-data">
-<h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="load-data">
+<h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <p>Synthetic data is based on the training data of a train/test split so performance can then be tested against a test set not used to make synthetic data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,11 +675,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
-<section id="function-to-standardise-data">
-<h3>Function to standardise data<a class="headerlink" href="#function-to-standardise-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function-to-standardise-data">
+<h3>Function to standardise data<a class="headerlink" href="#function-to-standardise-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardise_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">):</span>
@@ -784,12 +707,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-calculate-accuracy-measures">
-<h3>Function to calculate accuracy measures<a class="headerlink" href="#function-to-calculate-accuracy-measures" title="Permalink to this headline">#</a></h3>
-</section>
-<section id="function-to-create-raw-synthetic-data">
-<h3>Function to create raw synthetic data<a class="headerlink" href="#function-to-create-raw-synthetic-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="function-to-calculate-accuracy-measures">
+<h3>Function to calculate accuracy measures<a class="headerlink" href="#function-to-calculate-accuracy-measures" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="function-to-create-raw-synthetic-data">
+<h3>Function to create raw synthetic data<a class="headerlink" href="#function-to-create-raw-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>Data generated are floats; this will need processing for integer, binary, and categorical data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -830,9 +753,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-process-one-hot-categorical-data">
-<h3>Function to process one-hot categorical data<a class="headerlink" href="#function-to-process-one-hot-categorical-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="function-to-process-one-hot-categorical-data">
+<h3>Function to process one-hot categorical data<a class="headerlink" href="#function-to-process-one-hot-categorical-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_one_hot</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -853,9 +776,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="function-to-add-nearest-real-data-neighbour-to-synthetic-data">
-<h3>Function to add nearest real data neighbour to synthetic data<a class="headerlink" href="#function-to-add-nearest-real-data-neighbour-to-synthetic-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="function-to-add-nearest-real-data-neighbour-to-synthetic-data">
+<h3>Function to add nearest real data neighbour to synthetic data<a class="headerlink" href="#function-to-add-nearest-real-data-neighbour-to-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <p>Find nearest neighbour in the real data set (based on Cartesian distance of standardised data).Find nearest neighbour in the real data set (based on Cartesian distance of standardised data).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -911,10 +834,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="set-lists-of-categorical-one-hot-coded-and-integer-fields">
-<h2>Set lists of categorical (one-hot coded) and integer fields<a class="headerlink" href="#set-lists-of-categorical-one-hot-coded-and-integer-fields" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="set-lists-of-categorical-one-hot-coded-and-integer-fields">
+<h2>Set lists of categorical (one-hot coded) and integer fields<a class="headerlink" href="#set-lists-of-categorical-one-hot-coded-and-integer-fields" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One hot column lists</span>
@@ -984,11 +907,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="create-synthetic-data">
-<h2>Create synthetic data<a class="headerlink" href="#create-synthetic-data" title="Permalink to this headline">#</a></h2>
-<section id="create-synthetic-data-and-process-categorical-one-hot-and-integer-data">
-<h3>Create synthetic data and process categorical (one-hot) and integer data<a class="headerlink" href="#create-synthetic-data-and-process-categorical-one-hot-and-integer-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="create-synthetic-data">
+<h2>Create synthetic data<a class="headerlink" href="#create-synthetic-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-synthetic-data-and-process-categorical-one-hot-and-integer-data">
+<h3>Create synthetic data and process categorical (one-hot) and integer data<a class="headerlink" href="#create-synthetic-data-and-process-categorical-one-hot-and-integer-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up list for synthetic data for each stroke team</span>
@@ -1061,9 +984,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="add-distance-measure-to-original-data">
-<h3>Add distance measure to original data<a class="headerlink" href="#add-distance-measure-to-original-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="add-distance-measure-to-original-data">
+<h3>Add distance measure to original data<a class="headerlink" href="#add-distance-measure-to-original-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;S2Thrombolysis&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1102,9 +1025,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="remove-points-with-identical-points-or-near-neighbours-in-real-data">
-<h3>Remove points with identical points or near neighbours in real data<a class="headerlink" href="#remove-points-with-identical-points-or-near-neighbours-in-real-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="remove-points-with-identical-points-or-near-neighbours-in-real-data">
+<h3>Remove points with identical points or near neighbours in real data<a class="headerlink" href="#remove-points-with-identical-points-or-near-neighbours-in-real-data" title="Permalink to this headline">¶</a></h3>
 <p>Remove points with identical points or near neighbours in real data (these are examined by unit - two identical patients may exist if they are associated with different stroke units).~</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1138,9 +1061,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="save-synthetic-data">
-<h3>Save synthetic data<a class="headerlink" href="#save-synthetic-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="save-synthetic-data">
+<h3>Save synthetic data<a class="headerlink" href="#save-synthetic-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save with same columns and order as orginal data</span>
@@ -1153,9 +1076,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>Note: Rounds of synthetic data may be repeated: ANother set of synthetic data based on this set of synthetic data.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1179,11 +1102,9 @@ title="Print to PDF"
 
               </div>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="01_synthetic_titanic_data%20_SMOTE.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1199,28 +1120,24 @@ title="Print to PDF"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            </footer>
+            
         </div>
     </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By SAMueL project team<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+    <footer class="footer">
+  <p>
     
-</div>
+      By SAMueL project team<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
 
       </div>
     </div>
   
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
