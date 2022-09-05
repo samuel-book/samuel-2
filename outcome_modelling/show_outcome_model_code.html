@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Show outcome model python code &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction/intro.html">
-   Introduction to SAMueL-2 (Stroke Audit Machine Learning)
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
+                    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -322,12 +337,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -335,61 +355,116 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/outcome_modelling/show_outcome_model_code.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/outcome_modelling/show_outcome_model_code.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-        </div>
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Show outcome model python code</h1>
@@ -400,11 +475,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="show-outcome-model-python-code">
-<h1>Show outcome model python code<a class="headerlink" href="#show-outcome-model-python-code" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="show-outcome-model-python-code">
+<h1>Show outcome model python code<a class="headerlink" href="#show-outcome-model-python-code" title="Permalink to this headline">#</a></h1>
 <p>This is the outcome model code called by the demonstration of outcome modelling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -450,15 +526,32 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    2) LVO treated with MT</span>
 <span class="sd">    3) nLVO treated with IVT</span>
 
+<span class="sd">    Utility-weighted mRS</span>
+<span class="sd">    --------------------</span>
+
+<span class="sd">    In addition to mRS we may calculate utility-weighted mRS. Utility is an</span>
+<span class="sd">    estimated quality of life (0=dead, 1=full quality of life, neagtive numbers</span>
+<span class="sd">    indicate a &#39;worse than death&#39; outcome).</span>
+
+<span class="sd">    mRS Utility scores are based on a pooled Analysis of 20 000+ Patients. From</span>
+<span class="sd">    Wang X, Moullaali TJ, Li Q, Berge E, Robinson TG, Lindley R, et al. </span>
+<span class="sd">    Utility-Weighted Modified Rankin Scale Scores for the Assessment of Stroke</span>
+<span class="sd">    Outcome. Stroke. 2020 Aug 1;51(8):2411-7. </span>
+
+<span class="sd">    | mRS Score | 0    | 1    | 2    | 3    | 4    | 5     | 6    |</span>
+<span class="sd">    |-----------|------|------|------|------|------|-------|------|</span>
+<span class="sd">    | Utility   | 0.97 | 0.88 | 0.74 | 0.55 | 0.20 | -0.19 | 0.00 |</span>
+
 <span class="sd">    General methodology</span>
 <span class="sd">    -------------------</span>
 
 <span class="sd">    The model assumes that log odds of mRS &lt;= x declines uniformally with time.</span>
-<span class="sd">    The imported distribution give mRS &lt;= x probabilities at t=o (time of</span>
+<span class="sd">    The imported distribution give mRS &lt;= x probabilities at t=0 (time of</span>
 <span class="sd">    stroke onset) and time of no effect. These two distributions are converted</span>
 <span class="sd">    to log odds and weighted according to the fraction of time, in relation to</span>
 <span class="sd">    when the treatment no longer has an effect, that has passed. The weighted</span>
-<span class="sd">    log odds distribution is converted back to probability of mRS &lt;= x.</span>
+<span class="sd">    log odds distribution is converted back to probability of mRS &lt;= x. mRS</span>
+<span class="sd">    are also converted to a utility-weighted mRS.</span>
 
 <span class="sd">    The time to no-effect is taken as:</span>
 <span class="sd">    1) 6.3 hours for IVT</span>
@@ -468,14 +561,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">      this analysis did not include late-presenting patients selected by</span>
 <span class="sd">      advanced imaging).</span>
 
-<span class="sd">    1,000 patients are then sampled from the untreated and treated</span>
-<span class="sd">    distributions (samples are taken randomly across the distrubutions.</span>
+<span class="sd">    1,000 (default #) patients are then sampled from the untreated and treated</span>
+<span class="sd">    distributions (samples may be taken randomly or evenly spaced).</span>
 <span class="sd">    This gives sampled mRS distributions. The shift in mRS for each patient</span>
 <span class="sd">    between untreated and treated distribution is also calculated. A negative</span>
 <span class="sd">    shift is indicative of improvement (lower MRS disability score).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mrs_dists</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mrs_dists</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor for clinical outcome model.</span>
 
@@ -485,13 +578,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">        mRS distributions for untreated, t=0 treatment, and treatment at</span>
 <span class="sd">        time of no effect (which also includes treatment-related excess deaths).</span>
 
-<span class="sd">        patients: number of patients to sample from the distributions.</span>
+
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Clinical outcome model&quot;</span>
-
-        <span class="c1"># Set replicates of mRS distribution to perform</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mrs_replicates</span> <span class="o">=</span> <span class="n">patients</span>
 
         <span class="c1"># Store modified Rankin Scale distributions as arrays in dictionary</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mrs_distribution_probs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
@@ -507,7 +597,12 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="bp">self</span><span class="o">.</span><span class="n">ivt_time_no_effect</span> <span class="o">=</span> <span class="mf">6.3</span> <span class="o">*</span> <span class="mi">60</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mt_time_no_effect</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="mi">60</span>
 
-    <span class="k">def</span> <span class="nf">calculate_outcomes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">):</span>
+        <span class="c1"># Store utility weightings for mRS 0-6</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span> <span class="o">=</span> \
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.97</span><span class="p">,</span> <span class="mf">0.88</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.19</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">])</span>
+                
+    <span class="k">def</span> <span class="nf">calculate_outcomes</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_spacing</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calls methods to model mRS populations for:</span>
 <span class="sd">        1) LVO untreated</span>
@@ -542,11 +637,17 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="c1"># Set up results dictionary</span>
         <span class="n">results</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        
+        <span class="c1"># Get sample patient probabilities</span>
+        <span class="k">if</span> <span class="n">random_spacing</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">patients</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.00001</span><span class="p">,</span> <span class="mf">0.99999</span><span class="p">,</span> <span class="n">patients</span><span class="p">)</span>
 
         <span class="c1"># Get treatment results</span>
-        <span class="n">lvo_ivt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_lvo_ivt</span><span class="p">(</span><span class="n">time_to_ivt</span><span class="p">)</span>
-        <span class="n">lvo_mt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_lvo_mt</span><span class="p">(</span><span class="n">time_to_mt</span><span class="p">)</span>
-        <span class="n">nlvo_ivt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_nlvo_ivt</span><span class="p">(</span><span class="n">time_to_ivt</span><span class="p">)</span>
+        <span class="n">lvo_ivt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_lvo_ivt</span><span class="p">(</span><span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">lvo_mt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_lvo_mt</span><span class="p">(</span><span class="n">time_to_mt</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">nlvo_ivt_outcomes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_outcomes_for_nlvo_ivt</span><span class="p">(</span><span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 
         <span class="c1"># Get counts by mRS (histograms)</span>
         <span class="n">lvo_untreated_hist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
@@ -568,6 +669,26 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_probs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvo_ivt_hist</span> <span class="o">/</span> <span class="n">lvo_ivt_hist</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lvo_mt_hist</span> <span class="o">/</span> <span class="n">lvo_mt_hist</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_probs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nlvo_ivt_hist</span> <span class="o">/</span> <span class="n">nlvo_ivt_hist</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+        <span class="c1"># Convert to utility-weighted_mRS and store</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_mean_utility&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_probs&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_mean_utility&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_probs&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_mean_utility&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_probs&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_mt_mean_utility&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_mean_utility&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_probs&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">utility_weights</span><span class="p">)</span>
+        
+        <span class="c1"># Calculate added utility and store</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_added_utility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_ivt_mean_utility&#39;</span><span class="p">]</span> <span class="o">-</span> 
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_mean_utility&#39;</span><span class="p">])</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_mt_added_utility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_mt_mean_utility&#39;</span><span class="p">]</span> <span class="o">-</span> 
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_mean_utility&#39;</span><span class="p">])</span>
+        <span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_added_utility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_ivt_mean_utility&#39;</span><span class="p">]</span> <span class="o">-</span> 
+            <span class="n">results</span><span class="p">[</span><span class="s1">&#39;nlvo_untreated_mean_utility&#39;</span><span class="p">])</span>
 
         <span class="c1"># Get cumulative probabilities and store in results</span>
         <span class="n">results</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_cum_probs&#39;</span><span class="p">]</span>  <span class="o">=</span> \
@@ -613,9 +734,9 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="k">return</span> <span class="n">results</span>
 
-    <span class="k">def</span> <span class="nf">calculate_outcomes_for_lvo_ivt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculate_outcomes_for_lvo_ivt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Models populations of patients (default=1000) for:</span>
+<span class="sd">        Models populations of patients for:</span>
 <span class="sd">        1) Untreated LVO</span>
 <span class="sd">        2) LVO treated with IVT at given time</span>
 <span class="sd">        3) Shift in mRS between untreated and treated</span>
@@ -641,7 +762,6 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">treated_odds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">treated_logodds</span><span class="p">)</span>
         <span class="n">treated_probs</span> <span class="o">=</span> <span class="n">treated_odds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">treated_odds</span><span class="p">)</span>
         <span class="c1"># Get mRS distributions for 50 patients</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrs_replicates</span><span class="p">)</span>
         <span class="n">untreated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">untreated_probs</span><span class="p">)</span>
         <span class="n">treated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">treated_probs</span><span class="p">)</span>
         <span class="c1"># Calculate shift in mRS</span>
@@ -654,9 +774,9 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="k">return</span> <span class="n">results</span>
 
-    <span class="k">def</span> <span class="nf">calculate_outcomes_for_lvo_mt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculate_outcomes_for_lvo_mt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Models populations of patients (default=1000) for:</span>
+<span class="sd">        Models populations of patients for:</span>
 <span class="sd">        1) Untreated LVO</span>
 <span class="sd">        2) LVO treated with MT at given time</span>
 <span class="sd">        3) Shift in mRS between untreated and treated</span>
@@ -682,7 +802,6 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">treated_odds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">treated_logodds</span><span class="p">)</span>
         <span class="n">treated_probs</span> <span class="o">=</span> <span class="n">treated_odds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">treated_odds</span><span class="p">)</span>
         <span class="c1"># Get mRS distributions for 50 patients</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrs_replicates</span><span class="p">)</span>
         <span class="n">untreated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">untreated_probs</span><span class="p">)</span>
         <span class="n">treated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">treated_probs</span><span class="p">)</span>
         <span class="c1"># Calculate shift in mRS</span>
@@ -695,9 +814,9 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="k">return</span> <span class="n">results</span>
 
-    <span class="k">def</span> <span class="nf">calculate_outcomes_for_nlvo_ivt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculate_outcomes_for_nlvo_ivt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Models populations of patients (default=1000) for:</span>
+<span class="sd">        Models populations of patients for:</span>
 <span class="sd">        1) Untreated nLVO</span>
 <span class="sd">        2) LVO treated with IVT at given time</span>
 <span class="sd">        3) Shift in mRS between untreated and treated</span>
@@ -723,7 +842,6 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="n">treated_odds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">treated_logodds</span><span class="p">)</span>
         <span class="n">treated_probs</span> <span class="o">=</span> <span class="n">treated_odds</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">treated_odds</span><span class="p">)</span>
         <span class="c1"># Get mRS distributions for 50 patients</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mrs_replicates</span><span class="p">)</span>
         <span class="n">untreated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">untreated_probs</span><span class="p">)</span>
         <span class="n">treated_mrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">digitize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">treated_probs</span><span class="p">)</span>
         <span class="c1"># Calculate shift in mRS</span>
@@ -739,7 +857,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -763,9 +881,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="matrix.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -781,24 +901,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SAMueL project team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By SAMueL project team<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

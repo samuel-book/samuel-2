@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Example output from stroke outcome model &#8212; SAMueL Stroke Audit Machine Learning 2</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
@@ -86,14 +100,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../introduction/intro.html">
-   Introduction to SAMueL-2 (Stroke Audit Machine Learning)
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../introduction/intro.html">
+                    Introduction to SAMueL-2 (Stroke Audit Machine Learning)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Bid documents
  </span>
@@ -322,12 +337,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -335,61 +355,128 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/outcome_modelling/demo_of_outcome_model.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/outcome_modelling/demo_of_outcome_model.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-packages-and-data-file">
    Load packages and data file
@@ -442,14 +529,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-example-showing-how-untreated-and-treated-mrs-are-compared-at-a-patient-level">
+   An example showing how untreated and treated mRS are compared at a patient level
+  </a>
+ </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Example output from stroke outcome model</h1>
@@ -514,21 +605,27 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-example-showing-how-untreated-and-treated-mrs-are-compared-at-a-patient-level">
+   An example showing how untreated and treated mRS are compared at a patient level
+  </a>
+ </li>
 </ul>
 
                         </nav>
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="example-output-from-stroke-outcome-model">
-<h1>Example output from stroke outcome model<a class="headerlink" href="#example-output-from-stroke-outcome-model" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="example-output-from-stroke-outcome-model">
+<h1>Example output from stroke outcome model<a class="headerlink" href="#example-output-from-stroke-outcome-model" title="Permalink to this headline">#</a></h1>
 <p>In this notebook we provide an example of the output from the stroke outcome model assuming IVT is delivered at 90 mins and MT is delivered at 120 mins after stroke onset.</p>
 <p>The model provides a sample distribution of mRS scores for 1,000 patients.</p>
-<div class="section" id="load-packages-and-data-file">
-<h2>Load packages and data file<a class="headerlink" href="#load-packages-and-data-file" title="Permalink to this headline">¶</a></h2>
+<section id="load-packages-and-data-file">
+<h2>Load packages and data file<a class="headerlink" href="#load-packages-and-data-file" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -546,9 +643,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="view-the-loaded-mrs-distributions">
-<h2>View the loaded mRS distributions<a class="headerlink" href="#view-the-loaded-mrs-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="view-the-loaded-mrs-distributions">
+<h2>View the loaded mRS distributions<a class="headerlink" href="#view-the-loaded-mrs-distributions" title="Permalink to this headline">#</a></h2>
 <p>For each stroke type (by row) the the imported table shows the cumulative proportion of patients with each mRS score (0-6)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -729,25 +826,26 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="set-up-outcome-model-and-get-output">
-<h2>Set up outcome model and get output<a class="headerlink" href="#set-up-outcome-model-and-get-output" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="set-up-outcome-model-and-get-output">
+<h2>Set up outcome model and get output<a class="headerlink" href="#set-up-outcome-model-and-get-output" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up outcome model</span>
-<span class="n">outcome_model</span> <span class="o">=</span> <span class="n">Clinical_outcome</span><span class="p">(</span><span class="n">mrs_dists</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">outcome_model</span> <span class="o">=</span> <span class="n">Clinical_outcome</span><span class="p">(</span><span class="n">mrs_dists</span><span class="p">)</span>
 
 <span class="c1"># Get outputs</span>
 <span class="n">time_to_ivt</span> <span class="o">=</span> <span class="mi">90</span>
 <span class="n">time_to_mt</span> <span class="o">=</span> <span class="mi">120</span>
-<span class="n">outcomes</span> <span class="o">=</span> <span class="n">outcome_model</span><span class="o">.</span><span class="n">calculate_outcomes</span><span class="p">(</span><span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">)</span>
+<span class="n">outcomes</span> <span class="o">=</span> <span class="n">outcome_model</span><span class="o">.</span><span class="n">calculate_outcomes</span><span class="p">(</span>
+    <span class="n">time_to_ivt</span><span class="p">,</span> <span class="n">time_to_mt</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">random_spacing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="show-raw-model-output">
-<h2>Show raw model output<a class="headerlink" href="#show-raw-model-output" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="show-raw-model-output">
+<h2>Show raw model output<a class="headerlink" href="#show-raw-model-output" title="Permalink to this headline">#</a></h2>
 <p>The model output is a dictionary of results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,45 +854,45 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;lvo_untreated_probs&#39;: array([0.037, 0.098, 0.14 , 0.154, 0.245, 0.121, 0.205]),
- &#39;nlvo_untreated_probs&#39;: array([0.191, 0.265, 0.119, 0.133, 0.156, 0.053, 0.083]),
- &#39;lvo_ivt_probs&#39;: array([0.082, 0.098, 0.127, 0.163, 0.217, 0.1  , 0.213]),
- &#39;lvo_mt_probs&#39;: array([0.214, 0.112, 0.139, 0.183, 0.152, 0.087, 0.113]),
- &#39;nlvo_ivt_probs&#39;: array([0.369, 0.214, 0.12 , 0.117, 0.092, 0.031, 0.057]),
- &#39;lvo_untreated_mean_utility&#39;: 0.33643999999999996,
- &#39;nlvo_untreated_mean_utility&#39;: 0.6008100000000001,
- &#39;lvo_ivt_mean_utility&#39;: 0.37381,
- &#39;lvo_mt_mean_utility&#39;: 0.5235199999999999,
- &#39;nlvo_ivt_mean_utility&#39;: 0.7119099999999999,
- &#39;lvo_ivt_added_utility&#39;: 0.037370000000000014,
- &#39;lvo_mt_added_utility&#39;: 0.1870799999999999,
- &#39;nlvo_ivt_added_utility&#39;: 0.11109999999999987,
- &#39;lvo_untreated_cum_probs&#39;: array([0.037, 0.135, 0.275, 0.429, 0.674, 0.795, 1.   ]),
- &#39;nlvo_untreated_cum_probs&#39;: array([0.191, 0.456, 0.575, 0.708, 0.864, 0.917, 1.   ]),
- &#39;lvo_ivt_cum_probs&#39;: array([0.082, 0.18 , 0.307, 0.47 , 0.687, 0.787, 1.   ]),
- &#39;lvo_mt_cum_probs&#39;: array([0.214, 0.326, 0.465, 0.648, 0.8  , 0.887, 1.   ]),
- &#39;nlvo_ivt_cum_probs&#39;: array([0.369, 0.583, 0.703, 0.82 , 0.912, 0.943, 1.   ]),
- &#39;lvo_ivt_shift&#39;: array([ 0.045,  0.   , -0.013,  0.009, -0.028, -0.021,  0.008]),
- &#39;lvo_mt_shift&#39;: array([ 0.177,  0.014, -0.001,  0.029, -0.093, -0.034, -0.092]),
- &#39;nlvo_ivt_shift&#39;: array([ 0.178, -0.051,  0.001, -0.016, -0.064, -0.022, -0.026]),
- &#39;lvo_untreated_mean_mRS&#39;: 3.655,
- &#39;nlvo_untreated_mean_mRS&#39;: 2.289,
- &#39;lvo_ivt_mean_mRS&#39;: 3.487,
- &#39;lvo_mt_mean_mRS&#39;: 2.66,
- &#39;nlvo_ivt_mean_mRS&#39;: 1.67,
- &#39;lvo_ivt_mean_shift&#39;: -0.168,
- &#39;lvo_mt_mean_shift&#39;: -1.01,
- &#39;nlvo_ivt_mean_shift&#39;: -0.619,
- &#39;lvo_ivt_improved&#39;: 0.176,
- &#39;lvo_mt_improved&#39;: 0.816,
- &#39;nlvo_ivt_improved&#39;: 0.611}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;lvo_untreated_probs&#39;: array([0.05 , 0.079, 0.136, 0.164, 0.247, 0.135, 0.189]),
+ &#39;nlvo_untreated_probs&#39;: array([0.1972, 0.2628, 0.12  , 0.1278, 0.1478, 0.0621, 0.0823]),
+ &#39;lvo_ivt_probs&#39;: array([0.0926, 0.0865, 0.1298, 0.1581, 0.2195, 0.1171, 0.1964]),
+ &#39;lvo_mt_probs&#39;: array([0.2085, 0.1272, 0.1377, 0.1697, 0.1703, 0.0783, 0.1083]),
+ &#39;nlvo_ivt_probs&#39;: array([0.366 , 0.2248, 0.1128, 0.1164, 0.0941, 0.033 , 0.0529]),
+ &#39;lvo_untreated_mean_utility&#39;: 0.33261,
+ &#39;nlvo_untreated_mean_utility&#39;: 0.5993989999999999,
+ &#39;lvo_ivt_mean_utility&#39;: 0.37059999999999993,
+ &#39;lvo_mt_mean_utility&#39;: 0.528597,
+ &#39;nlvo_ivt_mean_utility&#39;: 0.7128859999999999,
+ &#39;lvo_ivt_added_utility&#39;: 0.03798999999999991,
+ &#39;lvo_mt_added_utility&#39;: 0.19598699999999997,
+ &#39;nlvo_ivt_added_utility&#39;: 0.113487,
+ &#39;lvo_untreated_cum_probs&#39;: array([0.05 , 0.129, 0.265, 0.429, 0.676, 0.811, 1.   ]),
+ &#39;nlvo_untreated_cum_probs&#39;: array([0.1972, 0.46  , 0.58  , 0.7078, 0.8556, 0.9177, 1.    ]),
+ &#39;lvo_ivt_cum_probs&#39;: array([0.0926, 0.1791, 0.3089, 0.467 , 0.6865, 0.8036, 1.    ]),
+ &#39;lvo_mt_cum_probs&#39;: array([0.2085, 0.3357, 0.4734, 0.6431, 0.8134, 0.8917, 1.    ]),
+ &#39;nlvo_ivt_cum_probs&#39;: array([0.366 , 0.5908, 0.7036, 0.82  , 0.9141, 0.9471, 1.    ]),
+ &#39;lvo_ivt_shift&#39;: array([ 0.0426,  0.0075, -0.0062, -0.0059, -0.0275, -0.0179,  0.0074]),
+ &#39;lvo_mt_shift&#39;: array([ 0.1585,  0.0482,  0.0017,  0.0057, -0.0767, -0.0567, -0.0807]),
+ &#39;nlvo_ivt_shift&#39;: array([ 0.1688, -0.038 , -0.0072, -0.0114, -0.0537, -0.0291, -0.0294]),
+ &#39;lvo_untreated_mean_mRS&#39;: 3.64,
+ &#39;nlvo_untreated_mean_mRS&#39;: 2.2817,
+ &#39;lvo_ivt_mean_mRS&#39;: 3.4623,
+ &#39;lvo_mt_mean_mRS&#39;: 2.6342,
+ &#39;nlvo_ivt_mean_mRS&#39;: 1.6584,
+ &#39;lvo_ivt_mean_shift&#39;: -0.1777,
+ &#39;lvo_mt_mean_shift&#39;: -1.0058,
+ &#39;nlvo_ivt_mean_shift&#39;: -0.6233,
+ &#39;lvo_ivt_improved&#39;: 0.1851,
+ &#39;lvo_mt_improved&#39;: 0.8088,
+ &#39;nlvo_ivt_improved&#39;: 0.6125}
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-mrs-distributions">
-<h2>Plot mRS distributions<a class="headerlink" href="#plot-mrs-distributions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plot-mrs-distributions">
+<h2>Plot mRS distributions<a class="headerlink" href="#plot-mrs-distributions" title="Permalink to this headline">#</a></h2>
 <p>mRS distributions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -932,11 +1030,11 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/demo_of_outcome_model_15_0.png" src="../_images/demo_of_outcome_model_15_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="other-stats">
-<h2>Other stats<a class="headerlink" href="#other-stats" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mean-mrs">
-<h3>Mean mRS<a class="headerlink" href="#mean-mrs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="other-stats">
+<h2>Other stats<a class="headerlink" href="#other-stats" title="Permalink to this headline">#</a></h2>
+<section id="mean-mrs">
+<h3>Mean mRS<a class="headerlink" href="#mean-mrs" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean mRS&#39;</span><span class="p">)</span>
@@ -952,18 +1050,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean mRS
 --------
-LVO untreated: 3.655
-LVO IVT: 3.487
-LVO MT: 2.66
-nLVO untreated: 2.289
-nLVO IVT: 1.67
+LVO untreated: 3.64
+LVO IVT: 3.4623
+LVO MT: 2.6342
+nLVO untreated: 2.2817
+nLVO IVT: 1.6584
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mean-shift-in-mrs">
-<h3>Mean shift in mRS<a class="headerlink" href="#mean-shift-in-mrs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mean-shift-in-mrs">
+<h3>Mean shift in mRS<a class="headerlink" href="#mean-shift-in-mrs" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean mRS shift&#39;</span><span class="p">)</span>
@@ -977,16 +1075,16 @@ nLVO IVT: 1.67
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean mRS shift
 --------------
-LVO IVT: -0.168
-LVO MT: -1.01
-nLVO IVT: -0.619
+LVO IVT: -0.1777
+LVO MT: -1.0058
+nLVO IVT: -0.6233
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="the-proportion-of-patients-with-improved-mrs">
-<h3>The proportion of patients with improved mRS<a class="headerlink" href="#the-proportion-of-patients-with-improved-mrs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="the-proportion-of-patients-with-improved-mrs">
+<h3>The proportion of patients with improved mRS<a class="headerlink" href="#the-proportion-of-patients-with-improved-mrs" title="Permalink to this headline">#</a></h3>
 <p>Assuming all patients move up the mRS.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1001,16 +1099,16 @@ nLVO IVT: -0.619
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Proportion improved
 -------------------
-LVO IVT: 0.176
-LVO MT: 0.816
-nLVO IVT: 0.611
+LVO IVT: 0.1851
+LVO MT: 0.8088
+nLVO IVT: 0.6125
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="utility-weighted-mrs-outcomes">
-<h3>Utility-weighted mRS outcomes<a class="headerlink" href="#utility-weighted-mrs-outcomes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="utility-weighted-mrs-outcomes">
+<h3>Utility-weighted mRS outcomes<a class="headerlink" href="#utility-weighted-mrs-outcomes" title="Permalink to this headline">#</a></h3>
 <p>In addition to mRS, we may calculate utility-weighted mRS (UW-mRS).</p>
 <p>UW-mRS incorporates both treatment effect and patient perceived quality of life as a single outcome measure for stroke trials.</p>
 <p>UW-mRS scores are based on a pooled analysis of 2,000+ patients.
@@ -1064,18 +1162,114 @@ Outcome. Stroke. 2020 Aug 1;51(8):2411-7.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LVO untreated UW-mRS: 0.336
-LVO IVT UW-mRS: 0.374 (added UW-mRS: 0.037)
-LVO MT UW-mRS: 0.524 (added UW-mRS: 0.187)
-nLVO untreated UW-mRS: 0.601
-nLVO IVT UW-mRS: 0.712 (added UW-mRS: 0.111)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LVO untreated UW-mRS: 0.333
+LVO IVT UW-mRS: 0.371 (added UW-mRS: 0.038)
+LVO MT UW-mRS: 0.529 (added UW-mRS: 0.196)
+nLVO untreated UW-mRS: 0.599
+nLVO IVT UW-mRS: 0.713 (added UW-mRS: 0.113)
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="an-example-showing-how-untreated-and-treated-mrs-are-compared-at-a-patient-level">
+<h2>An example showing how untreated and treated mRS are compared at a patient level<a class="headerlink" href="#an-example-showing-how-untreated-and-treated-mrs-are-compared-at-a-patient-level" title="Permalink to this headline">#</a></h2>
+<p>In the example below we look at the treatment effect of 5 LVO patients treated with MT.</p>
+<p>After calculating the treated mRS distribution at the specified treatment time, we can sample random patients by sampling from a uniform 0-1 distribution and using that same sampled value for each patient compare their location on untreated and treated distributions.</p>
+<p>For illustration we use more evenly spaced patient values (rather than random), and we can see:</p>
+<ul class="simple">
+<li><p>Patient #1 (P=0.1): mRS untreated = 1, mRS treated = 0</p></li>
+<li><p>Patient #2 (P=0.3): mRS untreated = 3, mRS treated = 1</p></li>
+<li><p>Patient #3 (P=0.5): mRS untreated = 4, mRS treated = 3</p></li>
+<li><p>Patient #4 (P=0.7): mRS untreated = 5, mRS treated = 4</p></li>
+<li><p>Patient #5 (P=0.9): mRS untreated = 6, mRS treated = 6</p></li>
+</ul>
+<p>This model is likely a simplification of actual effects, but should capture the average effect of treatment well, and provide a good guide to the proportion of patients who will move at least one mRS unit with treatment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_horizontal_bar</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw a stacked horizontal bar chart of the values in &#39;dist&#39;.</span>
+<span class="sd">    </span>
+<span class="sd">    dist  - list or np.array. The probability distribution </span>
+<span class="sd">            (non-cumulative).</span>
+<span class="sd">    label - string. The name printed next to these stacked bars.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">colour_list</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.prop_cycle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">by_key</span><span class="p">()[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span>
+    <span class="c1"># The first bar will start at this point on the x-axis:</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dist</span><span class="p">)):</span>
+        <span class="c1"># Draw a bar starting from &#39;left&#39;, the end of the previous bar,</span>
+        <span class="c1"># with a width equal to the probability of this mRS:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">left</span><span class="o">=</span><span class="n">left</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> 
+                 <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colour_list</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="k">6</span>])
+        <span class="c1"># Update &#39;left&#39; with the width of the current bar so that the </span>
+        <span class="c1"># next bar drawn will start in the correct place.    </span>
+        <span class="n">left</span> <span class="o">+=</span> <span class="n">dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_connections</span><span class="p">(</span><span class="n">dist_t0</span><span class="p">,</span> <span class="n">dist_tne</span><span class="p">,</span> <span class="n">top_tne</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">bottom_t0</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw lines connecting the mRS bins in the top and bottom rows.</span>
+<span class="sd">    </span>
+<span class="sd">    dist_t0, dist_tne - lists or arrays. Probability distributions.</span>
+<span class="sd">    top_tne, bottom_t0 - floats. y-coordinates just inside the bars. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">left_t0</span>   <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">left_tne</span>  <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d_t0</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dist_t0</span><span class="p">):</span>
+        <span class="n">left_t0</span>  <span class="o">+=</span> <span class="n">dist_t0</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">left_tne</span> <span class="o">+=</span> <span class="n">dist_tne</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">left_t0</span><span class="p">,</span><span class="n">left_tne</span><span class="p">],[</span><span class="n">bottom_t0</span><span class="p">,</span><span class="n">top_tne</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar_1</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_untreated_probs&#39;</span><span class="p">]</span>
+<span class="n">bar_2</span> <span class="o">=</span> <span class="n">outcomes</span><span class="p">[</span><span class="s1">&#39;lvo_mt_probs&#39;</span><span class="p">]</span>
+
+<span class="c1"># Draw no effect distribution</span>
+<span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">bar_2</span><span class="p">,</span> <span class="s1">&#39;Treated (MT)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add legend now to prevent doubling all the labels:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">ncol</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;mRS&#39;</span><span class="p">,</span> 
+           <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>   <span class="c1"># Legend below axis.</span>
+
+<span class="c1"># Draww t=0 distribution</span>
+<span class="n">draw_horizontal_bar</span><span class="p">(</span><span class="n">bar_1</span><span class="p">,</span> <span class="s1">&#39;Untreated&#39;</span><span class="p">)</span>
+
+<span class="c1"># Darw connecting lines</span>
+<span class="n">draw_connections</span><span class="p">(</span><span class="n">bar_1</span><span class="p">,</span> <span class="n">bar_2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add general content</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Treatment effect in 5 LVO patients (dashed lines)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./images/treatment_shift.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> 
+    <span class="n">pad_inches</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/demo_of_outcome_model_27_0.png" src="../_images/demo_of_outcome_model_27_0.png" />
+</div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1099,9 +1293,11 @@ nLVO IVT UW-mRS: 0.712 (added UW-mRS: 0.111)
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="mRS_outcomes_maths.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1117,24 +1313,28 @@ nLVO IVT UW-mRS: 0.712 (added UW-mRS: 0.111)
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By SAMueL project team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By SAMueL project team<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
