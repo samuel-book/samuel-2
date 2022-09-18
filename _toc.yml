@@ -5,22 +5,59 @@ parts:
   chapters:
   - file: introduction/plain_english_plan
   - file: introduction/plan
-- caption: SAMueL-1 extension - embedding neural nets
+- caption: Explaining thrombolysis prediction models with SHAP
   chapters:
-  - file: samuel_1/neural_net/outline
+  - file: samuel_shap_paper_1/introduction/intro
     sections:
-    - file: samuel_1/neural_net/001a_1d_modular_fit
-    - file: samuel_1/neural_net/001b_1d_modular_analyse
-    - file: samuel_1/neural_net/002a_2d_modular_fit
-    - file: samuel_1/neural_net/002b_2d_modular_analyse
-    - file: samuel_1/neural_net/003a_generate_1d_nets_for_10k
-    - file: samuel_1/neural_net/003b_analyse_10k_1d_modular
-    - file: samuel_1/neural_net/04a_predict_contentious_patients
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/outline
+    - file: samuel_shap_paper_1/glossary
+    - file: samuel_shap_paper_1/introduction/odds_prob
+    - file: samuel_shap_paper_1/shap_worked_example
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/90_shap_interactions_on_titanic
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/01_xgb_combined_fit_feature_selection
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/91_learning_rate_optimisation
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/07_correlation
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/02_xgb_combined_fit_accuracy_key_features
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/03_xgb_combined_shap_key_features
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/04_compare_10k_cohort_key_features
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/05_compare_benchmark_decisions_key_features
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/06_predict_differences_between_local_and_benchmark_key_features
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/08_xgb_combined_fit_shap_high_vs_low_thrombolysing_units
+    - file: samuel_shap_paper_1/xgb_with_feature_selection/09_plot_thrombolysis_at_high_vs_low_thrombolysing_units
+- caption: Outcome modelling
+  chapters:
+  - file: outcome_modelling/intro 
+    sections:    
+    - file: outcome_modelling/mRS_datasets_full
+    - file: outcome_modelling/mRS_outcomes_maths
+    - file: outcome_modelling/demo_of_outcome_model
+    - file: outcome_modelling/matrix
+    - file: outcome_modelling/show_outcome_model_code
+    - file: outcome_modelling/proportion_ischaemic_with_lvo
 - caption: Demo of synthetic data method
   chapters:
   - file: synthetic_data_demo/outline
-    sections:
+    sections:    
     - file: synthetic_data_demo/01_synthetic_titanic_data _SMOTE
+    - file: synthetic_data_demo/02a_synthetic_samuel1_data _SMOTE
+    - file: synthetic_data_demo/02b_test_synthetic_descriptive
+    - file: synthetic_data_demo/02c_compare_distances_to_real_data
+    - file: synthetic_data_demo/02d_test_synthetic_random_forest
+    - file: synthetic_data_demo/02e_test_synthetic_logistic_regression
+- caption: Appendices
+  chapters:
+  - file: exploratory/outline
+    sections:
+    - file: exploratory/01_LR_model_investigate_weights_and_standardised_values
+    - file: exploratory/02_manual_calculation_LR_model
+- caption: Project meeting minutes
+  chapters:
+  - file: meetings_for_book/outline
+    sections:
+    - file: meetings_for_book/220518_proj_meeting
+    - file: meetings_for_book/220722_proj_meeting
+
+
   
 
 
