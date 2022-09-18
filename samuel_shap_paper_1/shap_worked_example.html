@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Describing model predictions, using SHAP values and SHAP interactions: Using Titanic survival as an example use case." href="xgb_with_feature_selection/90_shap_interactions_on_titanic.html" />
-    <link rel="prev" title="Glossary of technical terms" href="glossary.html" />
+    <link rel="prev" title="Probability, odds, and SHAP values (log odds shifts)" href="introduction/odds_prob.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -185,70 +185,82 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="introduction/intro.html">
-   Using explainable machine learning to understand variation in thrombolysis practice
+   Summary
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/outline.html">
-   Outline of notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="glossary.html">
-   Glossary of technical terms
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   A simple worked example of Shap
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/90_shap_interactions_on_titanic.html">
-   Describing model predictions, using SHAP values and SHAP interactions: Using Titanic survival as an example use case.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/01_xgb_combined_fit_feature_selection.html">
-   XGBoost feature selection
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/91_learning_rate_optimisation.html">
-   Evaluation of XGBoost learning rates on distribution of 10k thrombolysis rates
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/07_correlation.html">
-   Check correlation between features selected for the model
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/02_xgb_combined_fit_accuracy_key_features.html">
-   Measuring accuracy of XGBoost models
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/03_xgb_combined_shap_key_features.html">
-   Explaining XGBoost model predictions with SHAP values
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/04_compare_10k_cohort_key_features.html">
-   A comparison of 10k cohort thrombolysis rates across hospitals, and comparison with hospital SHAP values
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/05_compare_benchmark_decisions_key_features.html">
-   Compare local thrombolysis decisions with benchmark decisions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="xgb_with_feature_selection/06_predict_differences_between_local_and_benchmark_key_features.html">
-   Predicting differences between local and benchmark decisions
-  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/outline.html">
+     Outline of notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="glossary.html">
+     Glossary of technical terms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="introduction/odds_prob.html">
+     Probability, odds, and SHAP values (log odds shifts)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     A simple worked example of Shap
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/90_shap_interactions_on_titanic.html">
+     Describing model predictions, using SHAP values and SHAP interactions: Using Titanic survival as an example use case.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/01_xgb_combined_fit_feature_selection.html">
+     XGBoost feature selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/91_learning_rate_optimisation.html">
+     Evaluation of XGBoost learning rates on distribution of 10k thrombolysis rates
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/07_correlation.html">
+     Check correlation between features selected for the model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/02_xgb_combined_fit_accuracy_key_features.html">
+     Measuring accuracy of XGBoost models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/03_xgb_combined_shap_key_features.html">
+     Explaining XGBoost model predictions with SHAP values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/04_compare_10k_cohort_key_features.html">
+     A comparison of 10k cohort thrombolysis rates across hospitals, and comparison with hospital SHAP values
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/05_compare_benchmark_decisions_key_features.html">
+     Compare local thrombolysis decisions with benchmark decisions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="xgb_with_feature_selection/06_predict_differences_between_local_and_benchmark_key_features.html">
+     Predicting differences between local and benchmark decisions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="xgb_with_feature_selection/08_xgb_combined_fit_shap_high_vs_low_thrombolysing_units.html">
@@ -271,8 +283,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../outcome_modelling/intro.html">
    Predicting granular disability outcomes after treatment of stroke with thrombolysis (IVT) or thrombectomy (MT)
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -320,8 +332,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../synthetic_data_demo/outline.html">
    Outline - what is in this section?
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -369,8 +381,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../exploratory/outline.html">
    Outline
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -660,7 +672,7 @@ title="Print to PDF"
 <li><p>Add 0-20% (as an integer)</p></li>
 </ol>
 <p>We then fit an XGBoost regressor model to predict the score given any number and combination of players, and then fit a Shap model to explore the XGBoost model.</p>
-<p>Note: Shap values are usually reported as <em>log odds shifts</em> in model predictions. For a description of the relationships between probability, odds, and Shap values (log odds shifts) see <span class="xref myst">here</span>.</p>
+<p>Note: Shap values are usually reported as <em>log odds shifts</em> in model predictions. For a description of the relationships between probability, odds, and Shap values (log odds shifts) see <a class="reference internal" href="introduction/odds_prob.html"><span class="doc std std-doc">here</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn warnings off to keep notebook tidy</span>
@@ -1104,11 +1116,11 @@ player_present
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="glossary.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="introduction/odds_prob.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Glossary of technical terms</p>
+            <p class="prev-next-title">Probability, odds, and SHAP values (log odds shifts)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="xgb_with_feature_selection/90_shap_interactions_on_titanic.html" title="next page">
