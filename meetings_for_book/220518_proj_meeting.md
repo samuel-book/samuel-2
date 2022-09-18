@@ -1,13 +1,11 @@
----
-title: "SAMueL2 Kick off meeting (18th May 2022)"
-author: Kerry Pearn & Michael Allen
-date: 18th May 2022
-geometry: margin=2cm
-pagesize: a4
-output: pdf_document
----
+# SAMueL2 Kick off meeting (18th May 2022)
 
-# Attendees:
+## Slide packs:
+
+* General slides: https://github.com/samuel-book/samuel-2/blob/main/meetings_for_book/220518_general_slides.pdf
+* Qualitative research slides: https://github.com/samuel-book/samuel-2/blob/main/meetings_for_book/220518_qual_slides.pdf
+
+## Attendees:
 * Leon Farmer [LF] – PPI representative
 * Kristin Liabo [KL] – PPI researcher
 * Mike Allen [MA] – PenCHORD modeller
@@ -25,7 +23,7 @@ output: pdf_document
 Apologies:
 Julia Frost – Qualitative researcher
 
-# Why SAMueL? [MJ]
+## Why SAMueL? [MJ]
 
 MJ is the clinical director of SSNAP. SSNAP is a quality improvement project/program for stroke – it aims to increase the use of stroke treatment, improve the speed of treatment and improve the care. SSNAP is in it’s 10th year of prospective national data collection of stroke admissions, and contains 1 milion records in total. 
 
@@ -35,9 +33,7 @@ We want to understand the source of variation between hospitals, and identify ke
 
 From clinical point of view, the other key component of this work is the qualitative aspect. How do clinicians respond to receiving feedback about their service. How can this benefit clinical decision making in a patient benefit way.  Where and how can we improve delivery of thrombolysis treatment, so more people can leave hospital without disability from their stroke.
 
-# SAMueL introduction [MA]
-
-See attached slides.
+## SAMueL introduction [MA]
 
 There are two videos to introduce the SAMueL project.
 
@@ -49,13 +45,13 @@ SAMueL-1 project book: https://samuel-book.github.io/samuel-1/
 SAMueL-1 summary paper (*Stroke*): https://www.ahajournals.org/doi/10.1161/STROKEAHA.121.038454
 
 
-# Qualitative research [IL, reporting on behalf of JF]
+## Qualitative research [IL, reporting on behalf of JF]
 
 See attached slides.
 
-Current priority is to plan the uqal work and the best way through ethics. This will be a key job for the new SAMueL RF to work on (post-meeting note: Keira Pratt-Boydon joined us at the end of June).
+Current priority is to plan the qual work and the best way through ethics. This will be a key job for the new SAMueL RF to work on (post-meeting note: Keira Pratt-Boydon joined us at the end of June).
 
-# PPI [LF]
+## PPI [LF]
 
 Leon currently establishing the PPI group.
 
