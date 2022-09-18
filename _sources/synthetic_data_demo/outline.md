@@ -1,4 +1,4 @@
-# Outline - what is in this section?
+# Outline
 
 This section demonstrates generation of synthetic data based on SAMueL-1 data. 
 
