@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Defining modified Rankin Scale (mRS) probability distributions for untreated patients, and predicted distributions if treatment given at time of stroke onset" href="mRS_datasets_full.html" />
-    <link rel="prev" title="Explaining random forest model predictions with Shapley values" href="../samuel_1/shap/02_rf_shap.html" />
+    <link rel="prev" title="Plotting thrombolysis rate by feature value for low and high thrombolysing hopsitals" href="../samuel_shap_paper_1/xgb_with_feature_selection/09_plot_thrombolysis_at_high_vs_low_thrombolysing_units.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -181,31 +181,84 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  SAMueL-1 extension - Explaining models with Shapley values
+  Explaining thrombolysis prediction models with Shapley values
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../samuel_1/shap/outline.html">
-   What is in this section?
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/introduction/intro.html">
+   Using explainable machine learning to understand variation in thrombolysis practice
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../samuel_1/shap/01_log_reg_shap.html">
-     Explaining logistic regression model predictions with Shapley values
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../samuel_1/shap/02_rf_shap.html">
-     Explaining random forest model predictions with Shapley values
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/outline.html">
+   Outline of notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/glossary.html">
+   Glossary of technical terms
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/shap_worked_example.html">
+   A simple worked example of Shap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/90_shap_interactions_on_titanic.html">
+   Describing model predictions, using SHAP values and SHAP interactions: Using Titanic survival as an example use case.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/01_xgb_combined_fit_feature_selection.html">
+   XGBoost feature selection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/91_learning_rate_optimisation.html">
+   Evaluation of XGBoost learning rates on distribution of 10k thrombolysis rates
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/07_correlation.html">
+   Check correlation between features selected for the model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/02_xgb_combined_fit_accuracy_key_features.html">
+   Measuring accuracy of XGBoost models
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/03_xgb_combined_shap_key_features.html">
+   Explaining XGBoost model predictions with SHAP values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/04_compare_10k_cohort_key_features.html">
+   A comparison of 10k cohort thrombolysis rates across hospitals, and comparison with hospital SHAP values
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/05_compare_benchmark_decisions_key_features.html">
+   Compare local thrombolysis decisions with benchmark decisions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/06_predict_differences_between_local_and_benchmark_key_features.html">
+   Predicting differences between local and benchmark decisions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/08_xgb_combined_fit_shap_high_vs_low_thrombolysing_units.html">
+   Comparing Shap values between high and low thrombolysing hospitals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../samuel_shap_paper_1/xgb_with_feature_selection/09_plot_thrombolysis_at_high_vs_low_thrombolysing_units.html">
+   Plotting thrombolysis rate by feature value for low and high thrombolysing hopsitals
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -218,8 +271,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="current reference internal" href="#">
    Predicting granular disability outcomes after treatment of stroke with thrombolysis (IVT) or thrombectomy (MT)
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -267,8 +320,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../synthetic_data_demo/outline.html">
    Outline - what is in this section?
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -316,8 +369,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../exploratory/outline.html">
    Outline
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -838,22 +891,22 @@ title="Print to PDF"
 </section>
 <section id="block-plot-showing-the-mrs-distribution-estimates-for-t-0-and-t-no-effect-for-nlvo-ivt">
 <h3>Block plot showing the mRS distribution estimates for t = 0 and t = No Effect (for nLVO-IVT)<a class="headerlink" href="#block-plot-showing-the-mrs-distribution-estimates-for-t-0-and-t-no-effect-for-nlvo-ivt" title="Permalink to this headline">#</a></h3>
-<p>Here we use a block plot to show the expected mRS distribution for nLVO strokes if IVT is given at either time of stroke onset (<em>t = 0</em> at top of plot) or time when the effect of treatment has decayed to zero (<em>t = No Effect</em> at bottom of plot), shown in <a class="reference internal" href="#nlvo-ivt-dist"><span class="std std-numref">figure 5</span></a>.</p>
+<p>Here we use a block plot to show the expected mRS distribution for nLVO strokes if IVT is given at either time of stroke onset (<em>t = 0</em> at top of plot) or time when the effect of treatment has decayed to zero (<em>t = No Effect</em> at bottom of plot), shown in <a class="reference internal" href="#nlvo-ivt-dist"><span class="std std-numref">figure 13</span></a>.</p>
 <figure class="align-default" id="nlvo-ivt-dist">
 <a class="reference internal image-reference" href="../_images/nLVO-IVT.jpg"><img alt="../_images/nLVO-IVT.jpg" src="../_images/nLVO-IVT.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Expected mRS distribution for nLVO strokes if IVT given at time of stroke onset (<em>t = 0</em>), or if IVT given at time when the effect has decayed to zero (<em>t = No Effect</em>, at this point there are still IVT-related excess deaths due to fatal intracranial haemorrhage).</span><a class="headerlink" href="#nlvo-ivt-dist" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Expected mRS distribution for nLVO strokes if IVT given at time of stroke onset (<em>t = 0</em>), or if IVT given at time when the effect has decayed to zero (<em>t = No Effect</em>, at this point there are still IVT-related excess deaths due to fatal intracranial haemorrhage).</span><a class="headerlink" href="#nlvo-ivt-dist" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-nlvo-ivt">
 <h3>Line plot showing mRS distribution estimates: Relationship between time to treatment and effect (for nLVO-IVT)<a class="headerlink" href="#line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-nlvo-ivt" title="Permalink to this headline">#</a></h3>
 <p>Here we use a line plot to show the expected mRS distribution for nLVO strokes if IVT is given at any time between <em>t = 0</em> (left of plot) and <em>t = No Effect</em> (right of plot). It is assumed that the log odds decay uniformly over time between <em>t = 0</em> and <em>t = No Effect</em> (as modelled by Emberson et al. for IVT). The time at which being given treatment has no-effect is taken as 6.3 hours for IVT (Emberson et al. 2014).</p>
-<p>The modelled decay of effects of IVT for nLVO strokes is shown in <a class="reference internal" href="#nlvo-ivt-time"><span class="std std-numref">figure 6</span></a>.</p>
+<p>The modelled decay of effects of IVT for nLVO strokes is shown in <a class="reference internal" href="#nlvo-ivt-time"><span class="std std-numref">figure 14</span></a>.</p>
 <figure class="align-default" id="nlvo-ivt-time">
 <a class="reference internal image-reference" href="../_images/prob_with_time_nlvo_ivt.jpg"><img alt="../_images/prob_with_time_nlvo_ivt.jpg" src="../_images/prob_with_time_nlvo_ivt.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Expected mRS distribution for nLVO strokes depending on time to treatment with IVT.</span><a class="headerlink" href="#nlvo-ivt-time" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Expected mRS distribution for nLVO strokes depending on time to treatment with IVT.</span><a class="headerlink" href="#nlvo-ivt-time" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -874,22 +927,22 @@ title="Print to PDF"
 </section>
 <section id="block-plot-showing-the-mrs-distribution-estimates-for-lvo-ivt">
 <h3>Block plot showing the mRS distribution estimates (for LVO-IVT)<a class="headerlink" href="#block-plot-showing-the-mrs-distribution-estimates-for-lvo-ivt" title="Permalink to this headline">#</a></h3>
-<p>Here we use a block plot to show the expected mRS distribution for LVO strokes if IVT is given at either time of stroke onset (<em>t = 0</em> at top of plot) or time when the effect of treatment has decayed to zero (<em>t = No Effect</em> at bottom of plot), shown in <a class="reference internal" href="#lvo-ivt-dist"><span class="std std-numref">figure 7</span></a>.</p>
+<p>Here we use a block plot to show the expected mRS distribution for LVO strokes if IVT is given at either time of stroke onset (<em>t = 0</em> at top of plot) or time when the effect of treatment has decayed to zero (<em>t = No Effect</em> at bottom of plot), shown in <a class="reference internal" href="#lvo-ivt-dist"><span class="std std-numref">figure 15</span></a>.</p>
 <figure class="align-default" id="lvo-ivt-dist">
 <a class="reference internal image-reference" href="../_images/LVO-IVT.jpg"><img alt="../_images/LVO-IVT.jpg" src="../_images/LVO-IVT.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Expected mRS distribution for LVO strokes if IVT given at time of stroke onset (<em>t=0hr</em>), or if IVT given at time when there effect has decayed to zero (<em>t = No Effect</em>, at this point there are still IVT-related excess deaths due to fatal intracranial haemorrhage).</span><a class="headerlink" href="#lvo-ivt-dist" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Expected mRS distribution for LVO strokes if IVT given at time of stroke onset (<em>t=0hr</em>), or if IVT given at time when there effect has decayed to zero (<em>t = No Effect</em>, at this point there are still IVT-related excess deaths due to fatal intracranial haemorrhage).</span><a class="headerlink" href="#lvo-ivt-dist" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-lvo-ivt">
 <h3>Line plot showing mRS distribution estimates: Relationship between time to treatment and effect (for LVO-IVT)<a class="headerlink" href="#line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-lvo-ivt" title="Permalink to this headline">#</a></h3>
 <p>Here we use a line plot to show the expected mRS distribution for LVO strokes if IVT is given at any time between <em>t = 0</em> (left of plot) and <em>t = No Effect</em> (right of plot). It is assumed that the log odds decay uniformly over time between <em>t = 0</em> and <em>t = No Effect</em> (as modelled by Emberson et al. for IVT). The time at which being given treatment has no-effect is taken as 6.3 hours for IVT (Emberson et al. 2014).</p>
-<p>The modelled decay of effects of IVT for LVO strokes is shown in <a class="reference internal" href="#nlvo-ivt-time"><span class="std std-numref">figure 6</span></a>.</p>
+<p>The modelled decay of effects of IVT for LVO strokes is shown in <a class="reference internal" href="#nlvo-ivt-time"><span class="std std-numref">figure 14</span></a>.</p>
 <figure class="align-default" id="lvo-ivt-time">
 <a class="reference internal image-reference" href="../_images/prob_with_time_lvo_ivt.jpg"><img alt="../_images/prob_with_time_lvo_ivt.jpg" src="../_images/prob_with_time_lvo_ivt.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Expected mRS distribution for LVO strokes depending on time to treatment with IVT.</span><a class="headerlink" href="#lvo-ivt-time" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Expected mRS distribution for LVO strokes depending on time to treatment with IVT.</span><a class="headerlink" href="#lvo-ivt-time" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -915,18 +968,18 @@ title="Print to PDF"
 <figure class="align-default" id="lvo-mt-dist">
 <a class="reference internal image-reference" href="../_images/LVO-MT.jpg"><img alt="../_images/LVO-MT.jpg" src="../_images/LVO-MT.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Expected mRS distribution for LVO strokes if MT given at time of stroke onset (<em>t = 0</em>), or if MT given at time when there effect has decayed to zero (<em>t = No Effect</em>, at this point there are still MT-related excess deaths).</span><a class="headerlink" href="#lvo-mt-dist" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Expected mRS distribution for LVO strokes if MT given at time of stroke onset (<em>t = 0</em>), or if MT given at time when there effect has decayed to zero (<em>t = No Effect</em>, at this point there are still MT-related excess deaths).</span><a class="headerlink" href="#lvo-mt-dist" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-lvo-mt">
 <h3>Line plot showing mRS distribution estimates: Relationship between time to treatment and effect (for LVO-MT)<a class="headerlink" href="#line-plot-showing-mrs-distribution-estimates-relationship-between-time-to-treatment-and-effect-for-lvo-mt" title="Permalink to this headline">#</a></h3>
 <p>Here we use a line plot to show the expected mRS distribution if MT is given at any time between <em>t = 0</em> (left of plot) and t=NE (right of plot). It is assumed that the log odds decay uniformly over time between <em>t = 0</em> and <em>t = No Effect</em> (as modelled by Fransen et al. for MT). The time to no-effect treatment is taken as 8 hours for MT (Fransen et al). Note: the time to no effect from Fransen et al. did not incldue those patients who may be selected for late treatment based on advanced imaging. In this method we do not include late-presenting patients in our outcome modelling.</p>
-<p>The modelled decay of effects of MT are shown in <a class="reference internal" href="#lvo-mt-time"><span class="std std-numref">figure 10</span></a>.</p>
+<p>The modelled decay of effects of MT are shown in <a class="reference internal" href="#lvo-mt-time"><span class="std std-numref">figure 18</span></a>.</p>
 <figure class="align-default" id="lvo-mt-time">
 <a class="reference internal image-reference" href="../_images/prob_with_time_lvo_mt.jpg"><img alt="../_images/prob_with_time_lvo_mt.jpg" src="../_images/prob_with_time_lvo_mt.jpg" style="width: 600px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Expected mRS distribution for LVO strokes depending on time to treatment with MT.</span><a class="headerlink" href="#lvo-mt-time" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Expected mRS distribution for LVO strokes depending on time to treatment with MT.</span><a class="headerlink" href="#lvo-mt-time" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1064,11 +1117,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../samuel_1/shap/02_rf_shap.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../samuel_shap_paper_1/xgb_with_feature_selection/09_plot_thrombolysis_at_high_vs_low_thrombolysing_units.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Explaining random forest model predictions with Shapley values</p>
+            <p class="prev-next-title">Plotting thrombolysis rate by feature value for low and high thrombolysing hopsitals</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="mRS_datasets_full.html" title="next page">
