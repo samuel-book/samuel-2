@@ -1,13 +1,6 @@
----
-title: "SAMueL-2 project meeting (July 2022)"
-author: Kerry Pearn & Michael Allen
-date: 22nd July 2022
-geometry: margin=2cm
-pagesize: a4
-output: pdf_document
----
+# SAMueL-2 project meeting (July 2022)
 
-# Attendees:
+## Attendees:
 
 * Leon Farmer [LF] – PCI lead
 * Mike Allen [MA] – PenCHORD modeller
@@ -27,7 +20,7 @@ Apologies:
 * Ken Stein [KS] – Professor of Public Health
 * Keira Pratt-Boyden [KPB]
 
-# Patient and Carer Involvement (PCI) Group
+## Patient and Carer Involvement (PCI) Group
 
 LF presented a summary of the first PCI meeting:
 
@@ -39,11 +32,11 @@ LF presented a summary of the first PCI meeting:
   * December: Explainable machine learning
   * February: qualitative research plans
   
-# Machine Learning - SHAP
+## Machine Learning - SHAP
 
 Latest work on explainable machine learning may be found in our online Jupyter book (to accompany a paper): https://bit.ly/explainable-ml
 
-## Summary:
+### Summary:
 
 * To aid explainability we have reduced the machine learning model to 8 features (ROC AUC of 0.915 c.f. 0.922 for all features). These features have minimal covariance (maximum R-squared = 0.045).
 * During testing models (random forest + XG-Boost) we found models built for each hospital independently would occasionally predict thrombolysis was given to a patient with a haemorrhagic stroke. While this was rare, this could undermine confidence in the model. Models fitted to all data with hopsital ID as a feature did not ever predict thrombolysis was given to a patient with a haemorrhagic stroke. We will therefore use models fitted to all data.
@@ -58,31 +51,31 @@ Latest work on explainable machine learning may be found in our online Jupyter b
   5. With longer arrival-to-scan times.
   6. When patient is on anticoagulants for atrial fibrillation.
 
-## Actions
+### Actions
 
 * Start SHAP presentations with a waterfall plot.
 * Can waterfall plot be reversed in order?
 * Find better name for 'low' and 'high' thrombolysing hospitals
 * Put frequency (total # points) on SHAP violin plots
 
-# Qualitative research
+## Qualitative research
 
 * MJ informed the team that NHS England is putting together a proposal for a community practice which pairs up a low with a high IVT rate stroke team. This should be useful for qual work (post-meeting note: We have been contacted by Emma Jupp from NHS Sussex Integrated Care Board to be involved in these type of discussions, especially when we have results with identified hopsitals).
 * MJ: Aim for end of September for first meeting with RD&E stroke phycisians (new intake was start of August).
 * JF: The RDE&E workshop/chat with RD&E staff will not require extra paperwork. But any interaction with others (such as Keira hanging out on the ward) will require an NHS passport. Need a 'carrot' for best chance of engaging sites - this could include giving them some detailed feedback on their site (needs new data).
 * Qual work will be discussed in more detail in September project meeting.
 
-# Disability-level outcome model
+## Disability-level outcome model
 
 * Current on the disability-level outcome model (based on time to thrombolysis and/or thrombectomy) may be found at: https://bit.ly/stroke-outcome-modelg.
 
-# Papers
+## Papers
 
 The summary paper from SAMueL-1 has been published, with an editorial by *Stroke*:
 
 Michael Allen, Charlotte James, Julia Frost, Kristin Liabo, Kerry Pearn, Thomas Monks, Richard Everson, Ken Stein and Martin James. Use of Clinical Pathway Simulation and Machine Learning to Identify Key Levers for Maximizing the Benefit of Intravenous Thrombolysis in Acute Stroke.  Stroke. 2022;53:2758–2767 DOI 10.1161/STROKEAHA.121.038454 (https://www.ahajournals.org/doi/10.1161/STROKEAHA.121.038454). Editorial at: https://www.ahajournals.org/doi/10.1161/STROKEAHA.122.039954
 
-# Next meeting
+## Next meeting
 
 Next project meeting is planned for 21 September 2022.
 
