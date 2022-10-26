@@ -1,4 +1,4 @@
-name: samuel2
+name: samuel
 channels:
   - defaults
   - conda-forge
